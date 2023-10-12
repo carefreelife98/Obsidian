@@ -19,8 +19,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "953362a7722c3aae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -86,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "INU 컴공 4-2/INU 컴공 4-2.md",
+                "file": "conflict-files-obsidian-git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "INU 컴공 4-2/INU 컴공 4-2.md",
+                "file": "conflict-files-obsidian-git.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "INU 컴공 4-2/INU 컴공 4-2.md"
+                "file": "conflict-files-obsidian-git.md"
               }
             }
           },
@@ -166,8 +180,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "bf23ab12ab84277a",
+  "active": "953362a7722c3aae",
   "lastOpenFiles": [
+    "INU 컴공 4-2/INU 컴공 4-2.md",
+    "conflict-files-obsidian-git.md",
     "README.md",
     "gitignore.md",
     "INU 컴공 4-2/Linux System/Day 11. Shell Script Programming.md",
@@ -202,8 +218,6 @@
     "INU 컴공 4-2/컴퓨터 비젼/Untitled.md",
     "INU 컴공 4-2/Algorithm/Day 6. 균형 트리 (Red-Black Tree, AVL Tree).md",
     "INU 컴공 4-2/컴퓨터 구조/Untitled.md",
-    "INU 컴공 4-2/INU 컴공 4-2.md",
-    "INU 컴공 4-2/C++/Lecture/Day1. C++ Quick Review.md",
     "Templates",
     "INU 컴공 4-2/Linux System/Untitled",
     "INU 컴공 4-2/모바일 소프트웨어/Assignment",
