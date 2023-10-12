@@ -2,9 +2,9 @@
 
 CarefreeLife's Obsidian Note
 
-[[CJ Cloud Wave ☁️ 1기]]
+/CJ Cloud Wave ☁️ 1기
 
-[[AWS Study]]
+/AWS Study
 
-[[INU 컴공 4-2]]
+/INU 컴공 4-2
 
