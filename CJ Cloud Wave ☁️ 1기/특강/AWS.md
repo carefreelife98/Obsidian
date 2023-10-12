@@ -1,0 +1,37 @@
+  
+
+- 다양한 국가에 REGION 이라는 이름으로 Regional Service 를 제공하고 있음.
+    - Region 별 Resource 간 network 통신을 위해서는 별도의 서비스를 통해 Network 연결이 필요하다.
+- Region 안에는 VPC 라는 가상의 네트워크가 존재한다.
+    - Region 안에는 여러개의 VPC 를 만들 수 있고, 각각의 VPC 마다 자원을 할당 할 수 있다.
+    - 각각의 VPC는 서로 간 통신이 안된다.
+    - VPC에 IP를 할당하면 해당 IP는 절대 수정 불가.
+    - 한 VPC를 삭제하면 내부의 모든 데이터는 삭제된다.
+- AZ (Avilability Zone) : 가용영역
+    - 하나의 Region 에는 여러 개의 AZ를 가지고 있다.
+    - 각 Region 별 AZ의 수는 다를 수 있으면, Seoul Region 인 AP-Northeast-2Region 에는 4개의 AZ 가 존재한다.
+    - AZ 별로 장애가 발생할 수 있ㄴ는 가능성이 있기 때문에 AZ 별로 Resource를 배치하여 동시 장애 상황을 최소화.
+- AZ 밑에 Subnet이 존재.
+    - Public Subnet - Resource 자체가 직접 Public IP 를 가지고 외부와 통신해야 하는 Resource를 위한 Subnet
+    - Private Subnet - Resource 자체가 직접 Public IP 를 가지고 있지는 않지만, 외부와 통신이 필요한 Resource를 위한 Subnet
+    - DB Subnet - 말 그대로 Database를 위한 Subnet 으로 외부와의 연결을 단절하고 내부 Resource들만 접근하도록 보호하는 Subnet
+- Private Subnet 내 Resource 가 외부와 통신하기 위해서는 NAT Gateway를 통해 통신.
+    - NAT Gateway : 쉽게 말해서 가정용 공유기라고 생각.
+        - 가정에 들어오는 인터넷 IP는 하나이나, 가정에 들어오며 사설 IP로 변환 된 후 가정내부에서 구성원들이 인터넷 사용(사설망)후 외부 접근 시 다시 기존의 공인 IP로 변환되어 나감.
+    - Public Subnet -
+- AWS Routing Table
+- AWS Peering Service(무료)
+    - VPC Peering은 서로 다른 VPC 간 통신이 필요할 때 연결하는 서비스임.
+- Transit Gateway : 그냥 라우터라고 생각하면 된다. (비싼 가격 - VPC하나당 10만원)
+    - Transit Gateway는 네트워크 간소화를 제공하는 클라우드 서비스임.
+    - Transit Gateway는 수많은 VPC의 트래픽 교환 Gateway를 하나의 Transit Gateway로 보내어 처리한다.
+    - 중앙에서 관리가 가능해진다.
+- On-Premise 연동 (w/VPC)
+    - Transit Gateway를 통해서 On-Premise 환경과 연동 시에는 VPC를 별도 전용선(매우 비쌈)으로 연결할 필요없이 하나의 연결만으로 가능해짐.
+- CICD, Continuous Integration Continuous Development (=git과 같은 것 (협업) - git은 CICD 툴이다.)
+    
+    - Commit
+    - Build
+    - Deploy
+        - 개발된 프로그램을 각각의 계정(해킹을 대비하여 역할 별로 나누어 둠)에서 계속하여 정밀 테스팅.
+    - Pipeline: 위 세가지 단계의 과정
