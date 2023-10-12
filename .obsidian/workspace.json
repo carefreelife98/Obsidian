@@ -11,8 +11,13 @@
             "id": "bf23ab12ab84277a",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "INU 컴공 4-2/컴퓨터 구조/Day 7. Digital Components (2) - Register.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "INU 컴공 4-2/컴퓨터 구조/Day 7. Digital Components (2) - Register.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "INU 컴공 4-2/컴퓨터 구조/Day 7. Digital Components (2) - Register.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "INU 컴공 4-2/컴퓨터 구조/Day 7. Digital Components (2) - Register.md"
+              }
             }
           },
           {
@@ -159,6 +168,15 @@
   },
   "active": "bf23ab12ab84277a",
   "lastOpenFiles": [
+    "INU 컴공 4-2/모바일 소프트웨어/Day 10. (Kotlin) Class.md",
+    "INU 컴공 4-2/모바일 소프트웨어/Day 3. 첫번째 Application.md",
+    "INU 컴공 4-2/Linux System/Day 4. VI Editor.md",
+    "INU 컴공 4-2/Algorithm/Day 5. 분포에 의한 정렬.md",
+    "INU 컴공 4-2/Algorithm/Day 4. 퀵 정렬 (중간 시험) & 합병 정렬 & 히프 정렬.md",
+    "INU 컴공 4-2/Algorithm/Day 3. 성능 분석.md",
+    "INU 컴공 4-2/Algorithm/Day 2. 에라토스테네스의 체, 두 수의 합, 파스칼의 수 삼각형, 최장 연속 순차.md",
+    "INU 컴공 4-2/Algorithm/Algorithm.md",
+    "INU 컴공 4-2/Linux System/Day 2. Linux 개요.md",
     "README.md",
     "INU 컴공 4-2/컴퓨터 비젼/Day 4(Off-line)..md",
     "INU 컴공 4-2/컴퓨터 비젼/Day 1. Computer Vision Introduction.md",
@@ -186,15 +204,6 @@
     "INU 컴공 4-2/컴퓨터 구조/Day 4. 무관 조건, Combinational Circuit(조합회로), Flip-Flop, Sequential Circuit.md",
     "INU 컴공 4-2/컴퓨터 구조/Day 2. Map Simplification.md",
     "INU 컴공 4-2/컴퓨터 구조/Day 3. Map Simplification.md",
-    "INU 컴공 4-2/컴퓨터 구조/Day 1. Orientation.md",
-    "INU 컴공 4-2/Linux System/Linux System.md",
-    "INU 컴공 4-2/C++/C++.md",
-    "INU 컴공 4-2/Algorithm/Algorithm.md",
-    "INU 컴공 4-2/모바일 소프트웨어/모바일 소프트웨어.md",
-    "INU 컴공 4-2/컴퓨터 구조/컴퓨터 구조.md",
-    "INU 컴공 4-2/컴퓨터 비젼/컴퓨터 비젼.md",
-    "INU 컴공 4-2/컴퓨터 비젼/Day 7. Clustering and Segmentation.md",
-    "INU 컴공 4-2/컴퓨터 비젼/Untitled.md",
     "Templates",
     "INU 컴공 4-2/Linux System/Untitled",
     "INU 컴공 4-2/모바일 소프트웨어/Assignment",
