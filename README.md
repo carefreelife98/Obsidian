@@ -1,5 +1,6 @@
 # Obsidian
-Carefreelife's Obsidian Note
+
+CarefreeLife's Obsidian Note
 
 [[CJ Cloud Wave ☁️ 1기]]
 
