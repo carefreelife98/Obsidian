@@ -1,6 +1,6 @@
 [Git Link](https://github.com/phoenixx1/Robert-Lafore)
 
-[[Day1. C++ Quick Review]]
+[[Day 1. C++ Quick Review]]
 
 [[Day 2]]
 
