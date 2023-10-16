@@ -51,4 +51,4 @@
 > - 복수 개의 Register 간의 Data Transfer 을 효율적으로 하기 위해 사용하는 System.
 > - 실제로는 Bus 를 통해 Data Transfer 이 이루어지는 것이 맞지만, 편의상 RTL(Register Transfer Language) 에서는 Bus 표기를 생략하여 사용가능.
 > <br>
-> Bus 예시
+> Bus 예시
