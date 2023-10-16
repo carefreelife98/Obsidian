@@ -136,3 +136,11 @@ node1 = [1, 2, 8]
 > 	- `h(k): k mod m`
 
 ## 선형 탐사법
+> **Hash Function**
+> - `h(k) = k mod m`
+> <br>
+> **개방 주소법 (Open Addressing) 사용**
+> - m 값이 입력 원소의 수보다 커야함.
+> <br>
+> **Clustering 발생**
+> - wja
