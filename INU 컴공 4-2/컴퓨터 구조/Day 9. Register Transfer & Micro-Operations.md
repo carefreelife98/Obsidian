@@ -51,4 +51,6 @@
 > - 복수 개의 Register 간의 Data Transfer 을 효율적으로 하기 위해 사용하는 System.
 > - 실제로는 Bus 를 통해 Data Transfer 이 이루어지는 것이 맞지만, 편의상 RTL(Register Transfer Language) 에서는 Bus 표기를 생략하여 사용가능.
 > <br>
-> Bus 예시
+> Bus 예시
+> ![[스크린샷 2023-10-17 오전 8.44.26.png]]
+> - 각각의 Register 는 4 X 1 MUX 에 연결되어 있고, Selection Signal 에 따라 Register A, B, C, D 가 선택된다. 이러한 방식으로 공통 Bus 가 구현됨.
