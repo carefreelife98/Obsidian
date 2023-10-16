@@ -391,7 +391,7 @@ r: 진수
 <br><br>
 # Other Binary Codes
 ## 4-Bit Gray Code
-
+![[스크린샷 2023-10-16 오후 5.28.11.png]]
 > **XOR Function**
 > - 두 비트가 같으면 0, 다르면 1
 > <br>
