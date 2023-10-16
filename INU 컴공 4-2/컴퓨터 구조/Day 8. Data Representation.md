@@ -449,6 +449,7 @@ r: 진수
 <br><br>
 ## Parity Bit 를 사용하여 Error Detection 하기
 ![[스크린샷 2023-10-17 오전 7.36.13.png]]
+![[스크린샷 2023-10-17 오전 7.41.17.png]]
 ![[스크린샷 2023-10-17 오전 7.39.51.png]]
 > **Error 로 인해 하나의 Bit 가 바뀌게 되는 경우 Detection 가능.**
 > **Transmitter 에서 (D_1D_2D_3 .. D_n) 과 같은 Binary Code 를 전송**하고, **Transmission Line 을 거쳐 Receiver 가 수신**하게 된다.
