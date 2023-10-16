@@ -43,3 +43,12 @@
 > **Comma ( , )**
 > - 동시에 발생하는 Micro Operation 을 표현
 
+<br><br>
+# Bus and Memory Transfer
+![[스크린샷 2023-10-17 오전 8.34.28.png]]
+> **Bus**
+> - 공통 Line 의 Set
+> - 복수 개의 Register 간의 Data Transfer 을 효율적으로 하기 위해 사용하는 System.
+> - 실제로는 Bus 를 통해 Data Transfer 이 이루어지는 것이 맞지만, 편의상 RTL(Register Transfer Language) 에서는 Bus 표기를 생략하여 사용가능.
+> <br>
+> Bus 예시
