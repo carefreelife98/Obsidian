@@ -5,7 +5,7 @@ Agenda: 1. Image Segmentation
 tags:
   - Computer_Vision
 ---
-# Image Segmentation
+	# Image Segmentation
 ## The Goal of Segmentation
 **Goal**
 > 1. **비슷한 값을 가진 Pixel을 묶어 그룹화.**
