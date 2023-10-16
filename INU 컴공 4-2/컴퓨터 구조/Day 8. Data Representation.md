@@ -401,7 +401,30 @@ r: 진수
 > **Gray Code 를 다시 Binary Code 로 복구하기**
 > - Binary -> Gray 때와 비슷하지만 기존 Bit 간의 XOR 연산이 아님.
 > 	- 최상위 Bit 는 그대로 사용, 그 이후에 존재하는 **하위 Bit 의 XOR 연산 결과 값을 기존 Bit 와 XOR 연산해나감.**
+> <br>
+> **Gray Code 의 특징**
+> ![[스크린샷 2023-10-17 오전 6.58.30.png]]
+> - 인접한 Gray Code 끼리의 차이는 **하나의 비트 차이.**
+> 	- Ex) (0000 <-> 0001), (0011 <->0010), (0111 <-> 0101) ...
 
+<br><br>
+
+## BCD Code (8421 Code) / Excess-3 Code
+![[스크린샷 2023-10-17 오전 6.58.03.png]]
+> **BCD Code**
+> - **Decimal Number (10 진수 표현) 0 ~ 9 를 4 Bit 로 표현한 것.**
+> <br>
+> **Excess-3 Code**
+> - **BCD Code 에 3을 더해** 표현한 것.
+
+<br><br>
+## Error Detection Code
+### Paraty Bit
+> **Even Parity Bit (짝수)**
+> - **1의 개수를 짝수**로 만들어주는 Paraty Bit (0 or 1)
+> <br>
+> **Odd Parity Bit (홀수)**
+> - **1의 개수를 홀수**로 만들어주는 Paraty Bit (0 or 1)
 
 <br><br>
 
