@@ -439,6 +439,7 @@ r: 진수
 
 <br><br>
 
+위의 Multiple XOR Function 의 특징에 따라서, 
 
 
 
