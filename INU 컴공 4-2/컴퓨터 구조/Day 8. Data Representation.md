@@ -429,18 +429,27 @@ r: 진수
 > - **1의 개수를 홀수**로 만들어주는 Paraty Bit (0 or 1)
 
 <br><br>
-## Even Parity Bit 생성하기
+## Even Parity Bit / Odd Parity Bit 생성하기
 ![[스크린샷 2023-10-17 오전 7.09.52.png]]
 > **Multiple XOR Function**
 > - 교환법칙 성립
 > - **Input 의 1의 개수**
-> 	- **홀수 개인 경우 1**
-> 	- **짝수 개인 경우 0**
+> 	- **홀수 개인 경우 1반환**
+> 	- **짝수 개인 경우 0반환**
 
 <br><br>
+![[스크린샷 2023-10-17 오전 7.21.18.png]]
+> 위의 Multiple XOR Function 의 특징에 따라서, **특정 Binary Code 의 Parity Bit를 구하려면 해당 Code 의 모든 Bit 간 XOR 연산을 수행**하면 된다.
+> - 이 경우, 
+		- **해당 Code 내 1의 개수가 홀수 개이면 1을 반환**
+		- **해당 Code 내 1의 개수가 짝수 개이면 0을 반환**
+> - 따라서, **해당 Code 의 모든 Bit 간 XOR 연산의 반환 값을 해당 Code에 추가해주면 Even Parity Bit 생성 가능.**
+> - 또한, **같은 원리로 Parity Bit 의 역 (NOT, (Parity_bit)' ) 을 취해준다면 Odd Parity Bit 도 생성 가능하다**.
 
-위의 Multiple XOR Function 의 특징에 따라서, 
+<br><br>
+## Parity Bit 를 사용하여 Error Detection 하기
 
+> Trasmitter 에서 (D_1D_2D_3 .. D_n) 과 같은 
 
 
 
