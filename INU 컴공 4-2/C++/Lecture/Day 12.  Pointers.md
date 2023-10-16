@@ -21,3 +21,5 @@
 > - 배열의 끝을 나타내는 Null 값까지 생각해서 배열의 크기는 목표 크기보다 +1 하여 설정.
 
 ## Memory Management : A String Class using new
+
+#
