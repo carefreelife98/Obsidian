@@ -145,3 +145,9 @@ node1 = [1, 2, 8]
 > **Clustering 발생**
 > - 점유된 위치가 연속적으로 나타나는 부분 존재 시 해당 Cluster 가 점점 더 커짐.
 > 	- 이러한 Cluster 는 평균 탐색 시간을 증가시킴.
+
+
+<br><br>
+### 이중 해싱 (Double Hashing)
+> Clustering 문제를 해결
+> - 두 번째 이후에 탐사되는 위치는
