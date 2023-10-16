@@ -84,3 +84,7 @@ int main(){
 > **Dangling - Pointers**
 
 ## strCounter
+
+# Singleton
+> **특정 객체를 하나만 만들어야 하는 경우 (유일)**
+> 
