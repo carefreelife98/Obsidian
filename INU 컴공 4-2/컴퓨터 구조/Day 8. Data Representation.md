@@ -418,8 +418,10 @@ r: 진수
 > - **BCD Code 에 3을 더해** 표현한 것.
 
 <br><br>
-## Error Detection Code
-### Paraty Bit
+
+# Error Detecting Code
+## Parity Bit
+![[스크린샷 2023-10-17 오전 7.05.05.png]]
 > **Even Parity Bit (짝수)**
 > - **1의 개수를 짝수**로 만들어주는 Paraty Bit (0 or 1)
 > <br>
@@ -427,8 +429,10 @@ r: 진수
 > - **1의 개수를 홀수**로 만들어주는 Paraty Bit (0 or 1)
 
 <br><br>
+## Parity Bit 생성하기
 
-# Error Detecting Code
+
+
 
 
 # In-Class
