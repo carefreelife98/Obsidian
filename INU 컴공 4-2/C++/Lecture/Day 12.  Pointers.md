@@ -100,3 +100,4 @@ int main(){
 
 <br><br>
 # UML Diagrams
+## State Diagrams (Statechart Diagram)
