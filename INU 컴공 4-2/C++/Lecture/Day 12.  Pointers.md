@@ -81,4 +81,6 @@ int main(){
 }
 ```
 
-> Dangling - Pointers
+> **Dangling - Pointers**
+
+## strCounter
