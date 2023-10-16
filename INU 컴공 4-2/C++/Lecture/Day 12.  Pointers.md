@@ -97,3 +97,6 @@ int main(){
 > 그냥 포인터 변수
 > - 현재 변수는 주소를 가지고 있으므로 (. = Dot Operator) 를 사용하여 참조 불가능.
 > - 대신 -> (Arrow Operator)를 사용하여 참조해야 함.
+
+<br><br>
+# UML Diagrams
