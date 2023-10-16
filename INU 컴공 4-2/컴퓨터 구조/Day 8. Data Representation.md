@@ -448,8 +448,14 @@ r: 진수
 
 <br><br>
 ## Parity Bit 를 사용하여 Error Detection 하기
-
-> Trasmitter 에서 (D_1D_2D_3 .. D_n) 과 같은 
+![[스크린샷 2023-10-17 오전 7.36.13.png]]
+> **Error 로 인해 하나의 Bit 가 바뀌게 되는 경우 Detection 가능.**
+> **Transmitter 에서 (D_1D_2D_3 .. D_n) 과 같은 Binary Code 를 전송**하고, **Transmission Line 을 거쳐 Receiver 가 수신**하게 된다.
+> - Transmission Line 을 통해 전송되던 중 Error 가 발생하여 **전송된 Bit 중 하나의 Bit 가 바뀔 수 있다.**
+> - 이 경우 **Parity Bit 를 기존 Bit에 추가하여 전송하게 되면, 전송 시의 Bit 정보(1의 개수) 를 담을 수 있게 된다.**
+> 	- Ex) 
+> 		- 7개의 Bit 로 이루어진 Binary Code 에 Even Parity Bit를 붙여 전송하게 되면, **Even Parity Bit 를 포함하여 1의 개수가 짝수인 Code를 전송했다는 것.**
+> 		- 따라서 **Receiver 에서 Data 와 Parity Bit를 받아 1의 개수가 짝수이면 Error 가 없는 것이고, 홀수이면 중간 전송 과정에서 Error 가 발생함을 알 수 있게 된다.**
 
 
 
