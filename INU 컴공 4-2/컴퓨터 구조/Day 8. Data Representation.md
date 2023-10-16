@@ -392,6 +392,15 @@ r: 진수
 # Other Binary Codes
 ## 4-Bit Gray Code
 
+> **XOR Function**
+> - 두 비트가 같으면 0, 다르면 1
+> <br>
+> **Binary Code 의 인접한 Bit 간 XOR 연산 후 반환되는 결과값이 Gray Code.**
+> - 최상위 Bit 는 그대로 사용, 그 이후의 하위 Bit 부터 상호 간 XOR 연산.
+> <br>
+> **Gray Code 를 다시 Binary Code 로 복구하기**
+> - Binary -> Gray 때와 비슷하지만 기존 Bit 간의 XOR 연산이 아님.
+> 	- 최상위 Bit 는 그대로 사용, 그 이후에 존재하는 **하위 Bit 의 XOR 연산 결과 값을 기존 Bit 와 XOR 연산해나감.**
 
 
 <br><br>
