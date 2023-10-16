@@ -123,3 +123,15 @@ node1 = [1, 2, 8]
 > **해싱(Hashing)의 단계**
 > 1. Hash Function 을 통해 탐색 키를 Hash Table 주소로 변환
 > 2. 같은 테이블 주소로 사상되었을 경우에는 충돌을 해결(Collision-Resolution) 해야 함.
+> <br>
+> **Hash Function**
+> - U : Key 의 전체 집합
+> - T[0 ... m-1] : Hash Table
+> - h : Hash Function
+> 	- **key 값을 Table 주소로 변환하는 함수.**
+> 	- h: U -> {0, 1, ..., m-1}
+> <br>
+> **나눗셈법**
+> - 다음과 같은 Hash Function 사용.
+> 	- `h(k): k mod m`
+> 	- 
