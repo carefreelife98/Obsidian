@@ -127,6 +127,6 @@
 > 	- input 3개
 > 		- A_i = X_i
 > 		- 4 by 1 MUX = Y_i
-> 			- Selection Signal (S_0, S_1) 에 의해 4 by 1 MUX 의 Output 이 결정됨.
+> 			- Selection Signal (S_0, S_1) 에 의해 4 by 1 MUX 의 Output (0, 1, 2, 3) 이 결정됨.
 > 		- C_input, C_i
 > 	- 
