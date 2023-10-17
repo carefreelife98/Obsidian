@@ -179,4 +179,24 @@
 
 <br><br>
 # Shift Micro Operations
+## Logical Shift (논리 Shift)
+![[스크린샷 2023-10-17 오후 12.38.33.png]]
+> **Shift Right**
+> - 우측으로 이동(Shift) 하는 경우
+> - **가장 좌측의 공간이 0으로 채워지며 우측으로 이동하게 된다.**
+> <br>
+> **Shift Left**
+> - 좌측으로 이동(Shift) 하는 경우
+> - **가장 우측의 공간이 0으로 채워지며 좌측으로 이동하게 된다.**
 
+<br><br>
+## Arithmetic Shift
+![[스크린샷 2023-10-17 오후 12.46.50.png]]
+> **Shift Right**
+> - 2로 나누어가며 우측으로 이동.
+> - **나눗셈이기 때문에 최상위 Bit (Sign Bit), 즉 부호는 바뀌지 않는다.**
+> <br>
+> **Shift Left**
+> - 2로 곱해가며 좌측으로 이동.
+> <br>
+> Arithmetic Shift 는 값이 점점 증가하기 때문에 Overflow 문제가 발생할 수 있다.
