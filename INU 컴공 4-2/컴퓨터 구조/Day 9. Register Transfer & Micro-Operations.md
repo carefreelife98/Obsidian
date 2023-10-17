@@ -133,12 +133,15 @@
 
 <br><br>
 # Logic Micro Operations
-
+![[스크린샷 2023-10-17 오전 11.38.55.png]]
 > **논리 마이크로 연산 (Bit 연산)**
 > - 일반적인 Bit 연산을 수행.
 > <br>
 > **Special Symbols**
 > - Logic Micro-Operation 표현시에는 특별한 기호를 사용.
-> 	- AND : ^
-> 	- OR : v
-> 	- 
+> 	- **AND : ^**
+> 	- **OR : v**
+> 	- **산술 연산 (+) : +**
+> 		- **조건에 사용된 + 는 OR 연산**임에 주의하자.
+> 		- EX) P + Q : R_1 <- R_2 + R_3
+> 			- P OR Q 일 때, R_1 에는 R_2 + R_3 이 전송된다.
