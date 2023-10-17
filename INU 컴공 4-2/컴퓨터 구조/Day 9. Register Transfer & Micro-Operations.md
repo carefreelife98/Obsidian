@@ -76,9 +76,8 @@
 
 <br><br>
 ## Memory Transfer
-
-> Register 간의 전송 뿐만 아니라, Memory 와 Register 간의 전송도 존재.
-> - Memory 로부터 Read / Write 수행.
+> Register 간의 전송 뿐만 아니라, **Memory 와 Register 간의 전송도 존재.**
+> - **Memory 로부터 Read / Write 수행.**
 > <br>
 > **M[ AR ]**
 > - Memory 를 표현.
@@ -88,4 +87,4 @@
 > ![[스크린샷 2023-10-17 오전 10.37.32.png]]
 > <br>
 > **Write: M\[AR] <- R1**
-> 
+> ![[스크린샷 2023-10-17 오전 10.38.57.png]]
