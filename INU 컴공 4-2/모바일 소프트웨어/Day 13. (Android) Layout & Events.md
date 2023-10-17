@@ -155,19 +155,6 @@ fun onClicked(view: View) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ![[스크린샷 2023-10-10 오후 4.05.14.png]]
 > **Landscape Mode**
 > - 가로 화면
@@ -178,3 +165,6 @@ fun onClicked(view: View) {
 ## Constraint
 ![[스크린샷 2023-10-10 오후 4.23.06.png]]
 > Constraint 는 최대 4개 ~ 최소 2개 까지 생성 가능.
+
+<br><br>
+# Event Handler
