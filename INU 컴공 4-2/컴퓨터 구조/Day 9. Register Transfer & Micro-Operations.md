@@ -82,5 +82,7 @@
 > <br>
 > **M[ AR ]**
 > - Memory 를 표현.
-> - \[ ] 안에는 Memory 의 Address 가 들어가게 되는데, 이는 Address 가 저장된 Register (AR) 에 존재.
-> Read: 
+> - \[ ] 안에는 Memory 의 Address 가 들어가게 되는데, 이는 Address 가 저장된 Register (AR) 에 존재. 
+> <br>
+> Read: DR <- M\[AR]
+> Write: M\[AR] <- R1
