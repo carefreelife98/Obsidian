@@ -90,7 +90,7 @@
 > ![[스크린샷 2023-10-17 오전 10.38.57.png]]
 
 <br><br>
-# Arithmetic Micro-Operation
+# Arithmetic Micro-Operations
 ## 4-Bit Binary Adder
 ![[스크린샷 2023-10-17 오전 10.51.47.png]]
 > Full Adder 4개를 Serial 로 연결.
@@ -103,8 +103,16 @@
 > **M = 0 인 경우**
 > ![[스크린샷 2023-10-17 오전 10.54.19.png]]
 > - **B_i XOR 0 = B_i**
+> - C_0 = 0
 > - 4-Bit Adder 로서 동작. (Addition)
 > <br>
 > **M = 1 인 경우**
-> - B_i XOR 1 = (B_i)'
-> - 
+> ![[스크린샷 2023-10-17 오전 11.00.41.png]]
+> - **B_i XOR 1 = (B_i)'**
+> - C_0 = 1
+> - **A + 2's Complement of B -> A - B (Subtraction)**
+
+<br><br>
+## Binary Incrementer
+![[스크린샷 2023-10-17 오전 11.03.42.png]]
+> Adder 와 다르게 **단순히 1씩 증가하는 Logic 을 가졌으므로 Half Adder** 만으로도 구현이 가능하다.
