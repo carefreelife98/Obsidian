@@ -116,3 +116,8 @@
 ## Binary Incrementer
 ![[스크린샷 2023-10-17 오전 11.03.42.png]]
 > Adder 와 다르게 **단순히 1씩 증가하는 Logic 을 가졌으므로 Half Adder** 만으로도 구현이 가능하다.
+
+<br><br>
+## Arithmetic Circuit
+
+> 
