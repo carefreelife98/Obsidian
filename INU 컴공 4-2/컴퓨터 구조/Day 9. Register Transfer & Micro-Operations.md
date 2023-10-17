@@ -92,6 +92,19 @@
 <br><br>
 # Arithmetic Micro-Operation
 ## 4-Bit Binary Adder
-
+![[스크린샷 2023-10-17 오전 10.51.47.png]]
 > Full Adder 4개를 Serial 로 연결.
 > 각 하위 Adder 의 Carry 를 상위 Adder 의 Carry 로 연결.
+
+<br><br>
+## Binary Adder-Subtractor
+> **M 이라는 값에 의해 Adder or Subtractor 로서 동작**
+> <br>
+> **M = 0 인 경우**
+> ![[스크린샷 2023-10-17 오전 10.54.19.png]]
+> - **B_i XOR 0 = B_i**
+> - 4-Bit Adder 로서 동작. (Addition)
+> <br>
+> **M = 1 인 경우**
+> - B_i XOR 1 = (B_i)'
+> - 
