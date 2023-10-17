@@ -199,4 +199,4 @@
 > **Shift Left**
 > - 2로 곱해가며 좌측으로 이동.
 > <br>
-> Arithmetic Shift 는 값이 점점 증가하기 때문에 Overflow 문제가 발생할 수 있다.
+> **Arithmetic Shift 는 값이 점점 증가하기 때문에 Overflow 문제가 발생할 수 있다.**
