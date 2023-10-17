@@ -145,3 +145,8 @@
 > 		- **조건에 사용된 + 는 OR 연산**임에 주의하자.
 > 		- EX) P + Q : R_1 <- R_2 + R_3
 > 			- P OR Q 일 때, R_1 에는 R_2 + R_3 이 전송된다.
+
+<br><br>
+## Logic Micro Operation 의 적용 방식
+> 1. **Selective Set**
+> 	- 
