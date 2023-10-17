@@ -121,3 +121,12 @@
 ## Arithmetic Circuit
 
 > 위에서 알아본 Adder-Subtractor, Increment, Decrement 을 통해 Arithmetic Circuit 을 구현할 수 있다.
+> <br>
+> Arithmetic Circuit 분석
+> 1. Full Adder 4개
+> 	- input 3개
+> 		- A_i = X_i
+> 		- 4 by 1 MUX = Y_i
+> 			- Selection Signal (S_0, S_1) 에 의해 4 by 1 MUX 의 Output 이 결정됨.
+> 		- C_input, C_i
+> 	- 
