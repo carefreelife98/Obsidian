@@ -88,3 +88,9 @@
 > <br>
 > **Write: M\[AR] <- R1**
 > ![[스크린샷 2023-10-17 오전 10.38.57.png]]
+
+<br><br>
+# Arithmetic Micro-Operation
+## Binary Adder
+
+> Full Adder 4개를 Serial 로 연결.
