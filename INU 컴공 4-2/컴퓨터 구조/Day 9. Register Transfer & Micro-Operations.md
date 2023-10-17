@@ -138,4 +138,7 @@
 > - 일반적인 Bit 연산을 수행.
 > <br>
 > **Special Symbols**
-> - 
+> - Logic Micro-Operation 표현시에는 특별한 기호를 사용.
+> 	- AND : ^
+> 	- OR : v
+> 	- 
