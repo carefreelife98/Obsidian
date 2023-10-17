@@ -91,6 +91,7 @@
 
 <br><br>
 # Arithmetic Micro-Operation
-## Binary Adder
+## 4-Bit Binary Adder
 
 > Full Adder 4개를 Serial 로 연결.
+> 각 하위 Adder 의 Carry 를 상위 Adder 의 Carry 로 연결.
