@@ -167,4 +167,12 @@ fun onClicked(view: View) {
 > Constraint 는 최대 4개 ~ 최소 2개 까지 생성 가능.
 
 <br><br>
-# Event Handler
+# 3 ways to build an Event Handler
+## Event Handler 를 내부 클래스 (Inner Class) 로 정의
+
+
+
+## Anonymous Class (무명 클래스) 를 사용
+
+## Activity Class 에서 Listener Interface 를 상속 (구현 상속)
+
