@@ -65,4 +65,22 @@
 > 	- State : 0, 1
 > - **C = 0**
 > 	- **강한 저항이 발생하여 Buffer output 의 회로가 끊어진 것처럼 동작.**
-> 	- State : **High impedence**
+> 	- State : **High impedance**
+> <br>
+> **3-State Bus Buffer 를 이용한 MUX 의 구현**
+> ![[스크린샷 2023-10-17 오전 8.57.29.png]]
+> - Selection Signal (S1, S2) 가 0, 0 인 경우
+> 	- **D_0 를 제외한 나머지 (D_1, D_2, D_3)는 Control Input 으로서 0이 전달됨.**
+> 	- 이는 마치 **해당 회로가 끊긴 것처럼 동작**하게 된다. (High-Impedance) 
+> 	- 따라서, **A_0 만 Buffer 로서 동작**하게 된다.
+
+<br><br>
+## Memory Transfer
+
+> Register 간의 전송 뿐만 아니라, Memory 와 Register 간의 전송도 존재.
+> - Memory 로부터 Read / Write 수행.
+> <br>
+> **M[ Address ]**
+> - Memory 를 표현.
+> - [ ] 안에는 Memory 의 Address 가 들어가게 되는데, 
+> Read: 
