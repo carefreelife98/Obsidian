@@ -170,6 +170,11 @@ fun onClicked(view: View) {
 # 3 ways to build an Event Handler
 ## Event Handler 를 내부 클래스 (Inner Class) 로 정의
 
+> **Nested Class (중첩 클래스)**
+> - 소속된 Class 외부는 절대 참조하지 못한다.
+> <br>
+> **Inner Class (내부 클래스)**
+> - 소속된 Class 외부도 참조가 가능함.
 
 
 ## Anonymous Class (무명 클래스) 를 사용
