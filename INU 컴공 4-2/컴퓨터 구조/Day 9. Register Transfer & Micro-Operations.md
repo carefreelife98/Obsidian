@@ -80,7 +80,7 @@
 > Register 간의 전송 뿐만 아니라, Memory 와 Register 간의 전송도 존재.
 > - Memory 로부터 Read / Write 수행.
 > <br>
-> **M[ Address ]**
+> **M[ AR ]**
 > - Memory 를 표현.
-> - [ ] 안에는 Memory 의 Address 가 들어가게 되는데, 
+> - \[ ] 안에는 Memory 의 Address 가 들어가게 되는데, 이는 Address 가 저장된 Register (AR) 에 존재.
 > Read: 
