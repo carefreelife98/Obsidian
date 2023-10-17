@@ -120,9 +120,9 @@
 <br><br>
 ## Arithmetic Circuit
 
-> 위에서 알아본 Adder-Subtractor, Increment, Decrement 을 통해 Arithmetic Circuit 을 구현할 수 있다.
+> **위에서 알아본 Adder-Subtractor, Increment, Decrement 을 통해 Arithmetic Circuit 을 구현할 수 있다.**
 > <br>
-> Arithmetic Circuit 분석
+> **Arithmetic Circuit 분석**
 > 1. Full Adder 4개
 > 	- input 3개
 > 		- A_i = X_i
