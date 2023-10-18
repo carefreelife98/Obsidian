@@ -31,4 +31,9 @@ tags:
 <br><br>
 ## Testing
 
-> Training 과정에서 
+> Training 과정에서 존재하지 않았던 Data 를 Model 에 입력.
+> 1. 해당 Data 에 대한 예측 (Prediction / Inference) 을 통해 추어진 Data 의 Label 이 무엇인지 추론.
+> 2. 추론의 결과로 새로운 Image Feature 을 추출.
+> 3. 해당 Image Feature 을 학습된 Model 에 입력.
+> 	- 이전에 찾은 𝜃^ 또는 𝜃* 이 존재하는 공간에 새로운 Test Data 를 Mapping.
+> 	- 
