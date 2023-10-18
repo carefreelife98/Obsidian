@@ -41,7 +41,7 @@ tags:
 > 	- 그 결과로 **새로운 Data 의 Label 이 결정되며 Model이 학습**하게 된다. 
 
 <br><br>
-# Machine Learning Framework : Features
+# Machine Learning Framework - Training : 1. Image Features
 ![[스크린샷 2023-10-19 오전 5.47.21.png]]
 > **Image (Data) 의 특징, 즉 Image Feature 를 추출하는 방법.**
 > <br>
@@ -57,3 +57,33 @@ tags:
 > 	- 고전적인 특징 추출 (Edge, Corner Detection ...)
 > <br>
 > **결국 "좋은 특징" 을 찾는 것이 중요하다.**
+
+<br><br>
+## Spectrum of Supervision
+### Supervision 의 강도에 따른 분류
+![[스크린샷 2023-10-19 오전 6.10.27.png]]
+
+> **Fully Supervised**
+> - Label 의 Spectrum 을 보았을 때, 그 정도(수) 가 많은 경우
+> - 즉, **주어진 이미지에 대해서 모든 Label을 알고 있는 상황.**
+> <br>
+> **Unsupervised**
+> - 학습하는 Data 에 대해 **Label 이 아예 존재하지 않는 경우**
+> - **각 이미지의 주요하거나 빈번하게 나타나는 특징을 기반으로 Model 이 학습하기를 바라는 방식.**
+> <br>
+> **Weakly Supervised**
+> - **Label 이 존재하기는 하나, 그 강도가 낮은 경우.**
+> 	- Pixel-Level Label (Strong)
+> 		- Pixel 단위로 Label 이 존재.
+> 	- **Image-Level Label (Weak)**
+> 		- **Image 단위로 Label 이 존재.**
+> 		- Image 는 분류 가능하지만 해당 Image 의 위치 (B/F Ground or Geological location) 를 알지 못하는 경우
+
+<br><br>
+# Machine Learning Framework - Training : 2. Training
+
+> **Model 이 학습한다는 것은?**
+> <br>
+> 특정한 입력을 함수에 넣었을 때, 그것이 y 로 가는 과정.
+> - 즉 **Input -> Output 으로 가는 과정 (Mapping) 을 결정해주는 것.**
+> - 
