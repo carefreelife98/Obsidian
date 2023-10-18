@@ -42,7 +42,7 @@ tags:
 
 <br><br>
 # Machine Learning Framework : Features
-
+![[스크린샷 2023-10-19 오전 5.47.21.png]]
 > **Image (Data) 의 특징, 즉 Image Feature 를 추출하는 방법.**
 > <br>
 > **입력의 차이**
@@ -55,3 +55,5 @@ tags:
 > 	- 특정 Template 에 대한 Response 를 활용
 > 2. **Local Descriptors**
 > 	- 고전적인 특징 추출 (Edge, Corner Detection ...)
+> <br>
+> **결국 "좋은 특징" 을 찾는 것이 중요하다.**
