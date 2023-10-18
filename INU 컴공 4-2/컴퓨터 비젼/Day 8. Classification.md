@@ -19,4 +19,4 @@ tags:
 > 	- \[width, height, R, G, B] 를 통해 5차원 Vector를 생성한다.
 > 2. 해당 Image Feature 에 Label 을 추가하여 Data 를 생성한다.
 > 3. 생성된 Data 를 Model 에 학습시킨다.
-> 	- 𝜃
+> 	- 이는 𝜃
