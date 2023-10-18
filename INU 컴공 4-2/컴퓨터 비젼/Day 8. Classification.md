@@ -49,9 +49,9 @@ tags:
 > 1. **Raw Pixels**
 > 	- Deep Learning 에서 주로 사용
 > 2. **Histogram**
-> 	
-> 	- 고전적인 특징 추출 (Edge, Corner Detection ...)
-> 4. **Templates**
+> 	- 고전적인 특징 추출 (Edge, Corner Detection ...)
+> 	- Gradient 의 방향이나 Intensity의 Histogram 등을 Vector 로 바꾸어 활용
+> 1. **Templates**
 > 	- 특정 Template 에 대한 Response 를 활용
-> 5. **Local Descriptors**
+> 2. **Local Descriptors**
 > 	- 고전적인 특징 추출 (Edge, Corner Detection ...)
