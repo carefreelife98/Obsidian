@@ -81,10 +81,12 @@ tags:
 
 <br><br>
 # Machine Learning Framework - Training : 2. Training
-
+![[스크린샷 2023-10-19 오전 6.32.53.png]]
 > **Model 이 학습한다는 것은?**
 > <br>
 > 특정한 입력을 함수에 넣었을 때, 그것이 y 로 가는 과정.
 > - 즉 **Input -> Output 으로 가는 과정 (Mapping) 을 결정해주는 것.**
 > - **Decision Boundary (𝜃)** 를 학습하게 됨.
-> 	- 
+> 	- 새로운 Image 의 Feature 를 추출.
+> 	- Decision Boundary(𝜃) 가 존재하는 공간에 Mapping.
+> 	- 해당 결과에 의해 적절한 Label 의 영역에 배치 및 Label 할당.
