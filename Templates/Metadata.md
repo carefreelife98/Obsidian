@@ -1,6 +1,6 @@
 ---
 Author: CarefreeLife98
-Date: ""
+Date: 
 Agenda: 
 tags:
 ---
