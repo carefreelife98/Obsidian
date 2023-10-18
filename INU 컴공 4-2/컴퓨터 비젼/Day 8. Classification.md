@@ -8,7 +8,8 @@ tags:
   - Computer_Vision
 ---
 # Machine Learning Framework: Steps
-## Training
+## 1. Training
+![[스크린샷 2023-10-19 오전 5.13.24.png]]
 > **학습시키고자 하는 Data 를 이용해서 목표 Model을 학습시킨다.**
 > - **Supervised Learning**
 > 	- **Data 에 대한 Class, Label (y) 가 존재한다.**
@@ -17,6 +18,17 @@ tags:
 > 1. Image Feature 를 통해 **Image의 특징을 추출**해낸다. (이미지 자체를 학습 시킬 수 없음)
 > 	- Ex) \[width, height] 를 통해 2차원 Vector를 생성한다.
 > 	- \[width, height, R, G, B] 를 통해 5차원 Vector를 생성한다.
-> 2. 해당 Image Feature 에 Label 을 추가하여 Data 를 생성한다.
-> 3. 생성된 Data 를 Model 에 학습시킨다.
-> 	- 이는 𝜃
+> 2. 해당 Image Feature 에 **Label 을 추가하여 Data 를 생성**한다.
+> 3. **생성된 Data 를 Model 에 학습시킨다.**
+> 	- 이는 **𝜃 를 결정**하게 되는 과정
+> 	- **선형 분류기**
+> 		- **데이터를 분류할 때 선을 이용하여 분류 (Linear Classifier)**
+> 			- y = ax +b
+> 		- 즉, **학습된 Model 의 Parameter** 라는 것은 이 **Model 을 결정하는 a와 b (= 𝜃) 같은 Parameter 이고, 이를 결정해가는 것.**
+> 		- Model 은 **한번 학습 시 𝜃 를 생성**하고, 이를 **반복적으로 학습 시 𝜃_1, 𝜃_2 ... 𝜃^ (𝜃*) 이 되어 최적의 𝜃 가 된다.**
+> 		- **결국 𝜃^ 또는 𝜃* 가 될 때 까지 보유한 Data 를 통해 반복적으로 학습시키는 것.**
+
+<br><br>
+## Testing
+
+> Training 과정에서 
