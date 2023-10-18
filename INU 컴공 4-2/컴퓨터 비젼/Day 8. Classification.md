@@ -39,3 +39,19 @@ tags:
 > 	- 이전에 찾은 **𝜃^ 또는 𝜃* 이 존재하는 공간에 새로운 Test Data 를 Mapping.**
 > 		- 𝜃^ / 𝜃* 라는 선을 기준으로 새로운 Data 의 Label 이 분류된다.
 > 	- 그 결과로 **새로운 Data 의 Label 이 결정되며 Model이 학습**하게 된다. 
+
+<br><br>
+# Machine Learning Framework : Features
+
+> **Image (Data) 의 특징, 즉 Image Feature 를 추출하는 방법.**
+> <br>
+> **입력의 차이**
+> 1. **Raw Pixels**
+> 	- Deep Learning 에서 주로 사용
+> 2. **Histogram**
+> 	
+> 	- 고전적인 특징 추출 (Edge, Corner Detection ...)
+> 4. **Templates**
+> 	- 특정 Template 에 대한 Response 를 활용
+> 5. **Local Descriptors**
+> 	- 고전적인 특징 추출 (Edge, Corner Detection ...)
