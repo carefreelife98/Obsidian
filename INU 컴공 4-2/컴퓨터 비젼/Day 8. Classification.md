@@ -7,4 +7,7 @@ Agenda:
 tags:
   - Computer_Vision
 ---
-# Machine Learning
+# Machine Learning Framework: Steps
+## Training
+> 학습시키고자 하는 Data 를 이용해서 목표 Model을 학습시킨다.
+> - **Supervised Learning**
