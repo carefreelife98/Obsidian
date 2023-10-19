@@ -183,5 +183,15 @@ tags:
 
 <br>
 <br>
+![[스크린샷 2023-10-19 오후 2.43.28.png]]
+> **Model 학습을 위한 Test Data 가 적은 경우 Model 의 일반화 성능이 떨어짐.**
 
+<br><br>
+> **Data 의 수 와 Error 의 관계**
+> <br>
+> 1. **Data 의 수가 증가할수록 Trainig Error 는 증가**한다.
+> 	- 이는 Data 가 많아짐으로서 Data 의 불가항력적인 noise 도 많아져 **Data noise 에 의한 Error 가 증가**하기 때문.
+> 2. **Data 의 수가 증가할수록 Bias 와 Variance 에서 오는 Test Error 는 점차 감소**한다.
+> <br>
+> 이처럼 **Training Error 와 Testing Error 에서 발생하는 간극(차이)을 Generalization Error** 라고 한다.
 
