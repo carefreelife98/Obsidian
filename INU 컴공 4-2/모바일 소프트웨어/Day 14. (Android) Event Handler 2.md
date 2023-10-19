@@ -12,3 +12,6 @@ tags:
 > - 화면의 **면적 당 Pixel 수.**
 > - 일반적으로 **1 inch 당 Pixel 수를 나타내는 DPI** (Dots Per Inch) 를 사용함.
 
+Density / DensityDpi 반환 타입
+Density : Float
+DensityDpi : Int
