@@ -98,3 +98,21 @@ tags:
 > 	- 새로운 Image 의 Feature 를 추출.
 > 	- Decision Boundary(𝜃) 가 존재하는 공간에 Mapping.
 > 	- 해당 결과에 의해 적절한 Label 의 영역에 배치 및 Label 할당.
+
+<br><br>
+# Generalization
+> **학습된 모델의 일반화 과정.**
+
+## Bias-Variance Trade-off
+> **Bias : 편향**
+> - **학습된 Model 의 평균적인 예상 수행 결과와 실제 수행 결과의 차이**
+> 	- **Low Bias**
+> 		- 예상 수행 결과와 실제 수행 결과가 비슷하게 발생
+> 	- **High Bias**
+> 		- 예상 수행 결과와 실제 수행 결과의 차이 발생
+> <br>
+> Variance : 편차
+> - 
+
+> <br>
+> 
