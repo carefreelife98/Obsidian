@@ -168,5 +168,20 @@ tags:
 
 <br>
 <br>
+![[스크린샷 2023-10-19 오후 2.40.52.png]]
+> Model 에 대한 Complexity 를 증가시켜 나가게 되면 Training Error 는 감소한다.
+> 또한, Test Error 도 감소하지만 새로운 Data 에 대하여 Inferrence 하는 경우 Test Error 가 급격하게 증가한다.
+> - 즉, **점차 복잡한 모델을 사용하며 Data 를 학습 시킬수록 기존에 가지고 있던 Data 에 대한 오류는 점차 감소**한다.
+> - **Test Error 도 감소하지만 새로운 Data 에 대해서는 Test Error 가 급격하게 증가**한다.
+> <br>
+> 따라서,
+> **Underfitting**
+> - 너무 **Simple 한 Model** 로 Data fitting 시 **올바르게 Fitting 하지 못한 경우.**
+> <br>
+> **Overfitting**
+> - 너무 **Complex 한 Model** 로 Data fitting 중 **새로운 데이터 학습에 의해 Test Error 가 커진 경우.**
+
+<br>
+<br>
 
 
