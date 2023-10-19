@@ -142,7 +142,31 @@ tags:
 > 		- 파란색 선과 빨간색 점의 차이를 크게 감소시킴.
 > 			- 하지만 **새로운 Test Data 가 입력 될 시, Test Error 가 급격하게 커짐.**
 
+<br><br>
+## Bias-Variance Trade-off 를 통해 설명하기
+> **위의 두 가지 상황 (Underfitting, Overfitting) 을 우리는 Bias-Variance Trade-off 를 통해 설명 할 수 있다.**
 
+![[스크린샷 2023-10-19 오후 2.29.23.png]]
+> **Model 이 Simple 하다는 것은 상대적으로 Parameter 가 적은 것.**
+> - y = ax + b
+> 	- **너무 적은 Parameter 를 가진 Model 은 부정확 할 수 있다.**
+> <br>
+> **Model 이 Complex 하다는 것은 상대적으로 Parameter 가 많은 것.**
+> - y = ax^6 + bx^5 + cx^4 ... fx + g
+> 	- **너무 많은 Parameter 를 가진 Model 도 오히려 더욱 부정확 할 수 있다.**
+> <br>
+> **전체적으로 계산 할 Error**
+> - **`E(MSE) = noise^2 + bias^2 + Variance`**
+> 	- **MSE : Mean Squared Error**
+> 		- Error 의 Squared 를 **평균화** 한 것.
+> 		- Error 의 구성 요소
+> 			- **Noise**
+> 				- 필연적으로 발생하는 Data noise 에 의한 Error.
+> 				- 줄일 수 없는 Error.
+> 			- **Bias 에 의한 Error**
+> 			- **Variance 에 의한 Error**
 
+<br>
+<br>
 
 
