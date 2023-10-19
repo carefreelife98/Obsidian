@@ -104,15 +104,24 @@ tags:
 > **학습된 모델의 일반화 과정.**
 
 ## Bias-Variance Trade-off
+![[스크린샷 2023-10-19 오후 1.54.49.png]]
 > **Bias : 편향**
-> - **학습된 Model 의 평균적인 예상 수행 결과와 실제 수행 결과의 차이**
+> - **학습된 Model 의 평균적인 예상 수행 결과와 실제 수행 결과의 밀집 위치 차이**
 > 	- **Low Bias**
 > 		- 예상 수행 결과와 실제 수행 결과가 비슷하게 발생
 > 	- **High Bias**
 > 		- 예상 수행 결과와 실제 수행 결과의 차이 발생
 > <br>
-> Variance : 편차
-> - 
+> **Variance : 편차**
+> - **학습된 Model 의 수행 결과 밀집도**
+> 	- **High Variance**
+> 		- 밀집도가 낮음
+> 	- **Low Variance**
+> 		- 밀집도가 높음
 
-> <br>
-> 
+<br><br>
+## Generalization Error Effects
+
+> **Underfitting**
+> - 
+> - 쉽게 생각하면 옷을 입을 때 Loose Fit 으로 입는 것과 비슷함.
