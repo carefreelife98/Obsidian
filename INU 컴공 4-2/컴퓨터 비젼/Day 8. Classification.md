@@ -121,7 +121,28 @@ tags:
 
 <br><br>
 ## Generalization Error Effects
+> **Overfitting 및 Underfitting 에 의해 Bias 와 Variance 가 발생.**
+> - Training error 와 Test error 가 발생. 
 
+![[스크린샷 2023-10-19 오후 2.05.36.png]]
 > **Underfitting**
-> - 
-> - 쉽게 생각하면 옷을 입을 때 Loose Fit 으로 입는 것과 비슷함.
+> - 지나치게 단순한 Model 을 사용해서 Fitting 할 시 Underfitting 이 발생.
+> 	- High Bias 와 Low Variance 발생.
+> 	- High Training error 와 High Test error 발생
+> - 쉽게 생각하면 옷을 입을 때 Loose Fit 으로 입는 것과 비슷함.
+
+
+<br><br>
+![[스크린샷 2023-10-19 오후 2.13.40.png]]
+> **Overfitting**
+> - 지나치게 복잡한 Model 을 사용해서 Data 를 Fitting 할 시 Overfitting 이 발생.
+> 	- Low Bias 와 High Variance 발생.
+> 	- Low Training error 와 High Test error 발생
+> 		- Training 에 대한 Error 크게 감소시킴.
+> 		- 파란색 선과 빨간색 점의 차이를 크게 감소시킴.
+> 			- 하지만 **새로운 Test Data 가 입력 될 시, Test Error 가 급격하게 커짐.**
+
+
+
+
+
