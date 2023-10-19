@@ -15,3 +15,9 @@
 [[Day 8. Grub Boot Loader]]
 
 [[Day 9. 디스크 관리 기본]]
+
+[[Day 10. 공간 할당, 쿼터의 개념]]
+
+[[Day 11. Shell Script Programming]]
+
+[[Day 12. Shell Script]]
