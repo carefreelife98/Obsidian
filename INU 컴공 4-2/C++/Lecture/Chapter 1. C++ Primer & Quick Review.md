@@ -42,7 +42,12 @@ tags:
 				}
 > 			```
 > 	- **Reference types**
-> 	- Parametric polymorphism through templates
+> 	- **Parametric polymorphism through templates (템플릿을 통한 매개 변수 다형성)**		
+> 		- C++의 **템플릿 기능**을 사용하여 구현.
+> 		- **동일한 코드를 여러 데이터 유형에 대해 재사용 가능.**
+> 		- 클래스 템플릿을 사용하여 **제네릭 클래스를 정의하고 특정 데이터 유형에 대한 다형성을 구현 가능.**
+> 			- **STL (Standard Template Library)에서 많이 사용**
+> 			- 
 
 
 
