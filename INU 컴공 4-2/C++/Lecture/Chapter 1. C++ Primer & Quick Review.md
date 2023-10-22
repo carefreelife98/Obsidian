@@ -80,13 +80,13 @@ int main(){
 <br><br>
 ## C++ Program 생성 및 실행 과정
 ![[스크린샷 2023-10-22 오후 5.29.36.png]]
-> 1. C++ Source File 생성.
-> 2. 프로그램 실행 (Compiler 및 Linker 에 의해 실행됨).
+> 1. **C++ Source File 생성.**
+> 2. **프로그램 실행 (Compiler 및 Linker 에 의해 실행됨).**
 > 	- **Compiler** 
 > 		- 해당 **소스 파일을 기계어로 변환.**
 > 	- **Linker** 
 > 		- 소스 파일 내부에서 필요한 모든 Library 를 가지고 있으며, 해당 **Library 들을 포함한 기계어로 실행될 수 있는 파일을 최종 생성**한다.
-> 3. 실행.
+> 3. **실행.**
 
 <br><br>
 
