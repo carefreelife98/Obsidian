@@ -41,7 +41,8 @@ tags:
 			    return a + b;
 				}
 > 			```
-> 	- Reference types
+> 	- **Reference types**
+> 	- Parametric polymorphism through templates
 
 
 
