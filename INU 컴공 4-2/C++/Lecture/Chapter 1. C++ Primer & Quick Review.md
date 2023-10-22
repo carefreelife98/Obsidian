@@ -6,6 +6,15 @@ Agenda:
 tags:
   - CPP
 ---
+# Basic C++ Programming Elements
+> **C++**
+> - C 언어에서 발
+
+
+
+
+
+
 ## STL Array
 
 - **Vector** : 동적 배열 (자주 사용하게 될 것)
