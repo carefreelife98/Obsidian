@@ -38,8 +38,8 @@ tags:
 > 		- `inline` 키워드를 사용하여 정의
 > 			```cpp
 > 			 inline int add(int a, int b) {
-			    return a + b;
-				}
+> 				 return a + b;
+> 			 }
 > 			```
 > 	- **Reference types**
 > 	- **Parametric polymorphism through templates (템플릿을 통한 매개 변수 다형성)**		
@@ -47,8 +47,23 @@ tags:
 > 		- **동일한 코드를 여러 데이터 유형에 대해 재사용 가능.**
 > 		- 클래스 템플릿을 사용하여 **제네릭 클래스를 정의하고 특정 데이터 유형에 대한 다형성을 구현 가능.**
 > 			- **STL (Standard Template Library)에서 많이 사용**
-> 			- 
+> 	- **Exception 지원 (예외 처리)**
 
+<br><br>
+# Basic C++ Program
+```cpp
+# main.cpp
+
+# cstdio = C STandarD Input and Output library
+# C 언어의 stdio.h 와 같은 기능을 한다.
+#include <cstdio>
+
+# Main Function: Single Entry Point
+int main(){
+	printf("Hello, World!");
+	return 0;
+}
+```
 
 
 
