@@ -1,12 +1,12 @@
 ---
 Author: CarefreeLife98
 Date: 2023-10-08T17:32:00
-Agenda: |-
-  1. Overloading Unary Operators
-  2. Overloading Binary Operators
-  3. Data Conversion
-  4. UML Class Diagrams
-  5. Keywords explicit and mutable
+Agenda:
+  - 1. Overloading Unary Operators
+  - 2. Overloading Binary Operators
+  - 3. Data Conversion
+  - 4. UML Class Diagrams
+  - 5. Keywords explicit and mutable
 tags:
   - CPP
 ---
