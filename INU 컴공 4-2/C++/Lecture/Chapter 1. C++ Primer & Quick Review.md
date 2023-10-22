@@ -31,7 +31,17 @@ tags:
 > 			- **`#define PI 3.14159265`**
 > 		- `const` keyword 사용 가능 (C++)
 > 			- **`const double PI = 3.14159265;`**
-> 	- In-line fuction substitution
+> 	- **In-line fuction substitution**
+> 		- 컴파일러가 **인라인 함수를 호출하는 부분을 해당 함수의 본문으로 직접 대체**하는 최적화 기술.
+> 		- 함수 호출의 **오버헤드를 감소시키고 실행 시간을 최적화.**
+> 		- 보통 **짧고 자주 호출되는 함수에 사용.**
+> 		- `inline` 키워드를 사용하여 정의
+> 			```cpp
+> 			 inline int add(int a, int b) {
+			    return a + b;
+				}
+> 			```
+> 	- Reference types
 
 
 
