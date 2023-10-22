@@ -54,14 +54,28 @@ tags:
 ```cpp
 # main.cpp
 
+//  
+// Created by 채승민 on 10/22/23.//  
+//  
+  
 # C STandarD Input and Output library <cstdio>
-#include <cstdio>
+#include <cstdio> 
+#include "iostream"  
+
+// std:: 사용 할 수 있도록 namespace 를 설정.
+using namespace std;  
 
 # Main Function: Single Entry Point
-int main(){
-	printf("Hello, World!");
-	return 0; # 프로그램을 종료. 
-}
+int main(){  
+    int x, y;  
+    // std = system's standard library  
+    std::cout << "Please enter two numbers: ";  
+    std::cin >> x >> y;  
+  
+    int sum = x + y;  
+    std::cout << "Their sum is " << sum << std::endl; // endl = \n  
+  
+    return EXIT_SUCCESS; // 성공적으로 종료 = return 0;}
 ```
 > **`#include <cstdio>`**
 > - cstdio = C STandarD Input and Output library
