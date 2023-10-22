@@ -1,5 +1,11 @@
-  
-
+---
+Author: CarefreeLife98
+Date: 2023-10-22T15:58:00
+Agenda:
+  - 1. C++ Programming Elements
+tags:
+  - CPP
+---
 ## STL Array
 
 - **Vector** : 동적 배열 (자주 사용하게 될 것)
