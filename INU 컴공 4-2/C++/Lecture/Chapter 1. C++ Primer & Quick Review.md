@@ -8,7 +8,9 @@ tags:
 ---
 # Basic C++ Programming Elements
 > **C++**
-> - C 언어에서 발
+> - C 언어에서부터 진화한 프로그래밍 언어.
+> 	- C++ 은 Superset of C 이다 (초집합, C++ 은 C 전체를 포함하는 더 넒은 범위를 가짐.)
+> 	- OOP(Object-Oriented Programming, 객체 지향 프로그래밍) 를 대표하는 성격의 Class 가 존재.
 
 
 
