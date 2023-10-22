@@ -54,17 +54,28 @@ tags:
 ```cpp
 # main.cpp
 
-# cstdio = C STandarD Input and Output library
-# C 언어의 stdio.h 와 같은 기능을 한다.
+# C STandarD Input and Output library <cstdio>
 #include <cstdio>
 
 # Main Function: Single Entry Point
 int main(){
 	printf("Hello, World!");
-	return 0;
+	return 0; # 프로그램을 종료. 
 }
 ```
-
+> **`#include <cstdio>`**
+> - cstdio = C STandarD Input and Output library
+> - C 언어의 stdio.h 와 같은 기능.
+> <br>
+> **`int main(){}`**
+> - C++ 에서 Main 함수는  **Single Entry Point.**
+> 	- **프로그램이 실행될 때 하나의 메인 함수가 실행**되며 해당 **메인 함수 내부에서 다른 함수 등을 호출하여 프로그램이 동작**함.
+> 	- 메인 함수는 프로그램 시작과 동시에 호출됨.
+> <br>
+> **`return 0`**
+> - **OS 에 exit code 0 를 반환하여 프로그램을 종료**시킴.
+> 	- **return 0** : 프로그램의 **성공적인 동작 후 종료.**
+> 	- **return 1** : 프로그램의 **비정상적인 동작에 의해 종료.**
 
 
 
