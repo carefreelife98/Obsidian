@@ -60,7 +60,7 @@ node1 = [1, 2, 8]
 > **Link 를 Red Link / Black Link 로 표현하는 방식**
 > - Red Link 로 연결 -> 하나의 노드이다 -> 연결되어 있음
 > - 좌우 균형이 맞지 않는다.
-> 	- Root 에서 각 외부 노드 까지의 Black link 개수 관점에서의 균형
+> 	- Root 에서 각 외부 노드 까지의 Black link 개수 관점에서 균형이 맞는 것.
 > 
 > **특징**
 > 1. Root / 외부 노드는 모두 Black
