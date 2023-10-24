@@ -124,22 +124,18 @@
 
 ## Component 간의 통신
 
-**Reusable**
+### Reusable
 - Android App. 은 타 App의 Component 를 사용할 수 있다.
-
-
-**Intent - Component 와 Component 를 이어주는 기능.**
-
-> 어떤 Component 와 정보를 주고 받으려면 이를 Android System에 전달.  
+<br><br>
+### Intent
+> Component 와 Component 를 이어주는 기능.<br>
+> 어떤 Component 와 정보를 주고 받으려면 이를 Android System에 전달. <br>
 > **System은 지정된 Component를 찾는다.**  
 > - **Component가 지정되어 있지 않을 경우 가장 적합한 Component를 찾아서 해당 Component 를 실행해준다.**
-
 - 일종의 택배 기사.
-- 어떠한 Component가 필요하다라는 요청을 보내면 Intent 가 전달해줌.
-
-  
-
-**Manifest - 우리가 만든 앱 (Packaging 된) 에 존재하는 Component 와 같은 정보 가짐.**
-
+- 어떠한 **Component가 필요하다라는 요청을 보내면 Intent 가 전달**해줌.
+<br><br>
+### Manifest
+- **우리가 만든 앱 (Packaging 된) 에 존재하는 Component 와 같은 정보 가짐.**
 - Component 들은 택배 박스로서 Packaging.
-- 해당 택배 박스에 Labeling 되어 있는 정보가 Manifest File.
+- 해당 **택배 박스에 Labeling 되어 있는 정보가 Manifest File.**
