@@ -57,7 +57,7 @@
 
 ## Attribute Tab
 
-- Button 추가 시 우특의 Attribute Tab 에서 XML Tag 로서 추가됨.
+- Button 추가 시 우측의 Attribute Tab 에서 XML Tag 로서 추가됨.
     - Button 우클릭 → Center → Horizontally in Parent
     - Constarint 지정 가능 및 오류 해결됨.
 - `ID`
@@ -82,6 +82,7 @@
         - xml 파일에 등록된 것 확인 및 해당 이름 클릭 후 전구 선택 및 Create
     - Button 누를 시 TextView 변경하기
         
-        ```
-        val mText = findViewById<Textview>(R.id.myTextView) // @+id/myTextViewmText.text = "안녕, 안드로이드 13~"
-        ```
+	```kotlin
+// @+id/myTextViewmText.text = "안녕, 안드로이드 13~"	
+val mText = findViewById<Textview>(R.id.myTextView)
+	```
