@@ -76,7 +76,7 @@ for (i in 1..10 step 3) {
 }
 
 // downTo & step
-for (i in 10 downTo  1 step 2) {  
+for (i in 10 downTo 1 step 2) {  
     print("$i ")  
 }
 ```
