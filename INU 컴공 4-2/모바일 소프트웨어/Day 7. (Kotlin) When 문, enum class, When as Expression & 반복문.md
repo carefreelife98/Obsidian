@@ -53,7 +53,7 @@ fun When() {
 }
 ```
 
-## When  as Expression
+## When as Expression
 ```kotlin
 // when expression  
 val t = when (s) {  
