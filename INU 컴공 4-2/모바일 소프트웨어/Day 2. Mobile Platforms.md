@@ -54,33 +54,34 @@
 
 ## Android Platform
 
-- Android Stack → 4개의 계층
+- **Android Stack → 4개의 계층**
     - 각 Layer 는 역할이 분리되어 작동.
-    - 하위 Layer 에서 상위 Layer 로 작업 후 결과 전달.
-- Layered Architecture
-    - L4: Linux Kernel (검증된 Core Platform)
+    - **하위 Layer 에서 상위 Layer 로 작업 후 결과 전달.**
+<br><br>
+- **Layered Architecture**
+    - **L4: Linux Kernel** (검증된 Core Platform)
         - 하드웨어는 Linux Kernel에서 담당하기 때문에 카메라가 세개든 네개든 신경쓰지 않아도 된다.
-    - L3: 라이브러리 : Java가 아닌 C 로 작성. (속도 중시)
+    - **L3: 라이브러리** : Java가 아닌 C 로 작성. (속도 중시)
         - Android Runtime에 의해 실행됨.
-            - Dalvik VM : Register-based VM
-        - Android 실행 파일 Format : `.dex` (Dalvik Executable)
-    - L2: Android API (Application 개발자가 작업하는 영역) - JAVA 구현
-    - L1: Application
+            - **Dalvik VM** : Register-based VM
+        - **Android 실행 파일 Format : `.dex`** (Dalvik Executable)
+    - **L2: Android API** (Application 개발자가 작업하는 영역) - JAVA 구현
+    - **L1: Application**
 
   
 
 ## Dalvik 과 ART
 
-- JIT(Just-In-Time) Compilation
+- **JIT(Just-In-Time) Compilation**
     - JVM : interpreter
         - 한번에 한 줄 씩 Byte Code를 읽어 실행
-    - JIT
-        - 전체 Byte Code 중에서 실행 빈도가 높은 함수(Hotspot) 은 Native Code로 미리 번역
+    - **JIT**
+        - **전체 Byte Code 중에서 실행 빈도가 높은 함수(Hotspot) 은 Native Code로 미리 번역**
 - **AOT (Ahead Of Time) Compilation 과 ART (현재 Android 의 Strategy)**
     - **ART : Android Run Time**
         - VM이 아닌 Runtime Library
-    - 특징
-        - 전체 Byte Code를 미리 Native Code로 변환하여 메모리에 저장.
+    - **특징**
+        - **전체 Byte Code를 미리 Native Code로 변환하여 메모리에 저장.**
             - App 설치시에만 필요한 과정.
             - APP 실행시에는 Interprete 없이 바로 Native Code 로서 실행.
 
@@ -105,16 +106,16 @@
     - 사용자 인터페이스(User Interface, UI) 를 구성하는 기본 단위.
     - 사용자와의 상호작용을 위해 필수적으로 요구되는 Component.
     - Layout
-- Service
+- **Service**
     - Background 에서 실행되는 Component.
     - UI 가 없으므로 Activity 와 연동하여 구현됨.
         - 예) Music Play
-- Broadcast Receiver (Broadcast: 불특정 다수)
+- **Broadcast Receiver (Broadcast: 불특정 다수)**
     - 시스템이 전달하는 내용을 수신.
         - 예) 배터리 용량 부족!
     - UI 없음.
         - 수신된 전달 내용 처리 결과를 Activity 에게 전달.
-- Content Provider
+- **Content Provider**
     - Data를 관리하며 요청을 받아 다른 Application에게 Data를 제공.
     - DB 라고 보면 될 듯?
         - SQL 쿼리를 사용하여 질의응답.
