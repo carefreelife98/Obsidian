@@ -396,7 +396,7 @@ fun main() { // Top-level Function
 
 ### Assertion Operator : !!
 > **변수 값이 절대 NULL 이 아님을 보증하는 연산자.**
-> `nullable variable !!. method/property`
+> `(nullable variable)!!.method/property`
 
 ```kotlin
 fun assertionOperator() {  
