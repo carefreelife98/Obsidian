@@ -305,7 +305,7 @@ class Rectangle(_shape: String,
   
     // getter & setter 정의  
     val shape: String = _shape  
-        get() = field // 여기서 field 는 height property 를 가리킴.  
+        get() = field // 여기서 field 는 _shape property 를 가리킴.  
   
     var height: Int = _height  
         get() = field  
