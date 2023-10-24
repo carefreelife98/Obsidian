@@ -107,25 +107,24 @@
     - 사용자와의 상호작용을 위해 필수적으로 요구되는 Component.
     - Layout
 - **Service**
-    - Background 에서 실행되는 Component.
+    - **Background 에서 실행**되는 Component.
     - UI 가 없으므로 Activity 와 연동하여 구현됨.
         - 예) Music Play
 - **Broadcast Receiver (Broadcast: 불특정 다수)**
-    - 시스템이 전달하는 내용을 수신.
+    - **시스템이 전달하는 내용을 수신.**
         - 예) 배터리 용량 부족!
     - UI 없음.
         - 수신된 전달 내용 처리 결과를 Activity 에게 전달.
 - **Content Provider**
-    - Data를 관리하며 요청을 받아 다른 Application에게 Data를 제공.
-    - DB 라고 보면 될 듯?
-        - SQL 쿼리를 사용하여 질의응답.
+    - **Data를 관리하며 요청을 받아 다른 Application에게 Data를 제공.**
+    - **DB** 라고 보면 될 듯?
+        - **SQL 쿼리를 사용하여 질의응답.**
 
   
 
 ## Component 간의 통신
 
 **Reusable**
-
 - Android App. 은 타 App의 Component 를 사용할 수 있다.
 
   
