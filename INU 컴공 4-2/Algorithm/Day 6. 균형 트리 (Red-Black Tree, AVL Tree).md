@@ -82,6 +82,15 @@ node1 = [1, 2, 8]
 > **탐색**
 > - 일반 이진 탐색 트리의 탐색 연산 속도와 같음.
 > - O(logN)
+> <br>
+> **구현 시 특징**
+> - **삽입 (Insertion)**
+> 	- **새로 삽입되는 노드는 항상 Red Node.**
+> 		- **새로운 노드가 삽입되어 말단 노드로서 위치하게 된 경우**
+> 			- **새로운 노드가 Red node 인 경우 (o)**: 
+> 				- **Root node 부터 nil node 까지 Black node 의 개수 영향 X**
+> 			- 새로운 노드가 Black node 인 경우 (x):
+> 				- Root node 부터 nil node 까지 **Black node 의 개수 증가. (새로운 노드가 Black 이므로)**
 
 <br><br>
 
