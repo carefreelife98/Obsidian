@@ -91,6 +91,9 @@ node1 = [1, 2, 8]
 > 				- **Root node 부터 nil node 까지 Black node 의 개수 영향 X**
 > 			- 새로운 노드가 Black node 인 경우 (x):
 > 				- Root node 부터 nil node 까지 **Black node 의 개수 증가. (새로운 노드가 Black 이므로)**
+> - **회전 (Rotation)**
+> 	- **트리의 구조를 바꾸면서도 BST 의 특징을 유지시키는 방법.**
+> 		- insertion 을 통한 노드 삽입 과정에서 Red node 가 연속으로 두 개 존재하는 경우 회전.
 
 <br><br>
 
