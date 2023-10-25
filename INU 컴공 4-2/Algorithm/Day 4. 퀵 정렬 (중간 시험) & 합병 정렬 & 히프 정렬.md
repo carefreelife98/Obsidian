@@ -23,11 +23,25 @@ quickSort(a[], l, r)
 		quickSort(a[], i+1, r);
 	}  
 end quickSort()
+
+partition(a[], l, r)
+  v ← a[r];  // 가장 오른쪽 원소를 피봇으로 정함
+  i ← l-1;     // 왼쪽에서 오른쪽으로 움직이는 포인터
+  j ← r;        // 오른쪽에서 왼쪽으로 움직이는 포인터
+  for ( ; ; ) do {
+    do { i ← i + 1; } while (a[i] < v);      
+    do { j ← j - 1; } while (a[j] > v);
+    if (i ≥ j) then break;               
+    a[i]와 a[j]를 교환;
+  }
+  a[i]와 a[r]를 교환;
+  return i;
+end partition()
 ```
 1. `i, j, p` 지정
 2. `i > p`, `j < p` 를 만족할 때까지 `i++, j--` 실행.
 	- 만족한 경우 `list[i], list[j] = list[j], list[i]` (값의 교환) 
-3. 1~2 과정 반복 중 `i > j` 를 만족하는 순간 (i, j 의 역전)
+3. 1~2 과정 반복 중 `i >= j` 를 만족하는 순간 (i, j 의 역전)
 	- `list[i], list[p] = list[p], list[i]` (값의 교환 및 루프 종료)
 4. 이후 i 를 기준으로 좌, 우 Partition 분할 하여 1, 2, 3 과정의 반복.
 
