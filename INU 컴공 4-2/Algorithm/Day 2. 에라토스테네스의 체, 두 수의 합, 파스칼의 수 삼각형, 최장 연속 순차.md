@@ -171,9 +171,40 @@ longestSequence(a[], s, n)
 end longestSequence()
 ```
 
-```
+```python
 # Source Code
+def longest_sequence(a, s, n):  
+    max_len = 1  
+    i = 0  
+    while i < n:  
+        left = a[i] - 1  
+        right = a[i] + 1  
+        count = 1  
+        while left in s:  
+            count += 1  
+            s.discard(left)  
+            left -= 1  
+        while right in s:  
+            count += 1  
+            s.discard(right)  
+            right += 1  
+        max_len = max(max_len, count)  
+        i += 1  
+    return max_len  
 
+# Main function
+if __name__ == "__main__":  
+    N = int(input('난수의 개수 : '))  
+    while N < 1:  
+        print('난수의 개수는 자연수여야 합니다.')  
+        N = int(input('난수의 개수 : '))  
+    A = []  
+    for i in range(N):  
+        A.append(random.randint(1, N))  
+    print('리스트 : ', A)  
+    S = set(A)  
+    print('집합 : ', S)  
+    print('최장 연속 순차의 길이 : ', longest_sequence(A, S, N))
 ```
 
   
