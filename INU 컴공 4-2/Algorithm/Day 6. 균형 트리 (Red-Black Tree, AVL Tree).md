@@ -63,13 +63,15 @@ node1 = [1, 2, 8]
 > 	- Root 에서 각 외부 노드 까지의 Black link 개수 관점에서 균형이 맞는 것.
 > 
 > **특징**
-> 1. Root / 외부 노드는 모두 Black
-> 2. Root 에서 외부 노드까지의 경로 상에는 2개의 연속된 Red node 가 포함되지 않음.
+> 1. Root / nil node(Leaf Node)는 모두 Black
+> 	- Red-Black Tree 에서 말단 노드는 nil node 라고 불림. (= Leaf Node)
+> 2. Root 에서 nil node(Leaf Node) 까지의 경로 상에는 2개의 연속된 Red node 가 포함되지 않음.
+> 	- Red 의 자식은 모두 Black.
 > 	- Black 은 연속으로 나타날 수 있음
-> 3. Root 에서 각 외부 노드까지의 경로에 있는 Black node (Link) 의 수는 모두 같음
+> 4. Root 에서 각 nil node(Leaf Node) 까지의 경로에 있는 Black node (Link) 의 수는 모두 같음
 > 	- 균형 트리 성질 만족
-> 4. 동일한 키를 가지는 레코드는 노드의 좌측, 우측 모두 올 수 있음.
-> 5. 동일한 키가 여러 개 존재 할 시, 주어진 키를 갖는 모든 노드를 찾는 것이 어려움.
+> 5. 동일한 키를 가지는 레코드는 노드의 좌측, 우측 모두 올 수 있음.
+> 6. 동일한 키가 여러 개 존재 할 시, 주어진 키를 갖는 모든 노드를 찾는 것이 어려움.
 > 
 > **노드 수**
 > - r 을 서열(rank) 이라 할 때, 노드 수(Key 값의 수) N 은 **`N >= 2^r - 1`**
