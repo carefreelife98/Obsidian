@@ -1,3 +1,5 @@
+[[README]]
+
 # Obsidian
 
 CarefreeLife's Obsidian Note
