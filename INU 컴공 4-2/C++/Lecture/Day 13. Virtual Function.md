@@ -44,3 +44,47 @@ int main(){
 > **다형성**
 > - Function 의 외형은 같은 Signature 을 가지지만, 실제로 실행되는 동작은 다른 동작.
 > - virtual 이라는 keyword 를 반드시 부모 class 의 function 에 지정해주어야 한다.
+
+```cpp
+//  
+// Created by 채승민 on 10/27/23.
+//  
+  
+#include "iostream"  
+using namespace std;  
+  
+class baseWithNotVirtual {  
+public:  
+    void show(){cout << "Base" << endl;}  
+};  
+  
+class Derv1: public baseWithNotVirtual {  
+public:  
+    void show() {cout << "A" << endl;}  
+};  
+  
+class Derv2: public baseWithNotVirtual {  
+public:  
+    void show(){cout << "B" << endl;}  
+};  
+  
+int main(){   
+    Derv1 dv1;  
+    Derv2 dv2;  
+    baseWithNotVirtual* ptr;  
+      
+    ptr = &dv1;  
+    ptr->show();  
+    ptr = &dv2;  
+    ptr->show();  
+};
+```
+> **위와 같이 Virtual keyword 를 사용하지 않는다면 절대 객체 기준으로 함수가 호출되지 않는다.**
+> - **virtual keyword 사용시 객체 기준으로 함수를 호출함. (Dynamic / Late binding)**
+> - virtual keyword 가 없다면 **Type 기준으로 함수를 호출**하게 된다.
+> 	- 따라서 위 코드의 실행 결과는 "Base" 두 번 출력.
+
+<br><br>
+## Abstract Classes and Pure Virtual Functions
+> **`virtual ~ () = 0;`**
+> - 위처럼 virtual keyword 함수에 = 0 을 할당하여 추상 클래스로 지정 가능.
