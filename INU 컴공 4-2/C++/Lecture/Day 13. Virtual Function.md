@@ -88,10 +88,12 @@ int main(){
 ## Abstract Classes and Pure Virtual Functions
 > **`virtual ~ () = 0;`**
 > - **virtual keyword 함수에 = 0 을 할당하여 추상 클래스로 지정 가능.**
+> - **`abstract`** keyword 도 사용 가능.
 
 ```cpp
 //  
-// Created by 채승민 on 10/27/23.//  
+// Created by 채승민 on 10/27/23.
+//  
   
 #include "iostream"  
 using namespace std;  
@@ -113,7 +115,7 @@ public:
   
   
 int main(){  
-    // Base bad;  
+    // Base bad; // 추상 클래스이기 때문에 객체 직접 생성은 불가능.
     base* arr[2];  
     Derv1 dv1;  
     Derv2 dv2;  
@@ -122,5 +124,14 @@ int main(){
     arr[1] = &dv2;  
     arr[0]->show();  
     arr[1]->show();  
+
+	return 0;
 };
 ```
+> 최근에는 **`abstract`** keyword 도 사용 가능하다.
+
+<br><br>
+## Virtual Destructor
+
+
+
