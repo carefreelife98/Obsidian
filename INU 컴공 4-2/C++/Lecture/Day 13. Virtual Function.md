@@ -6,7 +6,7 @@ Agenda:
 tags:
   - CPP
 ---
-# Polymorphism
+# Polymorphism 
 ```c++
 //  
 // Created by 채승민 on 10/27/23.
