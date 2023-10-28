@@ -100,11 +100,9 @@
         - **전체에 대한 NOT 연산 시 OR 과 AND 의 역전이 발생.**
 	        - (x+y+z)’ = x’y’z’
 	        - (xyz)’ = x’ + y’ + z’
-        
-          
-        
-    - Complement of Function
-        - 방법1 → 전체에 NOT 붙히기
+        <br><br>
+    - **Complement of Function**
+        - **방법1 → Function 전체에 NOT 붙히기**
             - F = AB + C’D’ + B’D
             - Complement of Function (전체에 NOT 붙히면 됨)
                 - F’ = (AB + C’D’ + B’D)’
