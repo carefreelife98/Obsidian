@@ -63,8 +63,10 @@
 <br><br>
 - **XNOR (Exclusive-NOR) - Not of XOR : A와 B 가 같아야만 1, 나머지는 0**
 	![[%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-09-07_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_2.27.04 3.png]]
-	-  
-
+	-  **X = (AB' + A'B)' = (AB')' * (A'B)'**
+		- = (A' + B)(A + B')
+		- = A'A + A'B' + AB + BB'
+		- **= AB + A'B' (A'A, BB' 는 항상 0 이므로)**
   
 
 ### Boolean Algebra (Boolean Function) - 수식
