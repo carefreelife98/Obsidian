@@ -93,9 +93,9 @@
             = x + xy + xz + yz
             = x * x + xy + xz + yz
             = x(x+y) + z(x+y)
-            = **(x+y)(x+z) == x + yz**
+            = **(x+y)(x+z)**
 	
-    - Demorgan’s Theorem
+    - **Demorgan’s Theorem**
 	    ![[%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-09-08_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.27.31 3.png]]
         - (x+y+z)’ = x’y’z’
         - (xyz)’ = x’ + y’ + z’
