@@ -67,17 +67,20 @@
   
 <br><br>
 # Boolean Algebra (Boolean Function) - 수식
+![[스크린샷 2023-10-28 오후 6.27.29.png]]
 - F = x + y’z
-- 특징
+	- **Boolean Function 은 위 처럼 수식, 진리표, 회로도 로 표현 할 수 있다.**
+<br><br>
+- **Boolean Algebra 특징**
     - 논리 합
         - x + 0 = x
         - x + 1 = 1
         - x + x = x
         - x + x’ = 1
-        - 교환 법칙 : x + y = y + x
-        - 결합 법칙 : x + (y + z) = (x + y) + z
-        - 분배 법칙 : x(y+z) = xy + xz
-        - 드모르간 : (x+y)’ = x’ * y’
+        - 교환 법칙 성립 : x + y = y + x
+        - 결합 법칙 성립 : x + (y + z) = (x + y) + z
+        - 분배 법칙 성립 : x(y+z) = xy + xz
+        - 드모르간 성립 : (x+y)’ = x’ * y’
         - (x’)’ = x
     - 논리 곱
         - x * 1 = x
