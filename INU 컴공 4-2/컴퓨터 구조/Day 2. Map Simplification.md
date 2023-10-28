@@ -2,15 +2,19 @@
 
 # Minterm 최소항
 ![[%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-09-09_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.21.01 1.png]]
+`좌측: 2개 Input 에 대한 Minterm. 우측: 3개 Input 에 대한 Minterm.`<br>
 **Minterm: each combination of the variables**
-- 모든 항이 들어가고 `AND` 만을 사용하는 조합
-    - AND 연산이 사용되므로 `0 은 NOT 으로 변환, 1은 그대로`
-- 최소항에 대한 index는 0부터 시작하여 증가 (m0, m1, m2…)
-- 예시
-    - x, y-> `xy` , `x’y` , `xy’` , `x’y’`
-    - **n variables -> 2^n minterms**
+- **모든 항이 들어가는 동시에 Input 을 1로 만들어주며 `AND` 만을 사용하는 조합**
+	- AND 연산이 사용되므로 `0 은 NOT 으로 변환, 1은 그대로`
+	- 최소항에 대한 index는 0부터 시작하여 증가 (m0, m1, m2…)
+- **예시 (Function 을 Minterm 의 조합으로 변환)**
+	
+	- **모든 Input 이 각 항마다 존재해야 하므로 x + x' = 1 임을 잘 활용하여 항 내에 존재하지 않는 Input 을 추가해준다.**
+	- x, y-> `xy` , `x’y` , `xy’` , `x’y’`
+- **입력 개수와 Minterm 의 개수 간의 상관 관계**
+	- **n variables -> 2^n minterms**
 
-  
+<br><br>  
 
 ## Sum of Product (SOP) , Product of Sums(POS)
 
