@@ -9,10 +9,7 @@
   
 
 ---
-
-## 영상 수업
-
-### Logic Gates
+# Logic Gates
 - **AND - 논리 곱**
 	![[%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-09-07_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_2.24.13 4.png]]
 	- **X = A * B (X = A ^ B 로 표현하는 경우도 있음)**
@@ -68,9 +65,9 @@
 		- = A'A + A'B' + AB + BB'
 		- **= AB + A'B' (A'A, BB' 는 항상 0 이므로)**
   
-
-### Boolean Algebra (Boolean Function) - 수식
-- F = x+y’z
+<br><br>
+# Boolean Algebra (Boolean Function) - 수식
+- F = x + y’z
 - 특징
     - 논리 합
         - x + 0 = x
