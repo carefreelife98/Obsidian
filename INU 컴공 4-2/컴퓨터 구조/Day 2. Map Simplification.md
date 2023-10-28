@@ -6,9 +6,9 @@
 **Minterm: each combination of the variables**
 - **모든 항이 들어가는 동시에 Input 을 1로 만들어주며 `AND` 만을 사용하는 조합**
 	- AND 연산이 사용되므로 `0 은 NOT 으로 변환, 1은 그대로`
-	- 최소항에 대한 index는 0부터 시작하여 증가 (m0, m1, m2…)
-- **예시 (Function 을 Minterm 의 조합으로 변환)**
-	
+	- 최소항에 대한 index는 0부터 시작하여 증가 (m0, m1, m2…)<br><br>
+- **예시 (Function 을 Minterm 의 조합으로 변환)**<br>
+	![[스크린샷 2023-10-28 오후 7.54.23.png]]
 	- **모든 Input 이 각 항마다 존재해야 하므로 x + x' = 1 임을 잘 활용하여 항 내에 존재하지 않는 Input 을 추가해준다.**
 	- Minterm 의 조합으로 나타낸 표현이므로 **Sum of Minterm** 이라고 한다. (= Canonical Form)
 		- **Sum of Minterm 의 표현 방법 세 가지**
