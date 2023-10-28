@@ -108,8 +108,9 @@
                 - F’ = (AB + C’D’ + B’D)’
                     = (AB)’ (C’D’)’ (B’D)’
                     = **(A’+B’)(C+D)(B+D’)**
-                    
-        - 방법2 → Dual (AND ↔ OR) 로 변환 후 전체에 NOT 붙히기
+            <br>
+        ![[스크린샷 2023-10-28 오후 6.50.18.png]]
+        - **방법2 → Dual (AND ↔ OR) 로 변환 후 전체에 NOT 붙히기**
             - Dual of F
                 - F = (A+B)(C’+D’)(B’+D)
             - After NOT
