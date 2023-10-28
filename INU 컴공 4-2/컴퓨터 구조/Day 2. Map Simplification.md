@@ -17,25 +17,21 @@
 			- **Index** : ∑(0, 1, 2, 4, 5, 6, 7)
 - **입력 개수와 Minterm 의 개수 간의 상관 관계**
 	- **n variables -> 2^n minterms**
-
-<br><br>  
-
+- **Sum of Minterm 은 Sum of Product 의 특수한 형태.**
+	- 각 항이 Minterm 으로 이루어진 Sum of Product 형식.
+<br><br>
 ## Sum of Product (SOP) , Product of Sums(POS)
+1. **Sum of Product (SOP)**
+    - **F = y’ + xy + x’y’z’**
+        - **각 항은 OR 연산으로 구성.**
+        - **모든 항은 AND 로 연결**되어 있음.
+	<br><br>
+2. **Product of Sums (POS)**
+    - **F = y’(x + y)(x’ + y’ + z’)**
+        - **각 항은 AND 연산으로 구성.**
+        - **모든 항은 OR 로 연결**되어 있음.
 
-1. Sum of Product (SOP)
-    - F = y’ + xy + x’y’z’
-        - 각 항은 OR 연산으로 구성.
-        - 모든 항은 AND 로 연결되어 있음.
-
-  
-
-1. Product of Sums (POS)
-    - F = y’(x + y)(x’ + y’ + z’)
-        - 각 항은 AND 연산으로 구성.
-        - 모든 항은 OR 로 연결되어 있음.
-
-  
-
+<br><br>
 ## Sum of Minterm (Canonical Form)
 
 - Sum of Product (SOP) 의 특수한 형태.
