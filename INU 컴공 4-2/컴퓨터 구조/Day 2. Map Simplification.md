@@ -11,6 +11,10 @@
 	
 	- **모든 Input 이 각 항마다 존재해야 하므로 x + x' = 1 임을 잘 활용하여 항 내에 존재하지 않는 Input 을 추가해준다.**
 	- Minterm 의 조합으로 나타낸 표현이므로 **Sum of Minterm** 이라고 한다. (= Canonical Form)
+		- **Sum of Minterm 의 표현 방법 세 가지**
+			- **Equation** : xy'z + xy'z' ...
+			- **Symbol** : m0 + m1 + m2 ...
+			- **Index** : ∑(0, 1, 2, 4, 5, 6, 7)
 - **입력 개수와 Minterm 의 개수 간의 상관 관계**
 	- **n variables -> 2^n minterms**
 
