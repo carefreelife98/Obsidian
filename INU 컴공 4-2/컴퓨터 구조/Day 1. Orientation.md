@@ -72,7 +72,7 @@
 	- **Boolean Function 은 위 처럼 수식, 진리표, 회로도 로 표현 할 수 있다.**
 <br><br>
 - **Boolean Algebra 특징**
-    - 논리 합
+    - **논리 합 (OR)**
         - x + 0 = x
         - x + 1 = 1
         - x + x = x
@@ -82,14 +82,14 @@
         - 분배 법칙 성립 : x(y+z) = xy + xz
         - 드모르간 성립 : (x+y)’ = x’ * y’
         - (x’)’ = x
-    - 논리 곱
+    - **논리 곱 (AND)**
         - x * 1 = x
         - x * 0 = 0
         - x * x = x
         - x * x’ = 0
-        - x * y = y * x
-        - x * (y * z) = (x * y) * z
-        - **x + y * z** = x(1 + y + z) + yz
+        - 교환 법칙 성립 : x * y = y * x
+        - 결합 법칙 성립 : x * (y * z) = (x * y) * z
+        - **x + y * z = x(1 + y + z) + yz (1 + y + z 는 y, z 에 상관없이 항상 1임)**
             = x + xy + xz + yz
             = x * x + xy + xz + yz
             = x(x+y) + z(x+y)
