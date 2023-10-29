@@ -12,4 +12,7 @@ Config : Configuration
 Controller
 - Beanstalk
 	- aws beanstalk 인 것 같은데 Github Action Publishing 실패 한 것인지?
-- 
+- SMS - Naver SMS ? 
+	- AWS SNS Service 같은 것인지?
+	- 어떤 메시지 / 알람을 보내주는 것인지?
+	- 
