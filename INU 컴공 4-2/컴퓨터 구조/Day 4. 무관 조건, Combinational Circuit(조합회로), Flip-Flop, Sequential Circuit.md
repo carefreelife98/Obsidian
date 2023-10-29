@@ -99,6 +99,7 @@
 ### Half Adder 2개를 사용해서 Full Adder 만들기
 ![[스크린샷 2023-09-20 오전 4.21.15.png]]
 - 이전에 그린 Full Adder 의 Circuit 을 자세히 보면 **Half Adder 2개**가 보인다.
+	- **Full Adder** = **(Half Adder X 2)** + **OR Gate**
 
 <br><br>
 
