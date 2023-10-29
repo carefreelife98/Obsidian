@@ -15,4 +15,4 @@ Controller
 - SMS - Naver SMS ? 
 	- AWS SNS Service 같은 것인지?
 	- 어떤 메시지 / 알람을 보내주는 것인지?
-	- 
+- S3 는 로그 저장 용도로 사용하시는 것인지?
