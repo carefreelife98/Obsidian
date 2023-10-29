@@ -40,9 +40,14 @@
 
 # Combinational Circuits (조합 회로)
 ![[스크린샷 2023-09-20 오전 2.47.40.png]]
-- **Flip-Flop 없이 Gateway 로만 이루어진 것.**
+- **말 그대로 Gate 들이 조합되어 있는 회로.**
+	- **쉽게 말해서 Flip-Flop 없이 Gateway 로만 이루어진 것.**
 - **Output 이 Input 에 의해 즉각 결정됨.**
-- `복수 Input, 복수 Output` 을 가질 수 있다.
+	- **n Input** Variables `-- Combinational Circuit -->` **m Output** Variables 
+	- **`복수 Input, 복수 Output`** 을 가질 수 있다.
+
+
+<br><br>
 
 ## Half Adder (반 가산기)
 ![[스크린샷 2023-09-20 오전 2.51.15.png]]
