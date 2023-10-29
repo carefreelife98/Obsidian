@@ -51,6 +51,8 @@
 
 ## Half Adder (반 가산기)
 ![[스크린샷 2023-09-20 오전 2.51.15.png]]
+- **두 개의 Input** 을 가지는 Adder.
+	- **두 개의 비트를 받아서 Sum 과 Carry 의 결과를 출력하는 회로.**
 - **Carry 가 존재 (1 + 1 시에만)**
 	- 1 + 1 은 **Sum 이 0 이 되고, 대신 Carry 에 1이 넘겨짐**
 ### Half Adder 의 진리표 (Truth Table), Function, Circuit
