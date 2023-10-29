@@ -121,18 +121,20 @@
 > **예시 (Variable 4개)**
 > ![[%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-09-10_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_3.05.06 1.png]]
 > - **K-map Indexing 순서 확인**
+> <br><br>
+> **K-map 을 사용한 간소화**
 > ![[%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-09-10_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_3.09.12 1.png]]
 > 
-> - Cell 묶기 (각 Cell은 OR, + 로 연결됨)
->     - 2 Cells
+> - **Cell 묶기 (각 Cell은 OR, + 로 연결됨)**
+>     - **2 Cells**
 >         - `(m0, m1) → A’B’C’`
->         - 하나의 Variable 탈락 (3 Variables 로 간소화)
->     - 4 Cells
+>         - 하나의 Variable 탈락 **(3 Variables 로 간소화)**
+>     - **4 Cells**
 >         - `(m0, m1, m4, m5) → A’C’`
->         - 두 개의 Variable 탈락 (2 Variables 로 간소화)
->     - 8 Cells
+>         - 두 개의 Variable 탈락 **(2 Variables 로 간소화)**
+>     - **8 Cells**
 >         - `(m0, m1, m4, m5, m12, m13, m8, m9) → C’`
->         - 세 개의 Variable 탈락 (1 Variables 로 간소화)
+>         - 세 개의 Variable 탈락 **(1 Variables 로 간소화)**
 > - 결론
 >     - **Cell 을 묶는 건 근접한 Cell 만 가능.**
 >         - 근접: 변 (모서리X)
