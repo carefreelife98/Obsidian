@@ -57,15 +57,17 @@
 	- 1 + 1 은 **Sum 이 0 이 되고, 대신 Carry 에 1이 넘겨짐**
 ### Half Adder 의 진리표 (Truth Table), Function, Circuit
 ![[스크린샷 2023-09-20 오전 2.54.43.png]]
-- Half Adder Function
-	- S 가 1인 경우 = x XOR y
+- **Half Adder Function**
+	- **S 가 1인 경우 = x XOR y**
 		- 0, 1
 		- 1, 0
-	- C 가 1인 경우 = x AND y
+	- **C 가 1인 경우 = x AND y**
 		- 1, 1
 	- 따라서
 		- S의 Function은 **x XOR y**
 		- C 의 Function 은 **x AND y**
+
+<br><br>
 
 ## Full Adder (가산기)
 ![[스크린샷 2023-09-20 오전 3.19.24.png]]
