@@ -198,6 +198,7 @@
 - **Positive Edge Triggered JK Flip-Flop**
 - Q는 1로 초기화 후 실행.
 
+<br><br>
 ### Negative Edge (Falling, 하강 엣지)
 > - **Clock 의 값이 0이 되어 하강하는 구간에서만 Output이 변화**한다. (Positive Clock, Edge)
 > - **그 외의 경우 (Clock의 값이 변하지 않거나 하강하는 구간) 에는 Output이 변화하지 않는다.** -> No Change
