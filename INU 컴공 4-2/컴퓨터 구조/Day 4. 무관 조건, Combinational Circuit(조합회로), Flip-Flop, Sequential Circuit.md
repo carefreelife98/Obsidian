@@ -134,23 +134,27 @@
 	- **Q' (Complement)**
 - **Clock Pulse 존재.**
 	- Clock Pulse 의 변화에 따라 상태 (Output) 이 변함.
-- **set = 1, reset = 1**
-	- SR Flip-Flop 에서 위와 같은 경우는 허용하지 않음. (Indetermine)
+
+<br><br>
 ### SR Flip-Flop 특성표 (Characteristic Table)
 ![[스크린샷 2023-09-21 오전 3.53.51.png]]
+- **set = 1, reset = 1**
+	- SR Flip-Flop 에서 위와 같은 경우는 허용하지 않음. (Indetermine)
 
+<br><br>
 ## D Flip-Flop
 ![[스크린샷 2023-09-21 오전 3.58.54.png]]
-> **하나의 Input**.
+> **하나의 Input**.<br>
    간단함.
 - Input
-	- D (Direct, Data - Input 의 값이 바로 Output 이 됨.)
+	- D (Direct, Data - **Input 의 값이 곧 Output** 이 됨.)
 		- **Input (d) 이 1이면 Q(t+1) = 1**
 		- **Input (d) 이 0이면 Q(t+1) = 0**
 - Output (상태)
 	- Q
 	- Q' (Complement)
 
+<br><br>
 ## JK Flip-Flop
 ![[스크린샷 2023-09-21 오전 4.03.36.png]]
 >SR Flip-Flop 과 비슷.
@@ -161,6 +165,8 @@
 - Output (상태)
 	- Q
 	- Q' (Complement)
+
+<br><br>
 
 ## T Flip-Flop
 ![[스크린샷 2023-09-21 오전 4.07.29.png]]
