@@ -170,16 +170,17 @@
 
 ## T Flip-Flop
 ![[스크린샷 2023-09-21 오전 4.07.29.png]]
-> 하나의 Input.
-> Toggle Switch
+> **하나의 Input.**<br>
+> **Toggle Switch**
 - Input
-	- T (Transition, Toggle)
-		- Input 이 0 이면 그대로 반환.
+	- **T (Transition, Toggle)**
+		- **Input 이 0 이면 그대로 반환. (No Change)**
 		- **Input이 1 이면 해당 상태를 역전(Toggle) 하여 반환. (Complement)**
 - Output (상태)
 	- Q
 	- Q' (Complement)
 
+<br><br>
 ## Edge-triggered Flip-Flop (매우 중요)
 ![[스크린샷 2023-09-21 오전 4.18.58.png]]
 - 상단 그래프 : Positive Edge
