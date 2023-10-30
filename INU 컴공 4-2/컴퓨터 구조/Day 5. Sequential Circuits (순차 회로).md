@@ -1,8 +1,8 @@
 # Sequential Circuit's Excitation Table
 ![[스크린샷 2023-09-26 오후 4.39.29.png]]
 
-
-# Analysis
+<br><br>
+# Sequential Circuit Analysis
 ![[스크린샷 2023-09-26 오후 4.44.18.png]]
 - **Circuit 의 Output 이 Input 뿐만 아니라 이전 상태에 따라 결정된다.**
 	- **순서의 개념 추가됨**
