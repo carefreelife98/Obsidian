@@ -211,11 +211,14 @@
 ![[스크린샷 2023-09-21 오전 4.57.42.png]]
 > 1. 현 상태 및 다음 상태를 진리표와 같이 가정.
 > 2. 해당 상태를 만족하는 Input D 를 작성.
+
+<br><br>
 ### Excitation Table of D Flip-Flop 
 > **D Flip Flop 은 현 상태와 상관없음.**
 > -> D input 이 1 이면 1, 0 이면 0이 다음 상태가 된다.
 ![[스크린샷 2023-09-21 오전 4.36.48.png]]
 
+<br><br>
 ### Excitation Table of JK Flip-Flop 
 ![[스크린샷 2023-09-21 오전 4.55.30.png]]
 - **현 상태가 0 일때 다음 상태( Q(t+1) )도 0으로 만들어주는 JK Input**
