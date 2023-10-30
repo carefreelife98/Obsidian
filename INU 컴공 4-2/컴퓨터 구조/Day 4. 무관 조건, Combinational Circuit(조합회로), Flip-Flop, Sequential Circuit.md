@@ -134,6 +134,8 @@
 	- **Q' (Complement)**
 - **Clock Pulse 존재.**
 	- Clock Pulse 의 변화에 따라 상태 (Output) 이 변함.
+- **set = 1, reset = 1**
+	- SR Flip-Flop 에서 위와 같은 경우는 허용하지 않음. (Indetermine)
 ### SR Flip-Flop 특성표 (Characteristic Table)
 ![[스크린샷 2023-09-21 오전 3.53.51.png]]
 
