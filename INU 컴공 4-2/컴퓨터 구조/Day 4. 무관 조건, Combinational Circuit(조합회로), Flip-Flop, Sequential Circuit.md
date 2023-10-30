@@ -126,12 +126,14 @@
 		- 0,1 아무거나 와도 상관없다.
 ## SR Flip-Flop
 ![[스크린샷 2023-09-21 오전 3.53.41.png]]
-- Input
-	- S : Set (1로 만드는 것)
-	- R : Reset (0으로 만드는 것)
-- Output (상태)
-	- Q
-	- Q' (Complement)
+- **Input**
+	- S : **Set** (1로 만드는 것)
+	- R : **Reset** (0으로 만드는 것)
+- **Output (상태)**
+	- **Q**
+	- **Q' (Complement)**
+- **Clock Pulse 존재.**
+	- Clock Pulse 의 변화에 따라 상태 (Output) 이 변함.
 ### SR Flip-Flop 특성표 (Characteristic Table)
 ![[스크린샷 2023-09-21 오전 3.53.51.png]]
 
