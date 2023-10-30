@@ -158,6 +158,12 @@ int main(){
     return 0;  
 }
 ```
-
+- Virtual Keyword 를 붙혀 주어야 부모 클래스와 자식 클래스 모두의 소멸자를 호출 할 수 있다.
 <br><br>
-## Virtual Base Classes
+## Friend Functions
+> **서로 다른 Class 내의 Data 에 접근 가능하도록 특정 Class 에게 Friend keyword 를 통해 권한을 준다.**
+> <br>
+> 잦은 사용을 권하지 않음. (OOP 철학을 위반하게 됨)
+
+![[스크린샷 2023-10-30 오후 1.18.46.png]]
+
