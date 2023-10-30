@@ -187,6 +187,7 @@
 - 하단 그래프 : Negative Edge
 - **Clock Pulse 에 의해 동작**
 	- **Clock Pulse 가 상승/하강 할 때에 D Input (J, K, ..) 에 의해 동작하여 Output 반환**
+	- 일반 Gate 와 다른 점.
 
 
 ### Positive Edge (Rising, 상승 엣지)
