@@ -49,3 +49,6 @@ tags:
 > Practical Algorithm To Retrieve Information Coded In Alphanumeric
 
 개 어려움 다시 개인 공부해야 할 듯
+
+시험 문제:
+![[KakaoTalk_Photo_2023-10-30-16-22-16.jpeg]]
