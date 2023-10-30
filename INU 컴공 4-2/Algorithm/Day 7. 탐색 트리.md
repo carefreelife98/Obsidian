@@ -45,5 +45,7 @@ tags:
 끊임없이 생성되는 내부 노드에 의한 기억 장소의 낭비가 심하다.
 
 <br><br>
-# PATRICIA Tree (패트리샤 트리)
+# PATRICIA Tree (패트리샤 트리) 기말시험 반드시 나옴
 > Practical Algorithm To Retrieve Information Coded In Alphanumeric
+
+개 어려움 다시 개인 공부해야 할 듯
