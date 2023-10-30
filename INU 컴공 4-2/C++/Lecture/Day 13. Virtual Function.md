@@ -170,4 +170,4 @@ int main(){
 # Doubly Linked List
 
 # Iterator
-
+> 순회하는 것에 사용
