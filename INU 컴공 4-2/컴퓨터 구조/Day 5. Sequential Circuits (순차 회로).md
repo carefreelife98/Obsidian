@@ -26,6 +26,7 @@
 - **Combinational Circuit Output Equation**
 	- `y = Ax' + Bx'`
 
+<br><br>
 ### 2. State Table (상태표) 찾기
 #### State Table 구성 요소
 **Input**
