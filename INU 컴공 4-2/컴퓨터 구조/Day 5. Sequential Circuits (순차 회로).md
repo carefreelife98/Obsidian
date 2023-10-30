@@ -6,11 +6,11 @@
 ![[스크린샷 2023-09-26 오후 4.44.18.png]]
 - **Circuit 의 Output 이 Input 뿐만 아니라 이전 상태에 따라 결정된다.**
 	- **순서의 개념 추가됨**
-	- 동기화된. Clocked. Synchronized. 순차 회로라고도 함.
-- **분석 순서**
-	1. Boolean Function (Flip Flop 의 Input 과 Output) 찾기
-	2. State Table 찾기
-	3. State Diagram 그리기
+	- 동기화된. Clocked. Synchronized. 동기 순차 회로라고도 함.
+- **분석 순서 (Circuit 의 동작 과정 설명)**
+	1. **Boolean Function (Flip Flop 의 Input 과 Output) 찾기**
+	2. **State Table** 찾기
+	3. **State Diagram** 그리기
 
 ## Analysis of Sequential Circuit
 ### 1. Boolean Function 찾기
