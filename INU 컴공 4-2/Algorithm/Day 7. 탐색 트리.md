@@ -43,3 +43,7 @@ tags:
 
 ## 단점
 끊임없이 생성되는 내부 노드에 의한 기억 장소의 낭비가 심하다.
+
+<br><br>
+# PATRICIA Tree (패트리샤 트리)
+> Practical Algorithm To Retrieve Information Coded In Alphanumeric
