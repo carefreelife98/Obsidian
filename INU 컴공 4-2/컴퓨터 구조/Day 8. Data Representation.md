@@ -423,10 +423,10 @@ r: 진수
 ## Parity Bit
 ![[스크린샷 2023-10-17 오전 7.05.05.png]]
 > **Even Parity Bit (짝수)**
-> - **1의 개수를 짝수**로 만들어주는 Paraty Bit (0 or 1)
+> - **1의 개수를 짝수**로 만들어주는 Parity Bit (0 or 1)
 > <br>
 > **Odd Parity Bit (홀수)**
-> - **1의 개수를 홀수**로 만들어주는 Paraty Bit (0 or 1)
+> - **1의 개수를 홀수**로 만들어주는 Parity Bit (0 or 1)
 
 <br><br>
 ## Even Parity Bit / Odd Parity Bit 생성하기
