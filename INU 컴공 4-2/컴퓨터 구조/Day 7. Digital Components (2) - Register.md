@@ -28,7 +28,7 @@ tags:
 > 		- Clock Pulse 가 상승할 때에 상태가 바뀜.
 > - **Clear Input 이 각각의 Flip-Flop 에 연결되어 있음. (Direct Input)**
 > 	- **Direct Input** : Clock Pulse 나 Input 에 상관없이 Flip-Flop Output, 즉 상태를 바꾸는 것. (강제)
-> 	- 현재 예시에서는 Clear 가 1 인경우 A0 ~ A3 까지 Clock Pulse, Input 상관없이 0으로 초기화시킴.
+> 	- 현재 예시에서는 Clear 가 1 인경우 A0 ~ A3 까지 Clock Pulse, Input 상관없이 0으로 초기화시킴. (Reset)
 - **Register 가 값을 기억하고 있는 원리**
 	- **Clock Pulse 가 다시 상승하기 전까지는 이전의 상태를 유지함.**
 	- **자신의 값 (Value) 을 Holding** 하고 있게 된다.
