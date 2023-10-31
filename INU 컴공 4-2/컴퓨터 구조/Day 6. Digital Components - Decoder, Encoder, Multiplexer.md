@@ -43,7 +43,7 @@ tags:
 > - **A_2 가 0 일때, 우측 상단 부분의 2 X 4 Decoder 가 동작하고 있다.**
 > - **A_2 가 1 일때, 좌측 하단 부분의 2 X 4 Decoder 가 동작하고 있다.**
 > <br>
-> 따라서, 두 개의 2 X 4 Decoder 를 구성한 후, 각 Decoder 의 Enable Signal을 A_2 에 연결하고, 하나의 Decoder 에는 Inverter 를 추가하여 0과 1의 A_2 Input을 구현한다.
+> 따라서, 두 개의 2 X 4 Decoder 를 구성한 후, 각 Decoder 의 Enable Signal을 A_2 에 연결하고, 한 Decoder 의 Enable signal 앞에 Inverter 를 추가하여 0과 1의 A_2 Input을 구현한다.
 > - **A_2 가 0인 경우 (Enable Signal)**
 > 	- D0, D1, D2, D3 의 Output 을 반환하는 2 X 4 Decoder 동작
 > - **A_2 가 1인 경우 (Enable Signal)**
