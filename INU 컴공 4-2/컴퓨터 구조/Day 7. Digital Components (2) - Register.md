@@ -58,7 +58,7 @@ tags:
 ### Register with Parallel Load - Load 가 0인 경우
 ![[스크린샷 2023-10-10 오전 1.03.08.png]]
 > - 위의 경우에서, **만약 Load 가 0인 경우, D_i = A_i** 가 된다. 
-> 	- 이때, **D_i 는 A_i 에 연결되어 있기 때문에 Clock Pulse 의 상태와 무관하게 D_i = A_i 를 유지**
+> 	- 이때, **D_i 는 A_i 에 직접 연결되어 있기 때문에 Clock Pulse 의 상태와 무관하게 D_i = A_i 를 유지**
 > 	- 이는 Clock Pulse의 상태와 상관없이 **이전 상태를 유지한다는 의미.**
 > 		- 즉, **Load = 0 인 경우 No Change.**
 
