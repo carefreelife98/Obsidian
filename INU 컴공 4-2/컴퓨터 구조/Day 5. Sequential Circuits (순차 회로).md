@@ -129,7 +129,8 @@
 
 ###  JK Flip-Flop 에 대한 Boolean Function 찾기 (K-map)
 ![[스크린샷 2023-09-27 오전 12.57.22.png]]
-
+- Present State (A, B) , Input 의 총 세개 입력
+	- 8개(2^3)의 Cell 을 갖는 K-map 작성.
 ### Sequential Circuit (순차 회로) 그리기
 ![[스크린샷 2023-09-27 오전 1.00.07.png]]
 
