@@ -181,7 +181,7 @@ tags:
 > - **J 와 K 가 같으므로 JK Excitation Table 은 J 와 K 가 둘 다 0, 1 인 경우만 고려.**
 > 	- 사실상 T Flip-Flop 과 같은 기능을 수행
 
-3. State Diagram 작성
+3. **State Diagram 작성**
 > ![[스크린샷 2023-10-10 오전 2.50.30.png]]
 > - 위 Diagram을 보아, 위 Counter 는 **0 부터 1씩 15 까지 증가하는 4 Bit Increasing Counter.**
 > 	- 16 이 될 시 Output Carry 를 1 반환하고 다시 0 으로 초기화됨.
