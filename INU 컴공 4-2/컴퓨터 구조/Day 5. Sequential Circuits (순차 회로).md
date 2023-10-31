@@ -107,8 +107,8 @@
 
 
 ### 2. State Table 찾기
-> FF : JK Flip-Flop
-> Input : x
+> FF : **JK Flip-Flop**
+> Input : **x**
 > Excitation Table (기저 테이블, 여기표) 사용.
 
 ![[스크린샷 2023-09-26 오후 5.46.17.png]]
