@@ -87,8 +87,8 @@ tags:
 ## 4-Bit Shift Register
 ![[스크린샷 2023-10-10 오전 1.35.47.png]]
 > 이전에 본 병렬 Register 가 아닌 **직렬 Register.**
-> - 1, 1, 0, 1 이 Serial Input 으로 전달 **(직렬이므로 총 4번에 나누어)**
-> - **Clock Pulse 가 상승 할 때마다 다음 Flip Flop 으로 값을 전달**해나감.
+> - 1, 1, 0, 1 이 Serial Input 으로 전달되는 경우 **(직렬이므로 총 4번에 나누어)**
+> 	- **Clock Pulse 가 상승 할 때마다 다음 Flip Flop 으로 값을 전달**해나감.
 
 <br><br>
 
