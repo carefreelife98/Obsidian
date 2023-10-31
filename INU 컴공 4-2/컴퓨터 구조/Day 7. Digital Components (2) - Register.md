@@ -128,7 +128,7 @@ tags:
 
 4. **Selection Signal 이 1, 1 일때**
 	- Index 3 이 선택된다.
->
+>![[스크린샷 2023-10-31 오후 2.54.00.png]]
 >- 앞에서 본 Parallel Load 가 1 인 것과 같은 상황.
 > 	- **Clock Pulse 가 상승 할 때 Input 을 A_0 ~ A_3 으로 전달.**
 
