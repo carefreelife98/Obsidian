@@ -141,9 +141,9 @@ r: 진수
 <br><br>
 
 # Fixed Point Representation
-> 음수를 어떻게 표현하는가?
+> **음수를 어떻게 표현하는가?**
 > <br>
-> 세 가지 방법 존재.
+> **세 가지 방법 존재.**
 > - **Signed magnitude representation**
 > 	- 부호 크기 방식
 > 		- **최상위 비트를 부호로 표현.**
@@ -154,7 +154,7 @@ r: 진수
 
 <br><br>
 
-## Signed Magnitude Representation
+## 1. Signed Magnitude Representation
 ![[스크린샷 2023-10-11 오후 2.10.03.png]]
 > - 부호 크기 방식
 > 	- **최상위 비트를 부호로 표현.**
