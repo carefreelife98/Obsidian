@@ -19,7 +19,7 @@ tags:
 
 ## 2 X 4 decoder (2-to-4-line decoder)
 ![[스크린샷 2023-10-09 오후 6.39.44.png]]
-> 일반적인 2 X 4 Decoder 의 모습은 위와 같다.
+> **일반적인 2 X 4 Decoder 의 모습은 위와 같다.**
 > - Decoder 는 Combination Circuit 중 하나이므로 진리표 작성 가능.
 > <br>
 > **Enable 기능의 추가**
