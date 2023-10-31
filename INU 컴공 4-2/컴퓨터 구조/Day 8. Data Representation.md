@@ -140,13 +140,6 @@ r: 진수
 
 <br><br>
 
-
-
-
-
-
-
-
 # Fixed Point Representation
 > 음수를 어떻게 표현하는가?
 > <br>
