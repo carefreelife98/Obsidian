@@ -55,7 +55,7 @@ tags:
 ![[스크린샷 2023-10-09 오후 6.46.59.png]]
 ![[스크린샷 2023-10-09 오후 6.50.13.png]]
 > **NAND Gate 로 구성되어 있는 Decoder.**
-> - 앞단의 Inverter 도 NAND 로 변환이 가능하므로 NAND Gate 로만 구설할 수 있는 Decoder 이다.
+> - 앞단의 Inverter 도 NAND 로 변환이 가능하므로 NAND Gate 로만 구성할 수 있는 Decoder 이다.
 
 <br><br>
 
@@ -67,7 +67,6 @@ tags:
 <br><br>
 
 # Multiplexers (MUX, Data Selector)
-
 > **n 개의 Input 을 1개의 Output 으로 반환.**
 > - n개의 input 중 하나의 Input 을 선정하여 반환함.
 > <br>
