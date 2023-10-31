@@ -95,7 +95,7 @@
 
 
 # Sequential Circuit Design (설계)
-> 회로의 동작, 기능 등이 주어지면 해당 Circuit을 그리는 것.
+> **회로의 동작, 기능 등이 주어지면 해당 Circuit을 그리는 것.**
 > 	- Analysis 와는 반대의 과정.
 
 ## Binary Counter
