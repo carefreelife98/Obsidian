@@ -78,3 +78,17 @@ class MainActivity : AppCompatActivity() {
 ## EditText 를 TextInputLayout 으로 변환하기
 
 ## Dimenstion Resource
+
+## Scope Function
+```kotlin
+// Scope Function : 같은 객체를 여러번 사용 할 시에 사용.  
+binding.amountTextView.apply {  
+	text = "%.2f \$".format(usd)  
+	setTextColor(tvColor)  
+	textSize = txSize  
+}  
+
+// binding.amountTextView.text = "%.2f \$".format(usd)  
+// binding.amountTextView.setTextColor(tvColor)  
+// binding.amountTextView.textSize = txSize
+```
