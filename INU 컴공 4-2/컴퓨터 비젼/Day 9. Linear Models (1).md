@@ -19,3 +19,31 @@ tags:
 ## Problem Setup
 > Learning Problem 을어떻게 Setup 하는가?
 ### Credit Approval
+> 각 Data 의 확실한 특징을 설정.
+
+|**Component**|**Symbol**|**Credit Approval Metaphor**|
+|---|---|---|
+|**Input**|**x(Vector)**|customer application|
+|**Output**|y|approve or deny|
+|**Target Function**|f:**x** -> y|ideal credit approval formula|
+|**Data**|(**x**1, y1) , ... , (**x**n, yn)|historical records|
+|**Hypothesis**|g: **x** -> y|formula to be used|
+
+> **Input**
+> - **x** : Vector
+> <br>
+> **Output**
+> - y : Binary 값.
+> - 승인 여부
+> <br>
+> **Target Function**
+> - 우리가 정답이라고 생각하는 것. (Oracle)
+> - 실제 정답에 해당되는 것들의 분포.
+> <br>
+> **Data**
+> - 각각의 Data
+> <br>
+> **Hypothesis**
+> - g
+> - 우리가 맞추어야 하는 F (Target Function) 를 근사, 모사하도록 학습이된다.
+- 우리는 Target Function 에 해당되는 
