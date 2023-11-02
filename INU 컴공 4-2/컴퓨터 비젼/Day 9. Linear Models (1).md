@@ -96,6 +96,7 @@ tags:
 
 <br><br>
 # Perceptron
+## Agenda of Perceptron
 > **Linear Model 의 가장 기본적인 형태.**
 > - 인공 신경망, AI 등의 기본이 되는 Unit 이 Perceptron.
 > - 선형 분류기
@@ -112,3 +113,19 @@ tags:
 > 	- **a 가 양수인 경우 y = 1**
 
 <br><br>
+## Two-dimensional Case - 결정 경계 (Decision Boundary)
+![[스크린샷 2023-11-03 오전 3.04.42.png]]
+> **결정 결계 (Decision Boundary)**
+> - 2차원 에서 정의되는 y = ax + b 라는 기준 선.
+> <br>
+> **Learning Algorithm 이 하는 역할은 Parameter(weights) 의 설정**
+> - Data Set 에 맞춰 적절히 작동하도록 결정 경계선의 기울기(parameter. {a, b})를 찾아가는 Algorithm.
+
+<br><br>
+![[스크린샷 2023-11-03 오전 3.12.47.png]]
+> **Learning Algorithm 에 의해 찾은 이상적인 Parameter 는 Hypothesis(g) 가 된다.**
+> - g 는 Opimal Choice 가 된다. (가장 이상적인 결정 경계 직선)
+
+<br><br>
+
+## Perceptron Learning Algorithm (PLA)
