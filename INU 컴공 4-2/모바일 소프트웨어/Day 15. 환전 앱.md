@@ -76,3 +76,5 @@ class MainActivity : AppCompatActivity() {
 
 <br><br>
 ## EditText 를 TextInputLayout 으로 변환하기
+
+## Dimenstion Resource
