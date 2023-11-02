@@ -180,4 +180,9 @@ return 𝒘;
 > - Line 4 에서 모든 데이터를 비교하기 때문에 PLA 보다는 시간 소요가 크다.
 
 <br><br>
-## PLA vs Pocket Algorithm
+## PLA 와 Pocket Algorithm 의 모습
+![[스크린샷 2023-11-03 오전 4.33.39.png]]
+
+<br><br>
+
+# Linear Regression
