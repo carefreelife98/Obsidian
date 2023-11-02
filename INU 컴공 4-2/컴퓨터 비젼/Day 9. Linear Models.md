@@ -165,4 +165,18 @@ tags:
 <br><br>
 ## Pocket Algorithm
 > Error 발생을 최소화 하기 위해 모색한 방법 중 하나.<br>
-> 
+> **이상적인 결정 경계선을 찾는 과정 중  Pocket 공간에 가장 이상적인 선(weight) 을 저장해둔다.**
+> - 가장 이상적인 weight 는 **Error 발생이 가장 적은 weight**
+
+```python
+set the pocket weight vector 𝒘 to 𝒘(0) of PLA
+for (𝑡𝑡 = 0, … , 𝑇𝑇 − 1) do
+	run PLA for one update to obtain 𝒘(𝑡 + 1);
+	evaluate 𝐸𝑖n(𝒘(𝑡 + 1);     /* time consuming */
+	if (𝑤(𝑡 + 1) is better than 𝒘 in terms of 𝐸𝑖n)
+		then set 𝒘 to 𝒘(𝑡 + 1)
+return 𝒘;
+```
+> - Line 4 에서 모든 데이터를 비교하기 때문에 PLA 보다는 시간 소요가 크다.
+
+<br><br>
