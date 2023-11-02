@@ -55,8 +55,8 @@ tags:
 <br><br>
 ### Credit Approval 예시
 ![[스크린샷 2023-11-03 오전 2.06.33.png]]
-- 이성적인 판단 기준 (정답) 은 F 이나, 이를 수학적으로 정의하기 어려움.
-- 따라서 F에 근접한 Hypothesis (g) 를 가장 기본적인 구조인 Linear (Model) 로서 표현.
+- 이성적인 판단 기준 (정답) 은 F 이나, 이를 **수학적으로 정의하기 어려움.**
+- 따라서 **F에 근접한 Hypothesis (g) 를 가장 기본적인 구조인 Linear (Model) 로서 표현.**
 
 <br><br>
 ### Learning Algorithm (Model)
@@ -69,3 +69,6 @@ tags:
 > - **H** 에서 Best **Hypothesis (g) 를 선정.**
 
 <br><br>
+### Basic Setup
+![[스크린샷 2023-11-03 오전 2.14.22.png]]
+- 이전까지 설명한 내용을 표로서 위와 같이 표현 할 수 있다.
