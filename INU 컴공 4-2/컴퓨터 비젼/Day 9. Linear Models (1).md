@@ -53,4 +53,19 @@ tags:
 	- g 에 대한 Input(**x**) 을 통해 얻은 Output(y) 의 **정확도를 높이기 위한 Parameter 를 설정**하게 되는 것.
 
 <br><br>
-### 예시
+### Credit Approval 예시
+![[스크린샷 2023-11-03 오전 2.06.33.png]]
+- 이성적인 판단 기준 (정답) 은 F 이나, 이를 수학적으로 정의하기 어려움.
+- 따라서 F에 근접한 Hypothesis (g) 를 가장 기본적인 구조인 Linear (Model) 로서 표현.
+
+<br><br>
+### Learning Algorithm (Model)
+![[스크린샷 2023-11-03 오전 2.10.59.png]]
+> **Learning Algorithm (Model) 생성이란?**
+> - **Hypothesis (g)를 생성하는 것.**
+> - Data 를 이용하여 f 에 근접한 g 라는 Folmula 를 생성.
+> <br>
+> **여러 Hypothesis 가 모여있는 그룹을 Hypothesis Set (**H**) 라고 함.**
+> - **H** 에서 Best **Hypothesis (g) 를 선정.**
+
+<br><br>
