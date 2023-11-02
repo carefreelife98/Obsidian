@@ -186,3 +186,6 @@ return 𝒘;
 <br><br>
 
 # Linear Regression
+![[스크린샷 2023-11-03 오전 5.54.53.png]]
+> 이전에 학습한 내용에서는 f(**x**) = y 이며 이에 근사한 결과를 도출하기 위해 g(**x**) = y 를 찾아 y 값에 따라 적절히 Classification 했으나, **Regression의 경우 y 값이 정수가 아닌 실수(Real Number)로서 도출되어 명확한 Classification 이 불가한 경우**이다.<br>
+> - f 에 약간의 Noise 가 추가되어 있는 경우.
