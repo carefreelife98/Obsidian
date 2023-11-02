@@ -9,8 +9,15 @@ tags:
   - Computer_Vision
 ---
 # Learning Problem
+## Learning from Data
 > **인간의 학습**<br>
 > 나무를 예로 들자면, 인간은 나무를 특별히 학습하지 않더라도 살아가는 과정에서 나무를 보고 접하며 학습 하게 될 수 있다.<br>
 > **즉, Data 를 통해 학습 할 수 있다.**
 
-## The Essence of Learning from Data
+<br><br>
+
+## Problem Setup
+> Learning Problem 을어떻게 Setup 하는가?
+
+<br><br>
+### Credit Approval
