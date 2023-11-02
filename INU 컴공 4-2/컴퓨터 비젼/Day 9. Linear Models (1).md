@@ -18,6 +18,4 @@ tags:
 
 ## Problem Setup
 > Learning Problem 을어떻게 Setup 하는가?
-
-<br><br>
 ### Credit Approval
