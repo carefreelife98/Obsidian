@@ -131,3 +131,8 @@ tags:
 ## Perceptron Learning Algorithm (PLA)
 ![[스크린샷 2023-11-03 오전 3.29.15.png]]
 > **Hypothesis(g) 를 생성하기 위하여 가지고 있는 Data Set 에 대해 가장 이상적인 결정 경계를 생성 할 수 있는 Parameter (w) 를 결정하는 알고리즘.**
+
+<br><br>
+![[스크린샷 2023-11-03 오전 3.44.26.png]]
+> 위처럼 주어진 Perceptron 의 weight 를 **sign 함수의 값에 따라 업데이트 해가며 이상적인 weight 를 찾아간다. (Iteration 을 통해서)** 
+
