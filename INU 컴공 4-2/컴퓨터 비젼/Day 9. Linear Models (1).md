@@ -75,3 +75,27 @@ tags:
 
 <br><br>
 
+## Learning Model
+> **Learning Problem 의 세 가지를 정의.**
+> - **Target Function (f)**
+> - **Training Examples (Data)**
+> - **Learning Algorithm(A), Hypothesis Set (H)**
+> 	- 사용자가 정하는 것. 
+> 	- 어떤 Model 을 사용 할 것인지.
+
+<br><br>
+## Hypothesis Set
+![[스크린샷 2023-11-03 오전 2.48.37.png]]
+> **Hypothesis Set H 는 h(x) 로서 구체화됨.**
+> - 또한 h(x) 는 항상 H 에 포함됨.
+> <br>
+> **h(x)**
+> - **x 로부터 각각의 다른 weights(= Parameter) 를 받게 됨.**
+> 	- 예를 들어 **y = ax + b** 인 경우 **Parameter 는 {a, b}**
+> 	- a 와 b 의 값에 따라 **선의 기울기가 달라진다.**
+
+<br><br>
+# Perceptron
+> **Linear Model 의 가장 기본적인 형태.**
+> - 인공 신경망, AI 등의 기본이 되는 Unit 이 Perceptron.
+> - 선형 분류기
