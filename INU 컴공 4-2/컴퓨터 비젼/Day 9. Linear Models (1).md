@@ -13,8 +13,8 @@ tags:
 > **인간의 학습**<br>
 > 나무를 예로 들자면, 인간은 나무를 특별히 학습하지 않더라도 살아가는 과정에서 나무를 보고 접하며 학습 하게 될 수 있다.<br>
 > **즉, Data 를 통해 학습 할 수 있다.**<br>
-> 이처럼, 특정 학습을 위해 어떠한 수학적인 Function을 구축하는 것은 쉽지 않다.<br>
-> 이 과정을 여러 Historical Data 를 통해 
+> 이처럼, 특정 학습을 위해 어떠한 **수학적인 Function을 구축하는 것은 쉽지 않다.**<br>
+> **대신 이 과정을 여러 Historical Data 를 통해 학습 시킬 수 있다.**
 
 <br><br>
 
@@ -48,4 +48,4 @@ tags:
 > **Hypothesis**
 > - g
 > - 우리가 맞추어야 하는 F (Target Function) 를 근사, 모사하도록 학습이된다.
-- 우리는 Target Function 에 해당되는 
+- 우리는 Target Function 에 해당되는 정답이란 것을 수학적으로 정의하기는 어렵지만, 해당 Target Function 을 대신 할 수 있는
