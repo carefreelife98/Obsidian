@@ -142,8 +142,10 @@ tags:
 > Classification 이란 Category 를 분류하는 것.
 
 ## Linear Model for Binary Classification
+![[스크린샷 2023-11-03 오전 4.03.00.png]]
 > 가장 쉬운 Classification.
 > - **Binary, 즉 0과 1 (-1 or 1) 두개의 Category 로 분류.**
 > - Perceptron 을 활용.
 > - **Vector 로서 존재하는 Data 를 특정 공간 d 에 Mapping 시켜 생성되는 Output y 를 h(x) = sign(w^T x) 을 활용하여 분류.**
-> - 
+
+<br><br>
