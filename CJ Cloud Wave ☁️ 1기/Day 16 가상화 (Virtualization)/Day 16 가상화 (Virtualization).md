@@ -241,7 +241,6 @@
   
 
 ![[Untitled 5.png]]
-
 - Servera - Docker 설치 및 실행된 모습.
 
   
