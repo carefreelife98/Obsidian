@@ -48,4 +48,9 @@ tags:
 > **Hypothesis**
 > - g
 > - 우리가 맞추어야 하는 F (Target Function) 를 근사, 모사하도록 학습이된다.
-- 우리는 Target Function 에 해당되는 정답이란 것을 수학적으로 정의하기는 어렵지만, 해당 Target Function 을 대신 할 수 있는
+- **우리는 Target Function 에 해당되는 정답이란 것을 수학적으로 정의하기는 어려움.**
+- 해당 **Target Function 을 대신 할 수 있는 Hypothesis (g) 를 생성.**
+	- g 에 대한 Input(**x**) 을 통해 얻은 Output(y) 의 **정확도를 높이기 위한 Parameter 를 설정**하게 되는 것.
+
+<br><br>
+### 예시
