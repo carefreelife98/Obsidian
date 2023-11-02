@@ -149,3 +149,20 @@ tags:
 > - **Vector 로서 존재하는 Data 를 특정 공간 d 에 Mapping 시켜 생성되는 Output y 를 h(x) = sign(w^T x) 을 활용하여 분류.**
 
 <br><br>
+## Reality : 선형 분류의 한계 (In-sample Error & Out-of-sample Error)
+![[스크린샷 2023-11-03 오전 4.13.10.png]]
+> 하지만 이상과 현실은 다르다.<br>
+> **실제 데이터들은 매우 혼잡한 상태로 분포하며, 아주 이상적인 경우를 제외하고 선형적으로 분리되기 어려움.**<br>
+> **In-sample Error**
+> - 기존에 가지고 있는 Data Set 에 대한 Error.
+> <br>
+> **Out-of-sample Error**
+> - 한번도 보지 못한 새로운 Data 에 대한 Error.
+> <br>
+> 위와 같은 Error 는 Linear Classification 에서 필연적으로 발생할 수 밖에 없다.
+> - Linear Classification 이 될 법도 한데, 아주 작은 Noise 때문에 실패 할 수도 있음.
+> - 따라서, **Error 를 최대한 줄일 방법을 모색해야함.**
+<br><br>
+## Pocket Algorithm
+> Error 발생을 최소화 하기 위해 모색한 방법 중 하나.<br>
+> 
