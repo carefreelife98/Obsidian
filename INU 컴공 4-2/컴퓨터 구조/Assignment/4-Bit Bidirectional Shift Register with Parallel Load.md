@@ -33,3 +33,5 @@ tags:
 
 <br><br>
 # 선택 과제 (2) 2X4 NAND Gate Decoder
+
+# 4. 그림 2-4: 4x1 멀티플렉서
