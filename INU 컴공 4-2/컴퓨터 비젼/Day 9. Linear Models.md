@@ -192,3 +192,7 @@ return 𝒘;
 
 <br><br>
 ## Linear Regression in 1D & 2D
+
+**1D**
+> Data 를 1차원 공간에 Mapping 하였을 시 분포하는 좌표 지점과 g 의 그래프 (선) 간의 오차가 Error 이다.<br>
+> 모든 Error 를 더한 값이 총 Error 크기가 되고, 그 크기가 가장 적게 나타나는 직선을 선택하게 된다.
