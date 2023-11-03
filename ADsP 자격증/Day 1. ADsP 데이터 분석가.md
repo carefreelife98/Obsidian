@@ -4,6 +4,7 @@ Date: 2023-11-03T17:51:00
 Agenda: 
 tags:
   - ADsP
+Secrets: "자료 Password : techmr"
 ---
 # Orientation
 > **ADsP 는 빅데이터 처리를 주 목적으로 함.**
