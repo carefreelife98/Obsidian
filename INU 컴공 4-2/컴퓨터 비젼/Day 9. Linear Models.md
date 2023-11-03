@@ -209,7 +209,7 @@ return 𝒘;
 <br><br>
 
 ## Linear Model 요약
-
+![[스크린샷 2023-11-03 오후 4.50.43.png]]
 > **Linear Model 생성 방법의 종류**
 > - **Classification**
 > - **Regression**
