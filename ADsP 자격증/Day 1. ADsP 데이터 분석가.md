@@ -46,3 +46,15 @@ Secrets: "자료 Password : techmr"
 
 ## DIKW Pyramid
 ![[스크린샷 2023-11-03 오후 7.15.44.png]]
+> **각각이 어떻게 다른지 구별 할 수 있어야 함.**
+> - Data
+> - Information
+> - Knoledge
+> - Wisdom
+
+<br><br>
+
+![[스크린샷 2023-11-03 오후 7.19.27.png]]
+> **각 계층 이동 간의 변화를 인지해야 함.**
+
+<br><br>
