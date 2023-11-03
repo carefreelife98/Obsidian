@@ -58,4 +58,7 @@ Secrets: "자료 Password : techmr"
 > **각 계층 이동 간의 변화를 인지해야 함.**
 
 <br><br>
-## Database 의 정의
+## Database 의 특징
+![[스크린샷 2023-11-03 오후 7.31.46.png]]
+> 비정형 데이터
+> 
