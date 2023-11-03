@@ -198,3 +198,5 @@ return 𝒘;
 > 모든 Error 를 더한 값이 총 Error 크기가 되고, **그 크기가 가장 적게 나타나는 직선을 선택하게 된다.**
 
 <br><br>
+# Matrix Representation
+
