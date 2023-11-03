@@ -195,3 +195,26 @@ tags:
 > <br>
 > 이처럼 **Training Error 와 Testing Error 에서 발생하는 간극(차이)을 Generalization Error** 라고 한다.
 
+# The Perfect Classification Algorithm
+![[스크린샷 2023-11-03 오후 5.02.34.png]]
+> **Objective Function**
+> - Loss Function.
+> - **해결하고자 하는 문제에 대하여 발생하는 Error 들의 심각성 정도에 따라 다른 Penalty 를 부여.**
+> <br>
+> **Parameterization**
+> - Parameter 를 설정하는 것.
+> - **Model 의 복잡도를 결정.**
+> 	- 1차원 모델을 사용할 것인지 2차원 모델을 사용할 것 인지..
+> <br>
+> **Regularization**
+> - Data / Model 에 대한 규제를 추가.
+> - Machine Learning 에서 사용
+> <br>
+> **Training Algorithm**
+> - 어떻게 우리가 설정한 목적 함수를 잘 학습 시킬 것인가? 에 대한 알고리즘
+> 	- SGD
+> 	- Adam
+> - Optimizer
+> <br>
+> **Inference Algorithm**
+> - Inference 를 하는 방법에 따라서도 성능의 차이가 발생한다.
