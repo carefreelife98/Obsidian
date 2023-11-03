@@ -58,3 +58,4 @@ Secrets: "자료 Password : techmr"
 > **각 계층 이동 간의 변화를 인지해야 함.**
 
 <br><br>
+## Database 의 정의
