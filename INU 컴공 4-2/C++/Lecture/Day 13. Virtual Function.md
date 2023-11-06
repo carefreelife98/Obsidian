@@ -171,3 +171,31 @@ int main(){
 
 # Iterator
 > 순회하는 것에 사용
+
+
+# this Pointer
+> **this Pointer**
+> - 자기 자신 객체의 주소 값이 저장되어 있음.
+
+```kotlin
+#include <iostream>  
+using namespace std;  
+  
+class what {  
+private:  
+    int alpha;  
+public:  
+    void tester() {  
+	    // 이렇게 쓰지 않아도 되지만 this 를 통해 자기 자신의 속성에 접근할 수 있다는 것을 알 수 있음. 
+        this->alpha = 11;
+        cout << this->alpha;  //same as cout << alpha;  
+    }  
+};  
+  
+int main() {  
+    what w;  
+    w.tester();  
+    cout << endl;  
+    return 0;  
+}
+```
