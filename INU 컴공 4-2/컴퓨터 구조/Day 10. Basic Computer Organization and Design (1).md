@@ -70,6 +70,7 @@ tags:
 
 <br><br>
 ## List of Registers
+![[스크린샷 2023-11-06 오후 5.45.15.png]]
 > **PC (Program Counter)**
 > - **명령어의 주소가 저장**되는 Register.
 > - Address 가 저장되므로 12 Bit 로 이루어짐.
@@ -95,6 +96,7 @@ tags:
 <br><br>
 
 ## Data 의 이동 (추가 노트 작성 필요)
-> **Bus System 을 이용**해서 Register <-> Register , Register <-> Memory 간의 Data 이동이 수행된다.
+
+> **Bus System 을 이용**해서 **`Register <-> Register`** , **`Register <-> Memory`** 간의 **Data 이동이 수행**된다.
 > <br><br>
 > **Selection Signal (S2, S1, S0) 에 의해 BUS 에 Load 될 Register 종류가 정해진다.**
