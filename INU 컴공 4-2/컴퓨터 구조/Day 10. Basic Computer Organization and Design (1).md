@@ -96,9 +96,19 @@ tags:
 <br><br>
 
 ## Data 의 이동 - Bus System
-
+![[스크린샷 2023-11-07 오후 5.55.50.png]]
 > **Bus System 을 이용**해서 **`Register <-> Register`** , **`Register <-> Memory`** 간의 **Data 전송이 수행**된다.
 > <br><br>
-> **Selection Signal (S2, S1, S0) 에 의해 BUS 에 Load 될 Register 종류가 정해진다.**
+> **각각의 Register 는 일반적으로 Load(LD), Increment(INR), Clear(CLR) 을 갖는다.**
 > <br><br>
-> 각각의 Register 는 일반적으로 Load(LD), Increment(INR), Clear(CLR) 을 갖는다.
+> **Selection Signal (S2, S1, S0) 에 의해 BUS 에 Load 될 Register 종류 및 그 값이 정해진다.**
+> <br><br>
+> Selection Signal 이 111 인 경우, **Register 에는 항상 AR 이 연결**되어 있으므로 **Memory 가 AR 에 저장되어 있는 주소 값을 참조해서 적절한 값을 찾아 BUS 에 Load** 하는 것.
+> <br><br>
+> **AR 과 Program Ccounter 는 12 Bit** 이지만 **BUS 는 16 bit, 즉 16개의 Line** 으로 이루어짐.
+> - 위처럼 AR 과 PC 가 Selection Signal 에 의해 선택되어 **BUS 에 Load 될 경우에는 상위 4개의 Bit 가 0으로 채워진 후 BUS 에 Load** 된다.
+> - 마찬가지로 **BUS 에서 AR 과 PC 가 값을 읽어올 때에도 해당 값의 하위 12 Bit 만 읽어온다.**
+> - 같은 원리로 **Output Register (OUTR) 도 BUS Line 으로부터 값을 읽어올 때 하위 8 Bit 만 읽어오게 된다.**
+
+
+> AC 
