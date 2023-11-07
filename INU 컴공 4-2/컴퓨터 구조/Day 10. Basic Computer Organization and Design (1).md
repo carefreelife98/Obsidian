@@ -95,8 +95,10 @@ tags:
 
 <br><br>
 
-## Data 의 이동 (추가 노트 작성 필요)
+## Data 의 이동 - Bus System
 
-> **Bus System 을 이용**해서 **`Register <-> Register`** , **`Register <-> Memory`** 간의 **Data 이동이 수행**된다.
+> **Bus System 을 이용**해서 **`Register <-> Register`** , **`Register <-> Memory`** 간의 **Data 전송이 수행**된다.
 > <br><br>
 > **Selection Signal (S2, S1, S0) 에 의해 BUS 에 Load 될 Register 종류가 정해진다.**
+> <br><br>
+> 각각의 Register 는 일반적으로 Load(LD), Increment(INR), Clear(CLR) 을 갖는다.
