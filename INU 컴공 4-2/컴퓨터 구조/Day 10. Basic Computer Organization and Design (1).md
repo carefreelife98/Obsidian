@@ -96,19 +96,39 @@ tags:
 <br><br>
 
 ## Data 의 이동 - Bus System
-![[스크린샷 2023-11-07 오후 5.55.50.png]]
+![[스크린샷 2023-11-08 오후 12.00.33.png]]
 > **Bus System 을 이용**해서 **`Register <-> Register`** , **`Register <-> Memory`** 간의 **Data 전송이 수행**된다.
-> <br><br>
+> <br>
 > **각각의 Register 는 일반적으로 Load(LD), Increment(INR), Clear(CLR) 을 갖는다.**
-> <br><br>
+> <br>
 > **Selection Signal (S2, S1, S0) 에 의해 BUS 에 Load 될 Register 종류 및 그 값이 정해진다.**
-> <br><br>
+> <br>
 > Selection Signal 이 111 인 경우, **Register 에는 항상 AR 이 연결**되어 있으므로 **Memory 가 AR 에 저장되어 있는 주소 값을 참조해서 적절한 값을 찾아 BUS 에 Load** 하는 것.
 > <br><br>
+> ![[스크린샷 2023-11-07 오후 5.55.50.png]]
 > **AR 과 Program Ccounter 는 12 Bit** 이지만 **BUS 는 16 bit, 즉 16개의 Line** 으로 이루어짐.
 > - 위처럼 AR 과 PC 가 Selection Signal 에 의해 선택되어 **BUS 에 Load 될 경우에는 상위 4개의 Bit 가 0으로 채워진 후 BUS 에 Load** 된다.
 > - 마찬가지로 **BUS 에서 AR 과 PC 가 값을 읽어올 때에도 해당 값의 하위 12 Bit 만 읽어온다.**
 > - 같은 원리로 **Output Register (OUTR) 도 BUS Line 으로부터 값을 읽어올 때 하위 8 Bit 만 읽어오게 된다.**
 
+![[스크린샷 2023-11-08 오후 12.13.22.png]]
+> **AC & DR 의 특수한 경우**
+> - **DR 은 AC 에 연결**이 되어 있다.
+> 	- **DR 의 Output 이 그대로 AC 에 전송**이 될 수 있음.
+> - Selection Signal 이 100 인 경우 (index 4 선택)
+> 	- AC 의 값이 BUS 에 그대로 올라온다.
+> 	- 이때 **DR 과 AC 의 Load가 동시에 1**이 되면, **BUS 에 올라온 AC 값이 그대로 DR 의 Input 으로 전송.**
+> 	- 또한 DR 은 Adder 의 AND logic 을 통해 AC 에 연결되어 있으므로 만약 **Adder 의 Selection Signal 이 No Change, 즉 그대로 전송하는 기능을 선택하고 있다면 AC 에 DR 의 Output 이 그대로 전송됨.**
+> - 위와 같은 과정에 의해 **하나의 Clock 시간동안 DR 과 AC 의 값의 교환이 발생할 수 있다. (사진과 같은 설계를 가정한 특수한 경우)**
 
-> AC 
+<br><br>
+
+# Instruction Format
+
+> **명령어는 다음과 같은 세 가지 종류가 존재하며 각 종류에 따라 정의하는 Field 의 내용이 달라짐.**
+> - **Memory 참조 명령어**
+> 	- I 의 값 (0 or 1) 에 따라 직접 주소인지, 간접 주소인지 판별.
+> 	- Opcode (3 Bit - 000 ~ 111) 에 따라서 명령어의 종류가 달라짐.
+> 	- 나머지 12 Bit (Address) 는 피연산자의 주소를 나타냄.
+> - **Resgister 참조 명령어**
+> - **I/O 명령어**
