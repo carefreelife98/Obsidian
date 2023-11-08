@@ -15,3 +15,16 @@ tags:
 
 ## KMP 
 **\[기말 시험] next\[M]**
+
+```python
+initNext(p[]):
+	M <- 패턴의 길이;
+	next[0] <- -1;
+	for(i <- 1, j <- 0; i < M; i <- i + 1, j <- j + 1) do {
+		next[i] <- j;
+		while(j >= 0 and p[i] != p[j]) do {
+			j <- next[j];
+		}
+	}
+end initNext()
+```
