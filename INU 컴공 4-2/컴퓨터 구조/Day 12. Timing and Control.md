@@ -138,14 +138,16 @@ tags:
 
 <br><br>
 
-## Instruction Cycle - Memory 참조 명령어
+## Instruction Cycle - Memory 참조 명령어 7가지
 ![[스크린샷 2023-11-09 오후 2.36.33.png]]
 > **Opcode 가 000 ~ 110 범위 인 경우.**<br>
 > 앞서 진행했던 단계 (T_0, T_1 : FETCH, T_2 : DECODE, T_3 : EXECUTE) 이후에 Memory 참조 명령어가 실행됨.
 > - **따라서 모든 Memory 참조 명령어는 T_4 단계부터 진행.**
-> <br><br>
-> 1. **AND : AND to AC**
-> 	![[스크린샷 2023-11-09 오후 2.07.27.png]]
+
+<br><br>
+
+### 1. AND : AND to AC
+![[스크린샷 2023-11-09 오후 2.07.27.png]]
 > 	- **AND memory word to AC**
 > 		- **memory word 란 유효 주소가 가리키고 있는 메모리의 값.**
 > 			- 즉, Address Register 에 들어있는 번지 수가 가리키고 있는 메모리 공간의 값.
@@ -159,9 +161,12 @@ tags:
 > 		2. **D_0 D_5 : AC <- AC ^ DR, SC <- 0**
 > 			- **AC 와 이전에 DR 로 가져온 값을 AND 연산 후 다시 AC 에 저장.**
 > 			- **그와 동시에 SC (순차 카운터) 를 0으로 초기화**
-> 				- SC 를 0으로 초기화 할 시 T_0 로 돌아가게 됨.<br><br>
-> 2. **ADD : add to AC**
-> 	![[스크린샷 2023-11-09 오후 2.21.51.png]]
+> 				- SC 를 0으로 초기화 할 시 T_0 로 돌아가게 됨.
+
+<br><br>
+
+### 1. ADD : add to AC
+![[스크린샷 2023-11-09 오후 2.21.51.png]]
 > 	- **가산 연산**
 > 	- **두 단계에 걸쳐 이루어짐 (T_4 -> T_5)**
 > 		1. **D_1 T_4 : DR <- M\[AR]**
@@ -172,9 +177,11 @@ tags:
 > 		2. **D_1 T_5 : AC <- AC + DR, E <- C_out, SC <- 0**
 > 			- **가산 연산 (add) 실행과 동시에 E (Extended Accumulator) 에 end carry 저장.**
 > 			- 그와 동시에 **SC 를 0으로 초기화 하여 T_0 로 상태 설정.**
-> 			<br><br>
-> 3. **LDA : load to AC**
-> 	![[스크린샷 2023-11-09 오후 2.21.26.png]]
+
+<br><br>
+
+### 3. LDA : load to AC
+![[스크린샷 2023-11-09 오후 2.21.26.png]]
 > 	- Read 동작이라고 보면 됨.
 > 	- **DR 에 존재하는 값을 AC 에 값을 가져오는 기능.**
 > 	- **두 단계에 걸쳐 이루어짐 (T_4 -> T_5)**
@@ -186,9 +193,11 @@ tags:
 > 		2. **D_2 T_5 : AC <- DR , SC <- 0**
 > 			- **DR 의 값을 그대로 AC 에 전송.**
 > 			- 항상 마무리는 SC <- 0 을 통해 SC 를 초기화 하여 다음 명령어가 실행될 수 있도록 T_0 로 상태를 설정 해주어야 한다.
-> 		<br><br>
-> 4. **STA : store AC**
-> 	![[스크린샷 2023-11-09 오후 2.36.18.png]]
+ 		
+<br><br>
+
+### 4. STA : store AC
+![[스크린샷 2023-11-09 오후 2.36.18.png]]
 > 	- **AC 의 값을 유효주소에 저장.**
 > 	- 한 단계로 진행 (T_4)
 > 		- **D_3 T_4 : M\[AR] <- AC, SC <- 0**
@@ -199,15 +208,110 @@ tags:
 
 <br><br>
 ## Instruction Cycle - Memory 참조 명령어 (Branch)
-> **Direct Address 인 경우 : 01xx (4, 5, 6)**<br>
+> **Direct Address 인 경우 : 01xx**
+> - BUN : 0100 (4xxx)
+> - BSA : 0101 (5xxx)
+> - ISZ : 0110 (6xxx)
+> <br>
 > **Indirect Address 인 경우 : 11xx (C, D, E)**
+> - BUN : 1100 (Cxxx)
+> - BSA : 1101 (Dxxx)
+> - ISZ : 1110 (Exxx)
 > <br>
 > **Branch 란?**
 > - **기존 방식 (순차적인 명령어 실행) 과 다르게 특정 주소의 명령어로 점프하여 바로 실행하는 것.**
-> <br><br>
-> 1. **BUN : Branch unconditionally (무조건 점프)**
-> 	![[스크린샷 2023-11-09 오후 2.47.09.png]]
-> 	![[스크린샷 2023-11-09 오후 2.49.08.png]]
+
+<br><br>
+### 1. BUN : Branch unconditionally (무조건 점프)
+![[스크린샷 2023-11-09 오후 2.47.09.png]]
+![[스크린샷 2023-11-09 오후 2.49.08.png]]
 > 	- **D_4 T_4 : PC <- AR , SC <- 0**
 > 		- **Address Register 의 값을 Program Counter 에 저장 후 종료.**
 > 	- **Program counter 에 특정 명령어의 유효 주소가 저장되어 다음 실행 시 해당 명령어로 점프하여 바로 실행됨.**
+
+<br><br>
+### 2. BSA : Branch and Save return Address (돌아올 주소를 저장하고 Branch)
+![[스크린샷 2023-11-10 오후 12.39.15.png]]
+> 	- **서브 루틴의 가장 첫 주소에 Return Address 를 저장하고 그 다음 주소에 존재하는 명령어를 수행한다.**
+> 	1. **D_5 T_4 : M\[AR] <- PC , AR <- AR + 1**
+> 		- M\[AR] <- PC : 현재 PC 가 돌아가야할 주소가 되므로 Memory 에 저장.
+> 	2. **D_5 T_5 : PC < - AR, SC <- 0**
+> 		- **Program Counter 의 값을 강제로 바꾸는 Branch 수행**
+> 		- 이는 곧 **해당 AR (유효주소) 에 존재하는 명령어를 바로 수행할 수 있도록 점프**하는 것.
+#### BSA 예시
+![[스크린샷 2023-11-10 오후 12.39.53.png]]
+`좌측 메모리/PC 상태는 BSA 수행하기 직전 상태, 우측 메모리/PC 상태는 BSA 수행 후 메모리 상태.`<br>
+> 1. **Memory 의 20 번지에 BSA 명령어가 존재.**
+> 2. **T_1 단계에서 이미 PC 값이 1이 증가함.**
+> 	- 현재 PC = 21
+> 	- 만약 20번지에 BSA 명령어가 있지 않았다면, **다음 수행할 명령어는 21 번지에 존재하는 명령어 였을 것.**
+> 3. **BSA 명령어에 의해 Return Address 를 Memory 에 저장.**
+> 	- Return Address = 21 (현재 PC 가 21 이므로 = 다음 수행할 명령어는 21 이었으므로.)
+> 4. **현재 BSA 명령어의 I bit 는 0 (직접 주소임을 나타냄), 유효주소는 135.**
+> 	- 따라서 135 번지에 PC 값 (=21) 을 저장함과 동시에 AR 값을 1 증가. (AR=136) (M\[AR] <- PC, AR <- AR + 1)
+> 5. **증가된 AR 값 (=136) 에는 다른 루틴 (Sub routine) 을 수행하도록 되어 있음.**
+- **따라서, BSA 명령어의 결과는**
+	- **Memory 의 135 번지에 돌아갈 곳의 주소인 21 을 저장 및 AR 값을 1 증가.**
+	- **증가된 AR 값 (136) 을 PC 에 전송하여 136 번지에 존재하는 Subroutine 을 수행.**
+- **돌아올 곳을 저장해 두었는데 Subroutine 실행 이후 어떻게 돌아오는가?**
+	- Subroutine 어딘가에 **Indirect Address (=1) 를 사용하여 돌아갈 곳을 저장해둔 Memory (=135) 를 BUN 명령어와 함께 사용**한다.
+	- 해당 **BUN 명령어는 135 번지를 Indirect Address 로서 받아들이고 T_3 EXECUTE 단계에서 실제 유효 주소인 21 번지를 찾아 그곳으로 점프**하여 돌아갈 수 있다.
+
+### 3. ISZ : Increment and Skip if Zero
+![[스크린샷 2023-11-10 오후 12.55.15.png]]
+> - **해당 유효 주소에 존재하는 값을 하나 증가시키고 만약 그 주소 값이 0인 경우, PC 값을 증가 시켜 현재 명령어를 Skip.**
+> 1. **D_6 T_4 : DR <- M\[AR]**
+> 	- Memory 의 유효 주소에 존재하는 값을 하나 증가시키기 위해 DR 로 가져온다. (Memory 값 직접 연산 불가)
+> 2. **D_6 T_5 : DR <- DR + 1**
+> 	- 가져온 Memory 값이 존재하는 DR 값을 1 증가.
+> 	- DR 에서 Memory 값을 하나 증가시킨 것.
+> 1. **D_6 T_6 : M\[AR] <- DR , if (DR = 0) then (PC <- PC + 1), SC <- 0**
+> 	- 1이 증가된 Memory 값을 다시 현재 Memory 에 가져온다.
+> 	- 동시에 만약 증가된 DR 이 0이 되었다면 PC 를 증가시켜 현재 명령어를 Skip 한다.
+
+<br><br>
+
+## Memory 참조 명령어 - 전체 Flow Chart
+![[스크린샷 2023-11-10 오후 12.58.51.png]]
+> **Memory 참조 명령어의 전체 Flow Chart 는 위와 같다.**
+> - AND , ADD , LDA , ISZ 명령어는 메모리 연산을 위해 메모리 값을 DR 로 가져오는 동작을 한다.
+> 	- 위 네 가지 명령어는 T_4 Clock 까지 같은 동작을 함.
+
+<br><br>
+
+![[스크린샷 2023-11-10 오후 12.57.48.png]]
+> **참고로, 이전 Instruction Cycle - Flow Chart 의 하단 부분에 위 Memory 참조 명령어 Flow Chart 가 속한다.**
+
+<br><br>
+
+## Input - Output and Interrupt
+![[스크린샷 2023-11-10 오후 1.17.41.png]]
+> **Input / Output 명령어는 다음과 같이 구성된다.**
+> - **INPR -> AC -> OUTR 간의 데이터 전송**
+> - **1 bit 로 구성된 Input / Output 플래그 (FGI, FGO) 의 Set**
+> - **Interrupt Enable Signal**
+> <br><br>
+> **I/O 명령어는 8 Bit , AC 는 12 Bit**
+> - Input 명령어가 AC 로 전송될 시 **AC 의 하위 8Bit 로서 저장**됨.
+> - AC 에서 OUTR 로 전송될 시 **AC 의 하위 8 Bit 가 OUTR 로 전송**됨.
+> <br><br>
+
+### I/O 수행 과정
+![[스크린샷 2023-11-10 오후 1.27.18.png]]
+> **Input 수행 과정**
+> 1. **INPR 은 0으로 초기화 되어 있다.**
+> 	- INPR 이 0 인 경우 입력을 받을 수 있다.
+> 2. **INPR 에 값이 들어오면 FGI 가 1로 Set.**
+> 3. **AC 에서 FGI 가 1로 Set 된 것을 보고 INPR 로부터 값의 전송을 받는다.**
+> 	- **FGI 는 다시 0으로 Clear.**
+> <br><br>
+> **Ouput 수행 과정**
+> 1. **FGO 는 1로 초기화 되어 있다.**
+> 	- AC 가 OUTR 로 Output을 전송 할 수 있게 됨.
+> 2. **AC 가 OUTR 로 값을 전송.**
+> 	- FGO 를 0 으로 Set
+> 3. **Output Device 에서 OUTR 의 값을 출력 한 후 FGO 를 1로 Clear.**
+> 	- AC 가 다시 값을 OUTR 로 전송 할 수 있게 됨.
+- 위 방식은 **매 Clock 마다 FGI / FGO 를 변경 및 Check 해가며 사용하기에 비효율적.**
+	- 따라서 **Interrupt 방식을 사용**한다.
+
