@@ -6,7 +6,56 @@ tags:
   - Android
   - Kotlin
 ---
-# 배열 객체를 생성하는 방법 - Array(), arrayOf()
+# 배열 객체를 생성하는 방법 - Array(), arrayOf(), (Type)ArrayOf()
+> **배열 객체를 생성하는 방법에는 세 가지가 존재함.**
+> 1. Array()
+> 2. arrayOf()
+> 3. IntArrayOf() - 잘 사용하지 않음
+```kotlin
+package com.example.androidarray  
+  
+import androidx.appcompat.app.AppCompatActivity  
+import android.os.Bundle  
+import com.example.androidarray.databinding.ActivityMainBinding  
+  
+class MainActivity : AppCompatActivity() {  
+    private lateinit var binding: ActivityMainBinding  
+  
+    override fun onCreate(savedInstanceState: Bundle?) {  
+        super.onCreate(savedInstanceState)  
+        binding = ActivityMainBinding.inflate(layoutInflater)  
+        setContentView(binding.root)  
+  
+        binding.button.setOnClickListener {  
+            // arrayOf<>() : 원소의 개수가 제한적이고 각 원소의 초기 값이 다를 때 사용.
+            // type: Array<type>            
+            val strArr: Array<String> = arrayOf<String>("Red", "Green", "Blue")  
+  
+            // Array<>() : 원소의 개수가 많으며 초기 값이 같을 때 사용.  
+            // type: Array<type>            
+            val strArr2: Array<String> = Array(strArr.size) { idx -> strArr[idx] }  
+  
+            // (type)ArrayOf : 대부분의 자료형을 사용할 수 있지만 String Type 은 사용하지 못한다.  
+            // type: (Type)Array            
+            val boolArr = booleanArrayOf(true, false, false)  
+            val intArr:IntArray = intArrayOf(9, 8, 0, 1, 1, 6)  
+            // stringArrayOf 사용 불가.  
+            // val stringArr = stringArrayOf("red", "green", "blue")
+            
+            binding.textView.text = boolArr.contentToString()  
+        }  
+    }  
+}
+```
+> - **Array() & arrayOf()**
+> 	- **Array() 와 arrayOf() 의 자료형은 Array\<type> 으로 동일**하다.
+> <br><br>
+> - **(type)ArrayOf()**
+> 	- **(type)ArrayOf() 의 자료형은 (Type)Array** 로서 다르게 표현됨.
+> 	- **대부분의 자료형을 지원하지만 String 자료형은 지원하지 않음.**
+> 		- stringArrayOf() 는 사용불가.
+
+<br><br>
 
 # 배열과 List Collection
 
