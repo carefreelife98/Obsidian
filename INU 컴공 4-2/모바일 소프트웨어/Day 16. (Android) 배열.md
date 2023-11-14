@@ -107,15 +107,15 @@ class MainActivity : AppCompatActivity() {
 > 	- **mutableListOf<>()**
 > 	- 리스트 내 원소의 추가, 삭제 및 변경 가능
 > - **메소드**
-> 	- **filter { }**
+> 	- **.filter { }**
 > 		- List 내 모든 원소에 대하여 조건을 생성하여 Filtering 수행.
-> 	- **map { }**
+> 	- **.map { }**
 > 		- List 내 모든 원소에 대하여 같은 (수정) 동작을 수행.
-> 	- **none { }**
+> 	- **.none { }**
 > 		- List 와 Array 모두 사용 가능.
 > 		- 모든 원소에 대하여 조건을 생성.
 > 			- **해당 조건을 충족하는 원소가 하나도 없을 경우 True 반환.**
-> 	- **any { }**
+> 	- **.any { }**
 > 		- List 와 Array 모두 사용 가능.
 > 		- 모든 원소에 대하여 조건을 생성.
 > 			- **해당 조건을 충족하는 원소가 하나라도 있을 경우 True 반환.**
@@ -223,7 +223,9 @@ binding.button.setOnClickListener {
 > - **`it`** 은 원소 자체가 됨.
 
 <br><br>
-> **forEachIndexed { } 를 사용하여 Index 를 추출 할 수 있다.**
+
+## forEachIndexed { } 람다식 사용
+> **forEachIndexed { } 를 사용하여 Index 를 추출** 할 수 있다.
 
 ```kotlin
 binding.button.setOnClickListener {  
@@ -234,8 +236,121 @@ binding.button.setOnClickListener {
     binding.textView.text = sb.toString()  
 }
 ```
-> 위와 같이 배열의 전체 원소 및 그 Index를 추출 할 수 있다.
+> **위와 같이 배열의 전체 원소 및 그 Index를 추출 할 수 있다.**
 
+<br><br>
+## Iterator 사용
+```kotlin
+binding.button.setOnClickListener {  
+    val strArr: Array<String> = resources.getStringArray(R.array.colors)  
+    val iter: Iterator<String> = strArr.iterator()  
+    var sb = StringBuilder()  
+    while (iter.hasNext()) {  
+        sb.append("${iter.next()} ")  
+    }  
+    binding.textView.text = sb.toString()  
+}
+```
+> **(배열).iterator()**
+> - iterator 를 사용해서 **간단한 While 문을 통해 배열 내의 원소를 탐색**할 수 있다.
+> - **자료형: Iterator\<type>**
 
+<br><br>
 
-# Compound Button
+# 배열 객체 생성 및 정렬
+## 배열 정렬 메소드
+![[스크린샷 2023-11-14 오후 2.48.11.png]]
+> **정렬은 문자의 크기를 ASCII 순서로 비교하게 된다.** <br>
+> 아래와 같은 배열을 정렬해보자.
+
+<br><br>
+
+> **strings.xml**
+```xml
+<resources>  
+    <string name="app_name">Android Array</string>  
+    <string-array name="colors">  
+        <item>red</item>  
+        <item>!Green</item>  
+        <item>Blue</item>  
+    </string-array>
+</resources>
+```
+
+<br><br>
+
+> **MainActivity.kt**
+```kotlin
+...
+
+binding.button.setOnClickListener {  
+    val strArr = resources.getStringArray(R.array.colors)  
+    strArr.sort()  
+    binding.textView.text = strArr.contentToString()  
+}
+
+...
+```
+<br><br>
+
+> **정렬 실행 결과**
+> ![[스크린샷 2023-11-14 오후 3.03.30.png]]
+> 위와 같이 **ASCII Code 순으로 오름차 순 정렬**된 것을 볼 수 있다.
+> - **현재 가장 작은 ASCII 값을 가진 문자는 `!`** 이다.
+
+```kotlin
+binding.button.setOnClickListener {  
+    val strArr = resources.getStringArray(R.array.colors)  
+    var sb = StringBuilder()  
+    val chArr = Array(strArr.size) { i -> strArr[i][0] }  
+    chArr.forEach { sb.append("ch=${it.code} ") }  
+    binding.textView.text = sb.toString()  
+}
+```
+> 위 코드로 간단하게 각 문자열의 첫번째 문자 ASCII Code 를 확인해 볼 수 있다.
+
+<br><br>
+## Android - strings.xml 에 배열 리소스 정의
+
+```xml
+<resources>  
+    <string name="app_name">Android Array</string>  
+    <string-array name="colors">  
+        <item>red</item>  
+        <item>!Green</item>  
+        <item>Blue</item>  
+    </string-array>    
+    
+    <integer-array name="intArr">  
+        <item>11</item>  
+        <item>22</item>  
+        <item>33</item>  
+    </integer-array>    
+    
+    <string-array name="floatArr">  
+        <item>3.14</item>  
+        <item>23402.3</item>  
+        <item>-0.63</item>  
+    </string-array>
+</resources>
+```
+> 위와 같이 **\<string-array name="colors"> 와 같은 태그를 이용하여 배열을 정의** 할 수 있다.
+> - **string-array, integer-array 는 지원하지만 float-array 는 없음.**
+> - 따라서 **실수 배열을 정의해야 하는 경우에는 string-array 로 리소스 생성 후 MainActivity 등과 같은 kotlin 파일에서 toFloat() 등을 사용하여 형 변환 후 사용해야 한다.**
+
+<br><br>
+
+> **실수 배열 사용 예시**
+```kotlin
+binding.button.setOnClickListener {  
+    val intArr = resources.getIntArray(R.array.intArr)
+
+	// string 배열로 생성된 실수 배열을 받아온 후
+    val strArr = resources.getStringArray(R.array.floatArr)  
+    
+    // toFloat() 를 사용하여 형 변환.
+    val floatArr: Array<Float> = Array(strArr.size) { i -> strArr[i].toFloat() }  
+  
+    binding.textView.text = floatArr.contentToString()  
+}
+```
