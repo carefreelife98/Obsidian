@@ -175,3 +175,83 @@ echo "$TIME_NOW > 실행된 프로세스 아이디 $CURRENT_PID 입니다." >> $
 
 
 # 5. Github Actions Workflow 파일 작성
+```yaml
+name: Deploy to Amazon EC2
+
+on:
+  push:
+    branches:
+      - main
+
+# 본인이 설정한 값을 여기서 채워넣습니다.
+# 리전, 버킷 이름, CodeDeploy 앱 이름, CodeDeploy 배포 그룹 이름
+env:
+  AWS_REGION: ap-northeast-2
+  S3_BUCKET_NAME: petqua-github-actions-was
+  CODE_DEPLOY_APPLICATION_NAME: petqua-was
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: petqua-was-deployGroup
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    # (1) 기본 체크아웃
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # (2) JDK 11 세팅
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+    
+    - name: Run chmod to make gradlew executable
+      run: chmod +x ./gradlew
+
+    # (3) Gradle build (Test 제외)
+    - name: Build with Gradle
+      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+      with:
+        arguments: clean build -x test
+
+    # (4) AWS 인증 (IAM 사용자 Access Key, Secret Key 활용)
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.PETQUA_AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.PETQUA_AWS_SECRET_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    # (5) 빌드 결과물을 S3 버킷에 업로드
+    - name: Upload to AWS S3
+      run: |
+        aws deploy push \
+          --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
+          --ignore-hidden-files \
+          --s3-location s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip \
+          --source .
+
+    # (6) S3 버킷에 있는 파일을 대상으로 CodeDeploy 실행
+    - name: Deploy to AWS EC2 from S3
+      run: |
+        aws deploy create-deployment \
+          --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
+          --deployment-config-name CodeDeployDefault.AllAtOnce \
+          --deployment-group-name ${{ env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
+          --s3-location bucket=$S3_BUCKET_NAME,key=$GITHUB_SHA.zip,bundleType=zip
+
+```
+
+# 6. Test
+
+> 1. Local 에서 Code Push
+> 2. Github Actions 동작
+> 3. AWS S3 에 application.zip 형태로 업로드
+> 4. AWS CodeDeploy 에 의해 배포 그룹 내 EC2에 해당 파일 복사.

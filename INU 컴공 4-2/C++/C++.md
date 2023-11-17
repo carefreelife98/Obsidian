@@ -22,7 +22,11 @@
 
 [[Day 12.  Pointers]]
 
+[[Day 13. Virtual Function]]
 
+[[Day 14. The Standard Template Library (STL)]]
+
+[[Day 15. STL]]
 
 
 
