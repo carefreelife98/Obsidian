@@ -1,5 +1,3 @@
-[Git Link](https://github.com/phoenixx1/Robert-Lafore)
-
 [[Chapter 1. C++ Primer & Quick Review]]
 
 [[Day 2]]
