@@ -5,10 +5,6 @@ Agenda:
 tags:
   - Computer_Vision
 ---
-# Neuron
-> 생물을 이루는 가장 작은 단위.
-> - 이에 아이디어를 얻어 인공 신경망을 개발.
-
 # Artificial neural networks (ANNs)
 ![[스크린샷 2023-11-17 오후 2.58.29.png]]
 > **Multilayer perceptron : misnomer**
@@ -28,12 +24,9 @@ tags:
 > 	- input vector -> scalar
 > 3. **Activation function (Possibly Nonlinear)**
 
-D
 
 ## Activation function
 ![[스크린샷 2023-11-17 오후 3.26.14.png]]
-
-### Sigmoid function
 
 # ReLU (중요)
 > **가장 많이 쓰이는 Linear Unit.**
@@ -49,8 +42,8 @@ D
 # Multilayer Perceptron
 ## Single-layer feedforward network
 ![[스크린샷 2023-11-17 오후 4.08.28.png]]
-> 파란색 박스 : Input <br>
-> 회색 원 : neuron (= perceptron)
+> **파란색 박스 : Input** <br>
+> **회색 원 : neuron (= perceptron)**
 > - **둘 사이에 연결이 존재한다 == 둘 사이에 weight 가 존재한다.**
 > <br>
 > **각 입력과 Perceptron 사이의 가중치(weight) 를 Matrix 형태로서 나타낼 수 있음.**
@@ -105,3 +98,79 @@ D
 ## Function of Hidden Neurons
 ![[스크린샷 2023-11-17 오후 4.45.33.png]]
 > **이렇게 추출한 Data 들은 그 자체로서 Data 를 표현하지는 못하지만 해당 Data 들은 실제 Data 들이 녹아들며 만들어진 것이므로 해당 Data 들의 군집을 통해 Image(Data) 의 특징을 뽑아 낼 수 있다.**
+
+<br><br>
+
+# Multilayer Perceptron
+![[스크린샷 2023-11-18 오후 5.53.29.png]]
+> **Neural network 에서 Signal 의 Type**
+> 1. **Function Signal**
+> 	- input 으로 input signal 이 들어와 network 를 타고 전방으로 전파되어 나가며 output 으로 반환.
+> 	<br><br>
+> 2. **Error Signal : Back propagation**
+> 	- output neuron 으로부터 이전 Layer 로 이동하며 초기값과의 비교를 통해 Error 를 검출
+
+<br><br>
+## Training by Forward / Backward Propagation
+> ![[스크린샷 2023-11-18 오후 6.12.09.png]]
+> **Training 이란 어떤 모델의 가중치를 찾는 과정.**
+> - 최적의 가중치를 탐색하는 과정.
+> <br>
+> **Training 의 과정**
+> 1. **주어진 Data를 한번 흘려준다.**
+> 	- Model 의 **Forward propagation** 을 수행.
+> 	- Forward propagation 에 따른 Output 발생.
+> 2. **Backward propagation 수행**
+> 	- 실제 Data 의 Label 과 Output 간의 **차이, 차이의 제곱값, 절대값 등으로 Error 를 정의.**
+> 	- **Error 에 따라 w(weight) 를 갱신.**
+> 3. **1, 2 와 같은 Forward, backward propagation 의 반복을 통해 Model 의 Parameter 를 계속 갱신**해나감. (Iterator)
+> 4. **Training 이 완료되면 Model 에 최적화된 w(weight) 값이 설정된다.**
+> 	- w 값은 freeze 되어 있음.
+> <br><br>
+> **Test 란 가중치를 고정한 상태에서 우리가 가지고 있는 Test Data 에 대한 평가를 하는 것.**
+> - 위의 Training 과정에서 최적화된 가중치 값을 가지고 있는 Model에 새로운 Test Data(image) 를 Input으로 입력하여 Test를 수행.
+
+<br><br>
+
+## Assumptions and Notations
+![[스크린샷 2023-11-18 오후 6.53.36.png]]
+> **d-H-K neutral network (MLP: Multilayer Pereptron)**
+> - **d: 입력의 차원**
+> 	- 주어진 Data 에서 추출해낸 특징의 개수만큼 입력의 차원이 존재.
+> - **H: input 과 output 사이의 hidden layer 의 개수**
+> - **K: Output 의 개수.**
+> 	- Output 은 Class 의 개수만큼 반환.
+> 	- Data 를 **몇 개의 Class 로 구분할 것인지**를 나타냄.
+> 
+> <br><br>
+> **가중치 표현 방식**
+> - input x_i 와 hidden layer 의 neuron_j 사이의 가중치는 다음과 같이 표현한다.
+> 	- **`w_ji (Backward 방향으로 index 를 표기)`**
+> 
+> <br><br>
+> **Model 의 가중치 정의**
+> - **(x -> z) 의 가중치 = w_1**
+> 	- **d x H Matrix** 로서 표현 가능
+> - **(z -> h) 의 가중치 = w_2**
+> 	- **H x K Matrix** 로서 표현 가능.
+> - 따라서, **Model 의 총 Parameter (w)** 는 다음과 같이 정의할 수 있다.
+> 	- **H = {w_1, W_2}**
+
+<br><br>
+
+## Error measures
+![[스크린샷 2023-11-18 오후 7.15.26.png]]
+> **세 가지 Error measure 이 존재.**
+> <br>
+> 
+> 1. **e_k**
+> 	- **e_k : k 번째 Output 에 대한 Error signal.**
+> 		- Output_k 와 실제 Data 의 차이를 나타냄.
+> 2. **E_n**
+> 	- **E_n : 많은 Data 중 n 번째 Data 에 대한 Error signal 의 총합.**
+> 		- 한 Data 에 대한 모든 e_k 의 총합.
+> 		- n 의 크기에 영향을 받음.
+> 3. **E_D**
+> 	- **E_D : 모든 Data 의 Error signal 총합.**
+> 		- 모든 Data 에 대한 E_n 의 총합.
+> 		- 전체에 대한 Error 를 나타냄.
