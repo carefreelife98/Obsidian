@@ -100,10 +100,6 @@ tags:
 > 		- 이 경우 위 사진과 같이 하위 비트 경우의 수 만큼 해당 명령어의 주소 범위가 생성됨.
 > 	- 이렇게 생성된 **Address 를 해당 명령어가 포함된 Routine 의 첫번째 주소로 지정.**
 
-
-
-
-
 <br><br>
 
 ### 4. Subroutine Call and Return
