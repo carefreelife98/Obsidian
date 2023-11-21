@@ -63,20 +63,58 @@ tags:
 ## Symbols and Binary Code for Microoperation Fields
 ### F
 
-### CD
+### CD Field 정의 (Condition field)
 > **00 인 경우**
-> - 조건 = always 1 (참)
+> - 조건 : always 1 (참)
 > - **Unconditional Branch 수행**
 > 	- BR 과 AD bit 를 참조하여 점프
 > 
 > <br>
 > **01 인 경우**
-> - 조건 = DR(15)
-> 	- Data Register 의 최상위 bit 를 의미.
+> - 조건 : DR(15)
+> 	- **Data Register 의 최상위 bit 를 의미.**
 > 		- Instruction Register 가 따로 존재하지 않으므로 명령어를 DR 에 저장.
 > 		- 따라서 명령어의 최상위 비트 I 를 참조하여 Direct / Indirect Address 를 구분.
 > 	- 조건이 참 (DR(15) = 1) 이면 I = 1 이므로 해당 명령어는 Indirect Address.
 > 	- 거짓이면 Direct Address.
 > - **명령어의 최상위 비트 I 참조를 수행**
+> 
+> <br>
+> **10 인 경우**
+> - 조건 : AC(15)
+> 	- **Accumulator 의 최상위 bit 를 참조.**
+> 		- Accumulator 의 최상위 비트는 부호를 의미함. (= Sign bit)
+> 			- 0: 양수
+> 			- 1: 음수
+> 
+> <br>
+> **11 인 경우**
+> - 조건 : AC = 0
+> 	- **Accumulator 자체의 값을 참조**
+> 		- AC 값이 0 이면 참.
+	
 
 ### BR
+> **BR 의 Function은 전부 CAR 값을 변경하는 것.**
+> - CAR 에는 Control Memory 에 적재되어 있는 Micro-instruction 의 주소가 저장되어 있음.
+> - 어떠한 Micro-instruction 을 수행할 것인지 결정하는 것.
+> 
+> <br>
+> **00 인 경우 : Jump**
+> - **조건 field 가 1이면 AD(Address field) 로 Jump.**
+> 	- **CAR <- AD**
+> 		- Jump 를 수행.
+> 		- Return Address 를 고려하지 않음.
+> - **조건이 0 인 경우 CAR <- CAR + 1 수행**
+> 	- 다음 명령어를 수행.
+> 
+> <br>
+> **01 인 경우 : Call**
+> - **조건 field 가 1이면 Subroutine 으로 Jump.**
+> 	- **CAR <- AD, SBR <- CAR + 1**
+> 		- Return Address 를 SBR 에 저장해놓은 후 Jump.
+> - **조건이 0 인 경우 CAR <- CAR + 1 수행**
+> 	- 다음 명령어를 수행
+> 
+> <br>
+> 
