@@ -33,3 +33,4 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+> **put 으로 담아 get 으로 꺼냄.**
