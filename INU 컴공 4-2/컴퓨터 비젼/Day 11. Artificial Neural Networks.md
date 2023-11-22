@@ -75,6 +75,8 @@ tags:
 
 ### 2. Error Signal
 > **우리가 원하는 값과 실제 결과 값을 비교하여 Error signal 을 찾아낼 수 있음.**
+> - **Back propagation**
+
 
 <br><br>
 
@@ -138,7 +140,7 @@ tags:
 > - **d: 입력의 차원**
 > 	- 주어진 Data 에서 추출해낸 특징의 개수만큼 입력의 차원이 존재.
 > - **H: input 과 output 사이의 hidden layer 의 개수**
-> - **K: Output 의 개수.**
+> - **K: Output 의 개수 (차원).**
 > 	- Output 은 Class 의 개수만큼 반환.
 > 	- Data 를 **몇 개의 Class 로 구분할 것인지**를 나타냄.
 > 
@@ -174,3 +176,51 @@ tags:
 > 	- **E_D : 모든 Data 의 Error signal 총합.**
 > 		- 모든 Data 에 대한 E_n 의 총합.
 > 		- 전체에 대한 Error 를 나타냄.
+
+<br><br>
+
+# Back Propagation
+> **가장 이상적인 가중치 w 를 찾을 수 있는 알고리즘.**
+
+## Credit Assignment Problem
+> Output layer 에는 정답 y_k (Target) 가 존재.
+> - e_k = h_k - y_k 로서 비교적 쉽게 에러 정의 가능.
+> 
+> <br>
+> 하지만, Input 과 Hidden layer 사이의 에러는 정의가 어려움
+> - **명확한 정답이 Hidden layer 에 존재하는 것이 아니기 때문.**
+> - **따라서, Back propagation 사용하여 에러의 정의가 가능함.**
+
+<br><br>
+
+## Sensitivity Factor and Delta Error (Output layer)
+> **Delta Error : K 번째 Output 에 대한 Error.**
+> <br>
+> **Sensitivity Factor 를 통해 각 w(가중치) 의 조정 정도를 구한다.**
+> - Sensitivity Factor 및 Delta Error 계산 시 Chain rule 적용.
+> 	- **Temp 변수인 round_sk 를 사용하여 편미분.**
+> 
+> <br>
+> **Sensitivity Factor**
+> - 𝛿_𝑘 ⋅ 𝑧_𝑗
+> 
+> **Delta Error**
+> - 𝑒_𝑘 ⋅ 𝜎'(𝑠_𝑘)
+> <br>
+> **Weight update rule**
+> - Sensitivity Factor 에 에타? (−𝜂 : learning rate) 를 곱해서 정의
+> 	- **에타(learning rate): 가중치의 조정 정도가 너무 급격하지 않고 적당하도록 Scaling.**
+> - **Δ𝑤_𝑘𝑗 = −𝜂 ⋅ 𝛿_𝑘⋅ 𝑧_𝑗**
+
+```python
+1: initialize all weights {𝑤_𝑗𝑖, 𝑤_𝑘𝑖}
+2: repeat
+3:     pick 𝑛 ∈ {1, 2, … , 𝑁}
+4:     forward: compute all
+5:     backward: compute all
+6:     update weights:
+			hidden(𝑗)-to-output(𝑘): 𝑤_𝑘𝑗 ← 𝑤_𝑘𝑗 − 𝜂 ⋅ 𝛿_𝑘⋅ 𝑧_𝑗
+			input(𝑖)-to-hidden (𝑗): 𝑤_𝑗𝑖 ← 𝑤_𝑗𝑖 − 𝜂 ⋅ 𝛿_𝑗 ⋅ 𝑥_𝑖
+7: until it is time to stop
+8: return final weights {𝑤_𝑗𝑖 , 𝑤_𝑘𝑗}
+```
