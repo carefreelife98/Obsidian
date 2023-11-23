@@ -60,7 +60,7 @@ tags:
 > 	<br>
 > 4. **명령어 수행 후: Always FETCH**
 > 	![[스크린샷 2023-11-23 오전 10.58.13.png]]
-> 	- **모든 명령어는 수행 후 종료되면 CAR 은 FETCH 위치에 존재.**
+> 	- **모든 명령어는 수행 및 종료 후 CAR 에 FETCH 주소를 저장. (FETCH 단계로 이동)**
 > 		- **FETCH: 1000000 (64)**
 > 		- 예: ADD 명령어의 마지막 Microoperation
 > 			- CD(00) BR(00) AD(1000000) = Unconditionally Jump to FETCH
@@ -75,7 +75,7 @@ tags:
 > 		- **Control memory 에 저장되어 수행됨.**
 > 		- **동시에 CAR 에 연결된 Incrementer 가 CAR 값을 하나 증가.**
 > 			- **다음 수행할 Micro-instruction 의 주소를 가지게 됨.**
-> 			- Incrementer <- CAR + 1 = 100 0001(65)
+> 			- Incrementer <- CAR + 1 = 100 0001 (65)
 > 	- **F1, F2, F3 = 110, 000, 000**
 > 		- **110 : AR <- PC**
 > 		- 현재 PC 에 존재하던 **000 0001 0000 이 AR 에 저장**된다.
