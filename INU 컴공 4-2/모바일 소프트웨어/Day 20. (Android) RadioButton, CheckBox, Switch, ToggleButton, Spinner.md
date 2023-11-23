@@ -51,4 +51,10 @@ class MainActivity : AppCompatActivity() {
 > - UnChecked
 > 
 > <br>
-> RadioButton 은 RadioGroup 에 속한 
+> **RadioButton 은 주로 RadioGroup 에 속한 상태로서 사용.**
+> - RadioGroup 에 속한 여러 RadioButton 은 상호 배타적인 상태를 유지.
+> - **하나의 RadioGroup 에서 하나의 RadioButton 만 선택 가능.**
+> 
+> <br>
+> **RadioButton 은 TextView 를 상속한다.**
+> - RadioButton 의 생김새는 TextView 의 클래스 속성인 font face, style, color 등을 사용하여 조작할 수 있다.
