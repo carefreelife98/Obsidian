@@ -217,7 +217,7 @@ tags:
 <br><br>
 
 # Design of Control Unit
-> 각 Control Unit 에 대한 하드웨어 설계 예시를 알아보자.
+> **각 Control Unit 에 대한 하드웨어 설계 예시를 알아보자.**
 ## Function (F1 ~ F3)
 ![[스크린샷 2023-11-21 오후 4.28.14.png]]
 > **Decoding of F fields**
@@ -227,10 +227,16 @@ tags:
 <br><br>
 
 # QnA
+> **Q**
 > Memory 에 적재된 명령어가 Micro-program 에서 동작하기 위해서 ->
 > Instruction 의 Opcode 4-bit -> Micro-instruction 의 AD 에 7-bit 로 변환 저장.
 > - AD 의 7-bit 중 최상위 비트가 D / Indirect 지정?
 > - 그럼 Instruction 의 I bit 는 No function?
+> 
+> <br>
+> **A**
+> - Instruction 의 I bit 는 정상 동작.
+> - Micro-instruction 의 AD 에 변환 저장된 7-bit는 Micro-instruction 용 주소 (?)
 
 
 
