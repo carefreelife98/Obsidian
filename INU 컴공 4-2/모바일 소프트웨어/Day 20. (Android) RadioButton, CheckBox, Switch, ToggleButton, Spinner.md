@@ -46,3 +46,9 @@ class MainActivity : AppCompatActivity() {
 <br><br>
 
 # RadioGroup 과 RadioButton
+> **RadioButton 은 2 가지 상태가 존재.**
+> - Checked
+> - UnChecked
+> 
+> <br>
+> RadioButton 은 RadioGroup 에 속한 
