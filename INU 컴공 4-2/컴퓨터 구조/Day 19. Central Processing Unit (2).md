@@ -42,3 +42,45 @@ tags:
 <br><br>
 
 ## Two address instructions 예시
+> **가장 일반적인 형태.**<br><br>
+> **X = (A + B) * (C + D)**
+> - X = (A 와 B 의 주소를 더한 값) * (C 와 D 의 주소를 더한 값)
+> 
+> <br>
+> 1. **MOV R1, A**
+> 	- R1 <- M\[A]
+> 2. **ADD R1, B**
+> 	- R1 <- R1 + M\[B]
+> 3. **MOV R2, C**
+> 	- R2 <- M\[C]
+> 4. **ADD R2, D**
+> 	- R2 <- R2 + M\[D]
+> 5. **MUL R1, R2**
+> 	- R1 <- R1 * R2
+> 6. **MOV X, R1**
+> 	- M\[X] <- R1
+> <br>
+> **결과적으로, 각 명령어들의 길이는 짧아지지만 프로그램의 길이는 길어진다.**
+
+<br><br>
+
+## One address instructions
+> **Implied accumulator register**
+> - 명령어를 통해 명시적으로 표현하지 않지만 **내재적으로 AC 에서 연산이 이루어지는 것을 가정하는 구조.**
+> 
+> <br>
+> 1. **LOAD A**
+> 	- AC <- M\[A]
+> 2. **ADD B**
+> 	- AC <- AC + M\[B]
+> 3. **STORE T**
+> 	- M\[T] <- AC
+> 4. **LOAD C**
+> 	- AC <- M\[C]
+> 5. **ADD D**
+> 	- AC <- AC + M\[D]
+> 6. **MUL T** 
+> 	- AC <- AC * M\[T]
+> 7. **STORE X**
+> 	- M\[X] <- AC
+> 
