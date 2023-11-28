@@ -116,8 +116,9 @@ tags:
 <br><br>
 
 # Addressing modes
+![[스크린샷 2023-11-28 오후 4.21.10.png]]
 > **다양한 Addressing modes 를 사용함으로서 프로그램을 효율적으로 작성할 수 있게 된다.**
-> 
+> ![[스크린샷 2023-11-28 오후 4.21.47.png]]
 > <br>
 > - **Implied mode**
 > 	- **실제 주소 지정없이 사용되는 mode.**
@@ -131,9 +132,14 @@ tags:
 > - **Register mode, Register indirect mode**
 > 	- **Register 에 있는 값이 유효 주소**가 될 때.
 > 	- Register 에 있는 값이 메모리 주소가 되어 해당 **메모리 주소에 있는 값이 유효 주소**가 될 때. (Indirect)
+> 		- **register Indirect** : 해당 Register 의 값이 EA(유효주소) 가 되어 M\[해당 Register 값] 에 저장된 값이 AC 에 저장된다.
 > <br>
 > - **Auto-increment / decrement mode**
 > 	- Register mode 와 같으나 **값이 1씩 증/ 감 하는 mode.**
+> 	- **Auto-increment**
+> 		- **Register mode 의 명령어가 수행 후** Register 에 저장된 유효주소 값이 1 증가한다.
+> 	- **Auto-decrement**
+> 		- **Register mode 의 명령어 수행 전에**Register 에 저장된 값이 1 감소하고, 해당 값이 EA(유효주소)가 된다.
 > <br>
 > - **Direct / Indirect mode**
 > 	- 피연산자의 Address field 값이 직접주소가 되거나 간접주소가 되는 경우.
@@ -144,3 +150,55 @@ tags:
 
 <br><br>
 
+# Program Control Instructions
+![[스크린샷 2023-11-28 오후 4.34.46.png]]
+> **Program Control Instructions**
+> - **PC(Program Counter) 값을 변화시키는 명령어.**
+> 	- Branch, Skip, Call, Return ...
+> - **참조되는 조건 bit** 를 이용하여 Program control 이 이루어짐.
+> 	- C, S, Z, V
+
+<br><br>
+
+## 조건 Bit
+![[스크린샷 2023-11-28 오후 4.34.33.png]]
+> - **C : Carry**
+> 	- End carry 가 1인 경우 C는 1로 Set.
+> - **S : Sign**
+> 	- 산술 논리 연산의 대상이 되는 Register 의 최상위 Bit를 나타냄.
+> 		- 1이면 S는 1로 Set.
+> - **Z : Zero**
+> 	- 산술 논리 연산의 결과가 0인 경우
+> 		- 예(AC) : AC 의 모든 Bit 가 0인 경우 Z는 1로 Set.
+> - **V : Overflow**
+> 	- 최상위 2개 bit 가 서로 다르면 (Exclusive-OR) overflow 발생 가능.
+> 	- 최상위 2개 Bit XOR 시 1인 경우 V는 1로 Set.
+
+<br><br>
+**위 조건식을 회로 구성하여 구현하면 다음과 같다. (Status Register)**
+> ![[스크린샷 2023-11-28 오후 4.41.49.png]]
+
+<br><br>
+
+## Conditional Branch Instructions
+> ![[스크린샷 2023-11-28 오후 4.39.32.png]]
+
+<br><br>
+
+## Subroutine Call and Return
+> **Subroutine Call and Return**
+> - **자주 사용하는 명령어에 대해서 해당 명령어로 Jump 하여 명령 수행 후 앞서 진행했던 명령어의 다음 명령어로 돌아가는 것.**
+> - Main Program 에서 자주 사용.
+> 
+> <br>
+> - **Category**
+> 	- Call Subroutine
+> 	- Jump to Subroutine
+> 	- Branch to Subroutine
+> 	- Branch and Save Address
+> 
+> <br>
+> - **Logic**
+> 	- 한 명령어가 끝난 후 PC 값을 Jump할 Subroutine 의 시작 주소로 바꾼다.
+> 	- PC 값은 1이 증가하여 다음 명령어(Subroutine 수행 후 돌아갈 주소) 를 가지고 있으므로 해당 값(Return address)을 임시로 다른 곳에 저장해두어야 함.
+> 	- Subroutine 이 끝난 후 임시 저장소에 저장되어 있는 Return address 를 PC 에 전송하여 Jump 했던 지점으로 돌아간다.
