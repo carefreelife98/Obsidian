@@ -7,9 +7,8 @@ tags:
 ---
 # Convolutional Neural Networks
 > MLP : 입력 Data 의 순서에 구애받지 않음.
-> CNNs : 입력 Data 의 순서가 다르면 결과에 영향.
-> <br>
-> 
+> **CNNs : 입력 Data 의 순서가 다르면 결과에 영향.**
+
 
 ## CNN: Motivation
 > **CNN 의 filter kernel 은 Locally 하게 존재.**
@@ -17,9 +16,9 @@ tags:
 > - 각 filter kernel 이 담당하고 있는 Local 영역을 **Receptive field** 라고 한다.
 
 ## CNN: Neurons
-> CNN 의 각 neuron 은 작은 영역에 연결되어 있음.
+> **CNN 의 각 neuron 은 작은 영역에 연결되어 있음.**
 > - CNN 은 layer 구조.
-> - 각 layer 는 Volume transformer 의 역할을 함.
+> - **각 layer 는 Volume transformer 의 역할을 함.**
 
 ## Building a CNN
 > **Layer 의 Type 4가지**
@@ -64,13 +63,29 @@ tags:
 > - **stride**
 > 	- Filter 를 sliding 할 때 움직일 pixel 의 수.
 > - **zero-padding**
-> 	- 
 > **위 제약 조건은 Conventional 한 기준이 존재한다.**
 > <br>
-> **Sptial size 를 유지하고 싶은 경우**
-> - 
+> **Spatial size 를 유지하고 싶은 경우**
 
-# QnA
-> 입력 Data(image) 의 depth 와 다음 CONV layer 에 존재하는 filter 의 depth 가 같아야함.
-> - 입력 data 가 이미지인 경우, 32 x 32 x 3 에서 depth 3 은 rgb ?
-> - 그렇다면 첫번째 CONV 이후 6 depth
+
+<br><br>
+# CNN : Other Layers - ReLU, Pooling, Fully Connected
+![[스크린샷 2023-11-30 오전 3.34.18.png]]
+
+
+## CNN - Layer: 2. ReLU Layer
+> **ReLU Layer: Layer 를 거쳐가는 과정 중간에서 Data 를 정제해주는 역할**
+
+
+## CNN - Layer: 3. Pooling Layer
+> **Pooling Layer: 원하는 속성의 정보를 추출해내는 기능을 한다.**
+> - **Data 의 차원을 줄일 수 있음.**
+> 	- 주어진 Data 의 영역을 Average / MAX 등의 값으로 변환하여 차원을 감소시킬 수 있음
+
+## CNN - Layer: 4. Fully Connected Layer
+> **Fully Connected Layer: MLP 와 동일한 기능.**
+> <br>
+> **예시**
+> 1. **Conv layer 에 의해 Input data (Image) 가 Volume 이 있는 Feature map (4 x 4 x 2048) 이 됨.**
+> 2. **Pooling Layer (MAX) 에 의해 4 x 4 영역이 1 x 1 으로 변환.**
+> 3. **Fully Connected Layer 에 의해 2048 차원의 Vector 가 출력하고자 하는 출력 차원과 연결되어 있는 그래프가 형성된다. (MLP 와 동일)**
