@@ -202,3 +202,52 @@ tags:
 > 	- 한 명령어가 끝난 후 PC 값을 Jump할 Subroutine 의 시작 주소로 바꾼다.
 > 	- PC 값은 1이 증가하여 다음 명령어(Subroutine 수행 후 돌아갈 주소) 를 가지고 있으므로 해당 값(Return address)을 임시로 다른 곳에 저장해두어야 함.
 > 	- Subroutine 이 끝난 후 임시 저장소에 저장되어 있는 Return address 를 PC 에 전송하여 Jump 했던 지점으로 돌아간다.
+
+<br><br>
+
+### \[STACK] Subroutine Call and Return
+
+> Subroutine 을 Call 하는 방법 중 **가장 효율적인 방법은 Memory Stack 에 Return Address 를 저장하는 방법**이다.
+> - **Memory Stack 은 순환적인 Subroutine 에 효율적.**
+> <br>
+> 1. **[PUSH] Subroutine Call**
+> 	- SP <- SP + 1
+> 	- M\[SP] <- PC
+> 	- PC <- EA
+> 	<br>
+> 2. **[POP] Return from subroutine**
+> 	- PC <- M\[SP]
+> 	- SP <- SP - 1
+> 
+> <br>
+> **예시**
+> - **%esp : Stack Pointer (SP)**
+> - **%eip : Program Counter (PC)**
+> <br>
+> 1. **\[Subroutine CALL]**
+> 	![[스크린샷 2023-11-29 오후 3.33.54.png]]
+> 	- **804854e 번지의 명령어는 e8 3d 06 00 00**
+> 		- 해당 명령어는 8048b90 번지(Subroutine)를 call 하는 명령어.
+> 		- 현재 PC 값은 804854e (현재 실행 할 명령어의 주소값)
+> 	- **다음 명령어는 8048553 번지이고, 이는 Return Address 가 된다.**
+> 		- 따라서 **Stack 에 Return address 인 8048553 번지를 Push.**
+> 		- Stack Pointer 는 하나 증가 (현 예에서는 감소)
+> 		- **PC 에 Subroutine 시작 주소인 8048b90 값을 넣어 Call.**
+> 
+> 	<br>
+> 2. **[Subroutine 수행 후 Return]**
+> 	![[스크린샷 2023-11-29 오후 3.35.27.png]]
+> 	- **Subroutine 수행 종료 후 Return 명령 실행.**
+> 		- 현재 PC 값은 Return 명령어의 주소인 8048591.
+> 		- Stack Pointer (%esp) 와 Stack 의 구조는 Subroutine 시작 시점과 동일.
+> 	- **Stack Pointer 가 가리키고 있는 주소가 Return Address 이므로 POP.**
+> 		- **SP 가 가리키고 있는 Stack 의 104 번지 값인 8048553 이 POP 되어 PC(%eip) 에 저장되고 SP(%esp) 는 하나 증가. (현 예에서는 감소 = 108)**
+
+<br><br>
+
+## Program Interrupt
+> **Program Interrupt 와 Subroutine Call 의 차이점**
+> - Subroutine Call 은 Program 수행 중 Program 내부에서 특정 Subroutine 으로 점프하여 수행 후 Return.
+> 	- **Interrupt 는 Subroutine Call 이 Program 의 외부에서 Trigger 됨.**
+> 	- **I/O Device 에 의해 Program 외부에서 Subroutine Call 이 발생함.**
+> 	- 
