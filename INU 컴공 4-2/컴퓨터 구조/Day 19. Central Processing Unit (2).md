@@ -175,7 +175,7 @@ tags:
 > 	- 최상위 2개 Bit XOR 시 1인 경우 V는 1로 Set.
 
 <br><br>
-**위 조건식을 회로 구성하여 구현하면 다음과 같다. (Status Register)**
+**위 조건식을 회로로서 구현하면 다음과 같다. (Status Register)**
 > ![[스크린샷 2023-11-28 오후 4.41.49.png]]
 
 <br><br>
@@ -248,6 +248,145 @@ tags:
 ## Program Interrupt
 > **Program Interrupt 와 Subroutine Call 의 차이점**
 > - Subroutine Call 은 Program 수행 중 Program 내부에서 특정 Subroutine 으로 점프하여 수행 후 Return.
-> 	- **Interrupt 는 Subroutine Call 이 Program 의 외부에서 Trigger 됨.**
+> - **Interrupt 는 Subroutine Call 이 Program 의 외부에서 Trigger 됨.**
 > 	- **I/O Device 에 의해 Program 외부에서 Subroutine Call 이 발생함.**
-> 	- 
+> <br>
+> **Program State Word, PSW**
+> - **마찬가지로 Subroutine 수행 후 돌아올 곳이 존재해야 하므로 State Word 가 존재.**
+> - **CPU 의 모든 조건 Bit (C-carry, S-sign, Z-zero, V-overflow) 상태의 집합.**
+> 
+> <br>
+> **Types of Interrupts**
+> 1. **External Interrupt**
+> 	- I/O, Timing, Circuit Monitoring Power Supply 등의 장치에 의해 발생
+> 2. **Internal Interrupt (traps)**
+> 	- Invalid opeartions, Register overflow, Division by zero 등에 의해 발생
+> 3. **Software Interrupt**
+> 	- Supervisor Call 에 의해 발생
+
+<br><br>
+
+# Reduced Instruction Set Computer (RISC)
+> **RISC 구조의 컴퓨터는 CISC 구조와 대비하여 설명된다.**
+> <br>
+> **CISC vs RISC**
+> - **CISC(Complex Instruction Set Computer)**
+> 	- **말 그대로 복잡한 구조의 명령어를 가진 컴퓨터.**
+> 		- 명령어의 종류가 많음.
+> 		- 다양한 Addressing mode 를 지원.
+> 		- 명령어의 길이 조정이 가능.
+> 		- Memory 에서 직접 Data 의 처리가 가능함.
+> 	- **하나의 명령어에서 메모리 접근 및 적절한 처리가 가능.**
+> 		- **한 명령어에 많은 Microoperation** 이 포함되어 많은 작업을 처리할 수 있다.
+> <br>
+> 
+> - **RISC (Reduced Instruction Set Computer)**
+> 	- **단순한 구조의 명령어를 가진 컴퓨터.**
+> 		- 상대적으로 ~
+> 			- 적은 종류의 명령어.
+> 			- 적은 종류의 Addressing mode 를 지원.
+> 		- 명령어의 길이는 고정.
+> 		- 하나의 명령어는 한 Clock 에 수행됨.
+> 		- **처리의 속도를 빠르게 하는 명령어 Set 을 가짐.**
+> 	- **Load 및 Store 명령어에 한해 메모리 접근가능.**
+> 	- **Register 내부에서 모든 처리를 진행.**
+> 	- 상대적으로 **많은 수의 Register** 를 가지고 있음.
+> 	- **중첩된 Register Window** 를 가짐.
+
+<br><br>
+
+## \[RISC] - Overlapped Register Windows
+> **중첩된 Register Window**
+> - 한 Procedure 수행 중 다른 Procedure 를 수행하고자 할 때 (Subroutine call) **각각의 Procedure 가 사용할 수 있는 Register 들의 영역이 할당**됨.
+> 	- **이때, 여러 Procedure 가 공통으로 사용할 수 있는 영역이 존재. (Global 영역)**
+> 
+> <br>
+> ![[스크린샷 2023-11-29 오후 6.44.36.png]]
+> - **(a) Procedure 를 진행 할 때에는 R_8 ~ R_31 까지의 Register 에 접근할 수 있다.**
+> 	- **Register (In)**
+> 		- 이전 Procedure 와 현재 Procedure (a) 가 공유 할 수 있는 Register.
+> 	- **Register (Locals)**
+> 		- 현재 Procedure 인 (a) 만 접근할 수 있는 Register.
+> 	- **Register (Out)**
+> 		- 현재 Procedure 인 (a) 가 다음 Procedure (b) 을 Call 할 때 b 와 공유할 수 있는 Register.
+> - **CWP (Current Window Pointer)**
+> 	- 해당 포인터로 Procedure 마다 사용 가능한 Register 의 범위를 지정.
+
+<br><br>
+
+### \[RISC] - Overlapped Register Window 예시
+![[스크린샷 2023-11-29 오후 6.46.37.png]]
+> **Global register (공용 Register)**
+> - R0 ~ R9
+> 
+> <br>
+> **Procedure A 에게 할당된 Register**
+> - In: R10 ~ R15
+> - Local: R16 ~ R25
+> - Out: R26 ~ R31
+> 
+> <br>
+> **Window Size**
+> - **하나의 Procedure 가 접근할 수 있는 Register 의 개수.**
+> - **Window Size = L(Local) + 2C(Common, In/Out) + G(Global)**
+> 	- 10(G) + 10(L) + 2 * 6(Common) = 32
+> 
+> <br>
+> **Register File**
+> - **전체 Register 의 개수.**
+> - **Register File = (L + C)W + G**
+> 	- 윈도우(W) 의 개수만큼 Local 과 Common 이 존재함 + G(Global)
+> 	- 10(G) + 4(W) * (10(L) + 6(Common)) = 74
+
+<br><br>
+
+## \[RISC] - Berkeley RISC 1
+![[스크린샷 2023-11-29 오후 7.22.18.png]]
+> **RISC System 의 초기 모델.**
+> - **총 32 Bit CPU 를 가짐.**
+> - **13 번째 Bit 값에 따라 Register / Register Immediate mode 구분**
+> - **31 개의 명령어**
+> - **W: 8, G: 10, L: 10, C: 6**
+> 	- 8개의 Window
+> 	- 10개의 Global Register, Local Register
+> 	- 6개의 Common Register
+> - **Register File: 138**
+> 	- (10(L) + 6(C)) * 8(W) + 10(G)
+> - **Window Size = 32**
+> 	- 한 Procedure 에서 접근할 수 있는 Window 의 수 = 32 개
+> 	- 따라서 각 Register 는 5 bit 가 할당됨.
+> 
+> <br>
+> **Register mode 인 경우 (Bit(13) = 0)**
+> - Opcode: 8 Bits (31 ~ 24)
+> - Rd, Rs (destination, source): 5 Bits (23 ~ 19, 18 ~ 14)
+> - S2: 5 Bits (4 ~ 0)
+> 	- S2 로서 또다른 Register 를 지정할 수 있다.
+> 
+> <br>
+> **Register immediate mode 인 경우 (Bit(13) = 1)**
+> - **S2: 13bit (0 ~ 12)**
+> 	- **S2 에 저장된 값을 Immediate 값으로서 사용하게 됨.**
+> 
+> <br>
+> **PC relative mode**
+> - Opcode: 8 Bit (31 ~ 24)
+> - COND: 5 Bit (23 ~ 19)
+> 	- **Opcode 와 COND 는 조건으로서 사용됨.**
+> - **Y: 19 Bit (18 ~ 0)**
+> 	- **상대적인 주소값을 정의**
+
+### \[Berkeley RISC 1] - 31 개의 명령어
+![[스크린샷 2023-11-29 오후 7.23.59.png]]
+> **ADD**
+> - **ADD R22, R21, R23 : R23 <- R22 + R21**
+> 	- **앞의 두 Register 가 Source, 마지막 Regiater 가 Destination** 이 된다.
+> 
+> - **ADD R22, #150, R23 : R23 <- R22 + 150**
+> 	- 위와 같이 연산에 **#150 이라는 Immediate 값을 사용**할 수 있다.
+> 
+> <br>
+> **LDL**
+> - **LDL (R22) #150, R5 : R5 <- M\[R22 + 150]**
+> 	- R22 에 있는 Register 값(주소)에 150 을 더한 주소에 있는 값을 R5에 저장.
+> 	- **상대 주소의 개념을 사용함으로서 더 많은 Bit 의 번지를 접근할 수 있게 된다.**
