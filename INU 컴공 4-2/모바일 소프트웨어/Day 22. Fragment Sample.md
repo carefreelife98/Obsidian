@@ -59,3 +59,9 @@ class FragmentA : Fragment() {
 > ![[스크린샷 2023-11-30 오후 6.38.10.png]]
 > - Tag 이름에 FragmentContainerView 가 들어감.
 > - name 속성에 Fragment 이름이 지정됨.
+
+<br><br>
+
+# Fragment 간 통신
+> Fragment 간의 직접 통신은 불가능.
+> - Hosting Activity, Interface 를 거쳐 Fragment 간 통신이 이루어짐.
