@@ -71,21 +71,43 @@ tags:
 <br><br>
 # CNN : Other Layers - ReLU, Pooling, Fully Connected
 ![[스크린샷 2023-11-30 오전 3.34.18.png]]
-
-
-## CNN - Layer: 2. ReLU Layer
 > **ReLU Layer: Layer 를 거쳐가는 과정 중간에서 Data 를 정제해주는 역할**
-
-
-## CNN - Layer: 3. Pooling Layer
+> <br>
 > **Pooling Layer: 원하는 속성의 정보를 추출해내는 기능을 한다.**
 > - **Data 의 차원을 줄일 수 있음.**
 > 	- 주어진 Data 의 영역을 Average / MAX 등의 값으로 변환하여 차원을 감소시킬 수 있음
-
-## CNN - Layer: 4. Fully Connected Layer
+> <br>
 > **Fully Connected Layer: MLP 와 동일한 기능.**
 > <br>
 > **예시**
 > 1. **Conv layer 에 의해 Input data (Image) 가 Volume 이 있는 Feature map (4 x 4 x 2048) 이 됨.**
 > 2. **Pooling Layer (MAX) 에 의해 4 x 4 영역이 1 x 1 으로 변환.**
 > 3. **Fully Connected Layer 에 의해 2048 차원의 Vector 가 출력하고자 하는 출력 차원과 연결되어 있는 그래프가 형성된다. (MLP 와 동일)**
+
+<br><br>
+
+## Activation Functions
+![[스크린샷 2023-11-30 오전 4.43.21.png]]
+> 1. **ReLU**
+> 	- **S(Signal) 이 음수인 부분에서는 0을 갖고, 양수인 부분에서는 y = x 라는 Plot 을 가지는 Activation Function.**
+> 2. **Leaky ReLU**
+> 	- Leaky (새어나오는)
+> 		- **S(Signal) 이 음수인 부분에서 새어나오는 값이 존재**하는 것을 확인할 수 있음.
+> 3. **sigmoid / tanh**
+> 	- **결과값을 Bound 시켜주는 효과를 가지는 Activation Function.**
+> 		- Probablistic Understanding 을 하도록 도와줌.
+> 4. **Maxout**
+> 	- 음수인 부분에서 y= -x, 양수인 부분에서 y = x 꼴을 가지는 Activation Function.
+
+<br><br>
+
+## CNN - Layer: 2. ReLU Layer
+
+
+
+
+
+
+## CNN - Layer: 3. Pooling Layer
+
+## CNN - Layer: 4. Fully Connected Layer
