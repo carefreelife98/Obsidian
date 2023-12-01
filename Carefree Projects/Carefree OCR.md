@@ -372,4 +372,5 @@ public class uploadController {
 > - upload-form 에서 정상적으로 파일을 받아주는 모습.
 > 
 > <br>
-> ![[스크린샷 2023-12-01 오전 10.50.06.png]]
+> 
+
