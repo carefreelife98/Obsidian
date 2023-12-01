@@ -367,4 +367,4 @@ public class uploadController {
 </body>  
 </html>
 ```
-> 
+> **th:each 를 통해 결과 리스트를 순환하며 결과를 출력.**
