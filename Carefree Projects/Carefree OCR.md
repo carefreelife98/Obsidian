@@ -6,6 +6,7 @@ tags:
   - ToyProject
 ---
 # \[Toy Project] Carefree OCR
+![[스크린샷 2023-12-02 오후 9.06.13.png]]
 > **어머니께서 Excel 을 사용하여 일하시는데 책자 내부에 존재하는 Data 들을 일일히 손으로 Typing 하여 Excel 에 옮기시는 모습이 힘들어 보였다.**
 > - **이에 이번 토이 프로젝트 - [Carefree OCR] 을 진행하게 되었다.**
 
