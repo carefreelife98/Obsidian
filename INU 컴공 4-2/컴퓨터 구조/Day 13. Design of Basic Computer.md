@@ -66,15 +66,15 @@ tags:
 > **Address Register 의 Load(LD) , Increment(INR) , Clear(CLR) 를 어떻게 설계 할 것인가?**
 > - **AR <- \_**
 > 	- 위와 같이 표현되는 것은 결국 Address Register 를 변경하는 것.
-> - **Load**
-> 	- AR <- x 
-> 	- 어떤 실제 값으로 변경하는 것.
-> - **Increment**
-> 	- AR <- AR + 1
-> 	- AR 의 값을 하나 증가.
-> - **Clear**
-> 	- AR <- 0
-> 	- AR 의 값을 0으로 초기화
+> 	- **Load**
+> 		- AR <- x 
+> 		- 어떤 실제 값으로 변경하는 것.
+> 	- **Increment**
+> 		- AR <- AR + 1
+> 		- AR 의 값을 하나 증가.
+> 	- **Clear**
+> 		- AR <- 0
+> 		- AR 의 값을 0으로 초기화
 
 <br><br>
 ### 구현
@@ -215,7 +215,7 @@ tags:
 > - r B_11 : AC ← 0
 > <br>
 > **Increment**
-> - r B_5 : Ac ← AC + 1
+> - r B_5 : AC ← AC + 1
 
 <br><br>
 ### 각 Microoperation 을 AC (Load, Increment, Claer) 에 연결
