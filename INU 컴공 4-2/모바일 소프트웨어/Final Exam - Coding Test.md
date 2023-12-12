@@ -126,3 +126,9 @@ override fun onCreate(savedInstanceState: Bundle?) {
 - 2단계: FragmentB가 FragmentA가 요구하는 기능을 메소드 (methodB)로 구현     
 - 3단계: Hosting Activity는 FragmentA가 정의한 인터페이스 상속 • 추상메소드구현  
 	- FragmentB의 메소드(methodB() ) 호출
+
+
+# LiveData 를 사용한 입력 과정
+> Fragment -> ViewModel -> LiveData
+
+> **입력 후 해당 내용을 바탕으로 한 수행 시 LiveData 를 DTO 대신 사용?**
