@@ -102,7 +102,7 @@ tags:
 ![[스크린샷 2023-11-21 오후 3.14.03.png]]
 > **BR 의 Function은 전부 CAR 값을 변경하는 것.**
 > - CAR 에는 Control Memory 에 적재되어 있는 Micro-instruction 의 주소가 저장되어 있음.
-> - 어떠한 Micro-instruction 을 수행할 것인지 결정하는 것.
+> - **어떠한 Micro-instruction 을 수행할 것인지 결정**하는 것.
 > 
 > <br>
 > **00 인 경우 : Jump**

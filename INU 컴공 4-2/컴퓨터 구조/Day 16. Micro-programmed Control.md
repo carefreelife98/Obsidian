@@ -36,8 +36,8 @@ tags:
 ## General Configuration of a Micro-programmed Control Unit
 ![[스크린샷 2023-11-16 오전 10.23.03.png]]
 > 1. **Control Memory**
-> 	- Cotrol 을 위한 Micro-program 들이 적재되어 있는 Memory
-> 2. **Control Address Register**
+> 	- Control 을 위한 Micro-program 들이 적재되어 있는 Memory
+> 2. **Control Address Register (CAR)**
 > 	- **Control Memory 내부에 적재되어 있는 각 Micro-instruction 이 존재하는 주소를 가지고 있는 Register.**
 > 	- 이전에 배운 **AR 과 비슷한 기능**을 함.
 > 	- **동작 과정**
@@ -105,7 +105,7 @@ tags:
 ### 4. Subroutine Call and Return
 ![[스크린샷 2023-11-16 오전 11.01.06.png]]
 > **Conditional Branching 등에 의해 특정 명령어로 점프했을 경우 돌아올 주소를 Subroutine Register 에 저장.**
-> - **Subroutine Reguster 에 저장되어 있는 돌아올 주소를 꺼내 CAR 에 넣는 것.**
+> - **Subroutine Register 에 저장되어 있는 돌아올 주소를 꺼내 CAR 에 넣는 것.**
 
 
 
