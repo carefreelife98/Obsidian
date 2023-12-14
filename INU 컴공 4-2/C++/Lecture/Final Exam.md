@@ -203,4 +203,13 @@ int main() {
 
 ## Named Constants, Scope and Namespaces
 **Keyword : Const**
+> **변수의 Type 앞에 `Const` 선언 시 변경 불가능한 상수화가 된다.**
+> - const 변수는 **선언 시 반드시 초기화**를 해야 함.
+> <br>
+> **const 포인터 변수**
+> const 포인터 변수를 사용하는 경우 두 가지
+> 1. const 위치가 가장 앞에 있으면서 **포인터 변수가 가리키는 값에 대하여 상수화를 시키는 경우**
+> 2. 
 > 
+> 
+
