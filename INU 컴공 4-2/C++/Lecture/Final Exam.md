@@ -111,6 +111,13 @@ int main(){
 > - **객체 (Object) 생성 시 필요에 따라 동적으로 생성하는 방법.**
 > 	- C++ Runtime system 이 대량의 Heap Memory 를 예약해두는 이유.
 > - **new 연산자는 주어진 타입의 객체가 필요로 하는 양의 저장소를 보유하고 있는 Heap Memory 로부터 동적으로 할당한 후 해당 객체에게 Pointer 를 반환한다.**
+> - new 사용하여 객체 생성 시 정의 해줘야 할 것
+> 	- destructor
+> 		- 객체에 할당된 메모리 반환을 위해서
+> 	- copt constructor
+> 		- 객체의 생성과 함께 해당 객체가 가지고 있는 Member 값도 복사하기 위해서.
+> 	- assignement operator (=)
+> 		- 오래된 저장 공간을 해제, 새로운 저장 공간 할당 및 멤버 변수의 복사를 위해서.
 
 ```cpp
 #include "iostream"  
@@ -242,3 +249,4 @@ int main() {
 > - default 는 인자 값이 복사되어 함수 내부로 전달되지만, & operator 사용 시 값의 참조가 일어나 인자의 원본을 변경 할 수 있게 된다.
 
 
+## STL (Standard Template Library)
