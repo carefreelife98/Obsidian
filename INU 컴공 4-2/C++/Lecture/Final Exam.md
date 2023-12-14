@@ -209,7 +209,36 @@ int main() {
 > **const 포인터 변수**
 > const 포인터 변수를 사용하는 경우 두 가지
 > 1. const 위치가 가장 앞에 있으면서 **포인터 변수가 가리키는 값에 대하여 상수화를 시키는 경우**
-> 2. 
-> 
-> 
+
+
+## Argument Passing
+```cpp
+//  
+// Created by 채승민 on 12/14/23.
+//  
+#include "iostream"    
+using namespace std;  
+
+// value = 값의 전달 (원본 영향 x), ref = 값의 참조(원본에 영향)
+void func(int value, int &ref){  
+    value++;  
+    ref++;  
+    cout << value << endl;  // 2
+    cout << ref << endl;  // 6
+}  
+  
+int main() {  
+    int cat = 1;  
+    int dog = 5;  
+    func(cat, dog);  
+    cout << cat << endl;  // 1 : func 함수에서 값을 복사하여 사용
+    cout << dog << endl;  // 6 : func 함수의 ref 로 인해 원본 변경
+  
+    return EXIT_SUCCESS;  
+}
+```
+
+> **함수의 인자에 & operator 를 붙여 해당 인자의 원본을 참조 할 수 있다.**
+> - default 는 인자 값이 복사되어 함수 내부로 전달되지만, & operator 사용 시 값의 참조가 일어나 인자의 원본을 변경 할 수 있게 된다.
+
 
