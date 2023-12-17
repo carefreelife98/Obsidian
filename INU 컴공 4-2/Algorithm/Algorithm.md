@@ -16,7 +16,11 @@
 
 [[Day 8. 스트링 탐색 알고리즘]]
 
+[[Day 9. 동적 계획법]]
 
+[[final - String Matching Algorithm]]
+
+[[INU 컴공 4-2/Algorithm/Final Exam]]
 
 
 
