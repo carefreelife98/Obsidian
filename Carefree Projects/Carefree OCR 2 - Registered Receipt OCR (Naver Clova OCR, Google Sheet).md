@@ -7,6 +7,11 @@ tags:
 ---
 # Agenda
 
+> 회사에서 매년 우편물 등기 영수증을 일일히 Excel 에 수작업으로 옮기는 작업을 하고 있는데, 담당자께서 다음과 같은 프로그램이 있다면 편리할 것 같다 하여 진행한 개인 토이 프로젝트.
+> 
+> **요구 사항**
+> - **등기 영수증을 사진 촬영 / 스캔 하여 해당 Text 들이 Google Sheet 에 자동으로 Numbering 후 입력 되었으면 좋겠다.**
+
 
 # 전체 구조 및 Architecture
 
@@ -26,4 +31,19 @@ tags:
 >
 > **해당 JSON 파일의 모습.**
 > ![[스크린샷 2023-12-23 오후 6.48.41.png]]
-> - 위 처럼 JSON 파일에서 "" 가 전부 빠져 있어 에러가 발생한 모습을 볼 수 있었다.
+> - 위처럼 JSON 파일에서 "" 가 전부 빠져 있어 에러가 발생한 모습을 볼 수 있었다.
+> <br><br>
+> **해결 방법**
+> - Github Actions 의 Workflow file 의 옵션 중 create-json 을 사용하여 해결.
+
+```yml
+- name: create-json
+      id: create-json
+      uses: jsdaniell/create-json@1.1.2
+      with:
+        name: "secrets.json"
+        json: ${{ secrets.SECERT_JSON }}
+```
+
+> **위 코드를 Workflow 파일에 추가하여 Github secrets 에 저장된 JSON 형식의 secret 을 정상적으로 사용할 수 있었다.**
+
