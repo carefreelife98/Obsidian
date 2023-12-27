@@ -24,6 +24,11 @@ tags:
 
 # 전체 구조 및 Architecture
 
+## 1. AWS Cloud Infrastructure
+![[Pasted image 20231227113005.png]]
+![[스크린샷 2023-12-27 오전 11.33.47.png]]
+
+
 # 1. Cloud Infra 구축
 
 # 2. CI / CD Pipeline 구축
