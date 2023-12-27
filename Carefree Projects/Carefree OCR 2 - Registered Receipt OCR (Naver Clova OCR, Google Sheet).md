@@ -7,25 +7,28 @@ tags:
 ---
 # Agenda
 
-> 회사에서 매년 우편물 등기 영수증을 일일히 Excel 에 수작업으로 옮기는 작업을 하고 있는데, 담당자께서 다음과 같은 프로그램이 있다면 편리할 것 같다 하여 진행한 개인 토이 프로젝트.
+> 회사에서 **매년 우편물 등기 영수증을 일일히 Excel 에 수작업으로 옮기는 작업**을 하고 있는데, 담당자께서 다음과 같은 프로그램이 있다면 편리할 것 같다 함에 진행한 개인 토이 프로젝트.
 > 
 > **요구 사항**
 > - **등기 영수증을 사진 촬영 / 스캔 하여 해당 Text 들이 Google Sheet 에 자동으로 Numbering 후 입력 되었으면 좋겠다.**
-> - 등기 영수증으로부터 사용할 정보
+> - **등기 영수증으로부터 사용할 정보**
 > 	- 일자
 > 	- 개수
 > 	- 등기 번호
 > 	- 각 등기 별 배송 조회 링크
-> 	- 
+> 	- 우편 번호
+> 	- 법인 명
+> 	- 수신인
+> 	- 주소
 
 
 # 전체 구조 및 Architecture
 
-# 1. Application 개발
+# 1. Cloud Infra 구축
 
-# 2. Cloud Infra 구축
+# 2. CI / CD Pipeline 구축
 
-# 3. CI / CD Pipeline 구축
+# 3. Application 개발
 # 4. Trouble Shooting
 
 ## Use JsonReader.setLenient(true) to accept malformed JSON
