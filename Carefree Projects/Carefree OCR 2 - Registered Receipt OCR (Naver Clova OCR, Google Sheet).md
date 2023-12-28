@@ -26,15 +26,360 @@ tags:
 
 ## 1. AWS Cloud Infrastructure
 ![[Pasted image 20231227113005.png]]
+
+## 2. Spring Boot Application Structure
 ![[스크린샷 2023-12-27 오전 11.33.47.png]]
 
+## 3. 전체 구성도
+![[Pasted image 20231228100006.png]]
 
-# 1. Cloud Infra 구축
+# 1. CI / CD Pipeline 구축 (Github Actions / AWS CodeDeploy)
+> **개발 및 배포 테스트 과정에서 CI/CD Pipeline 이 구축되어 있으면 매우 편리하므로 항상 개인 프로젝트 시작 전 CI/CD Pipeline 부터 간단하게 구축하고 시작하는 경향이 있습니다.**
 
-# 2. CI / CD Pipeline 구축
+## Github Actions
+![[스크린샷 2023-12-28 오전 11.21.23.png]]
+> **Github Actions 에서 프로그램에서 사용할 Secret 을 Github secret 을 통해 코드에 삽입하고, Build 된 JAR 파일을 .zip 압축하여 AWS S3 에 저장 후 AWS CodeDeploy 를 실행하여 EC2 에 배포하게 됩니다.**
+> - **대부분의 secret 정보가 담겨 있는 application.properties 는 Github Secrets 에 넣어두고 Github Actions 과정에서 Secrets 을 통해 직접 생성하여 사용.**
+> - **Google API 를 사용하기 위한 사용자 인증 정보인 JSON 파일**은 Github Secret 에 복붙 후 그냥 꺼내어 사용 시 모든 "" 가 사라짐.
+> 	- **따라서 create-json 을 사용하여 생성.**
 
-# 3. Application 개발
-# 4. Trouble Shooting
+### Github Actions Workflow File - Deploy.yml
+```yaml
+name: Deploy to Amazon EC2 - *** registered receipt ocr
+
+on:
+  push:
+    branches:
+      - main
+
+# 리전, 버킷 이름, CodeDeploy 앱 이름, CodeDeploy 배포 그룹 이름
+env:
+  AWS_REGION: ap-northeast-2
+  S3_BUCKET_NAME: ***-registered-receipt-ocr-s3-bucket
+  CODE_DEPLOY_APPLICATION_NAME: ***-registered-receipt-ocr
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: ***-registered-receipt-ocr-DeployGroup
+  PROPERTIES: ${{ secrets.APPLICATIONPROPERTIES }}
+  JSON: ${{ secrets.GOOGLE_USER_JSON }}
+  
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    # (1) 기본 체크아웃
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # (2) JDK 17 세팅
+    - name: Set up JDK 17 & Add application.properties / JSON from Github secrets
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'adopt'
+        java-version: '17'
+
+    # Github Secrets 를 통해 application.properties 생성 및 삽입
+    - uses: actions/checkout@v2
+    - run: touch ./src/main/resources/application.properties
+    - run: echo "${{ env.PROPERTIES }}" > ./src/main/resources/application.properties
+    
+    - uses: actions/upload-artifact@v2
+      with:
+        name: application.properties
+        path: ./src/main/resources/application.properties
+    
+    # Github Secrets 를 통해 Google API Account 계정 secret 생성 및 삽입
+    - name: create-json
+      id: create-json
+      uses: jsdaniell/create-json@1.1.2
+      with:
+        name: "***-ocr-6e01aae86a2f.json"
+        json: ${{ secrets.GOOGLE_USER_JSON }}
+    
+    - name: Run chmod to make gradlew executable
+      run: chmod +x ./gradlew
+
+    # (3) Gradle build (Test 제외)
+    - name: Build with Gradle
+      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+      with:
+        arguments: clean build -x test
+
+    # (4) AWS 인증 (IAM 사용자 Access Key, Secret Key 활용)
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.CAREFREE98_ADMIN_AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.CAREFREE98_ADMIN_AWS_SECRET_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    # (5) 빌드 결과물을 S3 버킷에 업로드
+    - name: Upload to AWS S3
+      run: |
+        aws deploy push \
+          --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
+          --ignore-hidden-files \
+          --s3-location s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip \
+          --source .
+
+    # (6) S3 버킷에 있는 파일을 대상으로 CodeDeploy 실행
+    - name: Deploy to AWS EC2 from S3
+      run: |
+        aws deploy create-deployment \
+          --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
+          --deployment-config-name CodeDeployDefault.AllAtOnce \
+          --deployment-group-name ${{ env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
+          --s3-location bucket=$S3_BUCKET_NAME,key=$GITHUB_SHA.zip,bundleType=zip
+
+```
+
+
+# 2. Spring Boot Application 개발
+## 2-1 전체 흐름
+
+> **전체적인 흐름은 다음과 같다.**
+> <br><br>
+> 1. **사용자가 /upload-form 으로 GET 요청. -> upload-form 반환.**
+> 2. **사용자가 등기 영수증 이미지 파일을 upload 후 /uploadAndOcr 으로 POST 요청.**
+> 3. **NCP Clova OCR API Call 후 List\<String> 형태로 결과 값 반환.**
+> 4. **OCR 결과를 Iterator 를 사용하여 순회하며 Data 가공.**
+> 	- **총 개수 파악**
+> 	- **정규 표현식을 사용하여 날짜 저장. (추후 해당 날짜 별로 Google Sheet 생성)**
+> 	- **정규 표현식을 사용하여 등기 번호 탐색 및 저장.**
+> 		- **탐색한 등기 번호를 통한 우체국 등기 발송 조회 링크 생성**
+> 			- 우체국 등기 조회 로직을 살펴보니 "https://service.epost.go.kr/trace.RetrieveDomRigiTraceList.comm?sid1=(등기 번호)&displayHeader=" 와 같이 수행됨.
+> 			- 등기 번호에서 - (dash) 를 정규표현식을 통해 지우고 숫자만 남긴 후 URL Format 에 삽입하여 해당 등기 우편 조회 링크를 생성.
+> 	- **우편 번호, 기업 명 저장**
+> 	- **수신인 저장**
+> 		- 두 자 이름인 경우 고려
+> 	- **"익일 특급" / "합계" / "통상" 발견 전까지 주소로 간주하여 저장**
+> 		- **"합계" 발견 시 Loop 종료.**
+> 5. **가공된 Data 를 HTML Template 으로 반환하는 동시에 Google Sheet 로 전달하기 위해 List<List\<Object>> 형식으로 재가공.**
+> 	- 기존 Data 를 Number, 등기 번호, 조회 링크, 우편 번호, 법인 명, 수신자, 주소 의 총 7개씩 나눠 2차원 배열 형태로 가공.
+> 6. **재 가공된 Data를 Google Sheet API 를 사용해서 지정된 Google Sheet 에 저장.**
+> 	- **Google Sheet API 사용자 인증은 Github Actions 에 의해 생성된 프로젝트 루트 위치의 JSON 파일 사용.**
+> 	- **addSheet()**
+> 		- OCR 에서 Detect 한 날짜를 Title 로 Sheet 생성. (날짜 별 등기 영수증 내용 분리 저장)
+> 		- 만약 동일한 날짜 (시트 이름) 가 존재하면 해당 시트를 반환.
+> 	- **updateValues()**
+> 		- **데이터 반환 타입만 변경해주면 기능 변경 가능.**
+> 			- **Update**ValuesResponse : 기존 셀에 덮어 쓰기
+> 			- **Append**ValuesResponse : 기존 셀 끝에 이어 쓰기
+
+## 2-2 Naver Cloud Platform Clova OCR API
+```java
+@Slf4j  
+@Component  
+public class NaverOcrApi {  
+    @Value("${naver.service.url}")  
+    private String url;  
+  
+    public List<String> callApi(String type, String filePath, String naver_secretKey, String ext) {  
+        String apiURL = url;  
+        String secretKey = naver_secretKey;  
+        String imageFile = filePath;  
+        List<String> parseData = null;  
+  
+        log.info("callApi Start! " + "type:" + type + " file path:" + filePath + " ext:" + ext);  
+  
+  
+        try {  
+            URL url = new URL(apiURL);  
+            HttpURLConnection con = (HttpURLConnection)url.openConnection();  
+            con.setUseCaches(false);  
+            con.setDoInput(true);  
+            con.setDoOutput(true);  
+            con.setReadTimeout(30000);  
+            con.setRequestMethod("POST");  
+            String boundary = "----" + UUID.randomUUID().toString().replaceAll("-", "");  
+            con.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);  
+            con.setRequestProperty("X-OCR-SECRET", secretKey);  
+  
+            JSONObject json = new JSONObject();  
+            json.put("version", "V2");  
+            json.put("requestId", UUID.randomUUID().toString());  
+            json.put("timestamp", System.currentTimeMillis());  
+            JSONObject image = new JSONObject();  
+            image.put("format", "jpeg");  
+            image.put("name", "demo");  
+            JSONArray images = new JSONArray();  
+            images.add(image);  
+            json.put("images", images);  
+            String postParams = json.toString();  
+  
+            con.connect();  
+            DataOutputStream wr = new DataOutputStream(con.getOutputStream());  
+//            long start = System.currentTimeMillis();  
+            File file = new File(imageFile);  
+            writeMultiPart(wr, postParams, file, boundary);  
+            wr.close();  
+  
+            int responseCode = con.getResponseCode();  
+            BufferedReader br;  
+            if (responseCode == 200) {  
+                br = new BufferedReader(new InputStreamReader(con.getInputStream()));  
+            } else {  
+                br = new BufferedReader(new InputStreamReader(con.getErrorStream()));  
+            }  
+            String inputLine;  
+            StringBuffer response = new StringBuffer();  
+            while ((inputLine = br.readLine()) != null) {  
+                response.append(inputLine);  
+            }  
+            br.close();  
+  
+            parseData = jsonparse(response);  
+  
+        } catch (Exception e) {  
+            System.out.println(e);  
+        }  
+  
+        return parseData;  
+    }  
+  
+    private static void writeMultiPart(OutputStream out, String jsonMessage, File file, String boundary) throws  
+            IOException {  
+        StringBuilder sb = new StringBuilder();  
+        sb.append("--").append(boundary).append("\r\n");  
+        sb.append("Content-Disposition:form-data; name=\"message\"\r\n\r\n");  
+        sb.append(jsonMessage);  
+        sb.append("\r\n");  
+  
+        out.write(sb.toString().getBytes("UTF-8"));  
+        out.flush();  
+  
+        if (file != null && file.isFile()) {  
+            out.write(("--" + boundary + "\r\n").getBytes("UTF-8"));  
+            StringBuilder fileString = new StringBuilder();  
+            fileString  
+                    .append("Content-Disposition:form-data; name=\"file\"; filename=");  
+            fileString.append("\"" + file.getName() + "\"\r\n");  
+            fileString.append("Content-Type: application/octet-stream\r\n\r\n");  
+            out.write(fileString.toString().getBytes("UTF-8"));  
+            out.flush();  
+  
+            try (FileInputStream fis = new FileInputStream(file)) {  
+                byte[] buffer = new byte[8192];  
+                int count;  
+                while ((count = fis.read(buffer)) != -1) {  
+                    out.write(buffer, 0, count);  
+                }  
+                out.write("\r\n".getBytes());  
+            }  
+  
+            out.write(("--" + boundary + "--\r\n").getBytes("UTF-8"));  
+        }  
+        out.flush();  
+    }  
+  
+    // Data 가공 (OCR 결과를 List<String> 형식으로 반환)  
+    private static List<String> jsonparse(StringBuffer response) throws org.json.simple.parser.ParseException {  
+        //json 파싱  
+        JSONParser jp = new JSONParser();  
+        JSONObject jobj = (JSONObject) jp.parse(response.toString());  
+        //images 배열 obj 화  
+        JSONArray JSONArrayPerson = (JSONArray)jobj.get("images");  
+        JSONObject JSONObjImage = (JSONObject)JSONArrayPerson.get(0);  
+        JSONArray s = (JSONArray) JSONObjImage.get("fields");  
+        //  
+        List<Map<String, Object>> m = getListMapFromJsonArray(s);  
+        List<String> result = new ArrayList<>();  
+        for (Map<String, Object> as : m) {  
+            result.add((String) as.get("inferText"));  
+        }  
+  
+        return result;  
+    }  
+}
+```
+
+## 2-3 GoogleSheet API
+```java
+@Slf4j  
+@Component  
+public class GoogleSheet {  
+    private static HttpRequestInitializer requestInitializer;  
+  
+    public GoogleSheet() throws IOException {  
+        this.requestInitializer = new HttpCredentialsAdapter(  
+                GoogleCredentials.fromStream(new FileInputStream("/home/ec2-user/app/gangsan21-ocr-6e01aae86a2f.json"))  
+                        .createScoped(Collections.singletonList("https://www.googleapis.com/auth/spreadsheets"))  
+        );  
+    }  
+  
+    // UpdateValuesResponse : 기존 셀에 덮어 쓰기  
+    // AppendValuesResponse : 기존 셀 끝에 이어 쓰기  
+    // 데이터 반환 타입만 변경해주면 기능 변경 가능.  
+    public static AppendValuesResponse updateValues(String sheetTitle,  
+                                                    String spreadsheetId,  
+                                                    String range,  
+                                                    String valueInputOption,  
+                                                    List<List<Object>> values) throws IOException {  
+        Sheets service = new Sheets.Builder(new NetHttpTransport(),  
+                GsonFactory.getDefaultInstance(),  
+                requestInitializer)  
+                .setApplicationName("Sheets samples")  
+                .build();  
+  
+        // 시트를 추가  
+        SheetProperties addedSheetProperties = addSheet(service, sheetTitle, spreadsheetId);  
+  
+        // 시트 이름과 지정한 범위 (A1:G1000) 에 Data 저장.  
+        ValueRange body = new ValueRange().setValues(values);  
+  
+        // spreadsheetId 와 range 를 합쳐 update 할 위치를 지정 (Spreadsheet 이름 ! 시작 셀 : 끝 셀)  
+        // 예: 2023-12-28!A1:G1000  
+        return service.spreadsheets().values().append(spreadsheetId, sheetTitle + "!" + range, body)  
+                .setValueInputOption(valueInputOption)  
+                .execute();  
+    }  
+  
+    public static SheetProperties addSheet(Sheets service, String sheetTitle, String spreadsheetId) throws IOException {  
+        // 시트가 이미 존재하는지 확인  
+        SheetProperties existingSheet = getSheet(service, sheetTitle, spreadsheetId);  
+        if (existingSheet != null) {  
+            return existingSheet; // 이미 존재하면 해당 시트의 정보를 반환  
+        }  
+  
+        // 시트를 추가하기 위한 요청 생성  
+        AddSheetRequest addSheetRequest = new AddSheetRequest();  
+        SheetProperties sheetProperties = new SheetProperties();  
+        sheetProperties.setTitle(sheetTitle);  
+        addSheetRequest.setProperties(sheetProperties);  
+  
+        // 스프레드시트 업데이트를 위한 요청 생성  
+        BatchUpdateSpreadsheetRequest updateRequest = new BatchUpdateSpreadsheetRequest();  
+  
+        // 시트 추가 요청을 업데이트 요청에 추가  
+        updateRequest.setRequests(Collections.singletonList(  
+                new Request()  
+                        .setAddSheet(addSheetRequest)  
+        ));  
+  
+        // 업데이트 요청을 Google Sheets API에 전송  
+        service.spreadsheets().batchUpdate(spreadsheetId, updateRequest).execute();  
+        return sheetProperties;  
+    }  
+  
+    private static SheetProperties getSheet(Sheets service, String sheetTitle, String spreadsheetId) throws IOException {  
+        Spreadsheet spreadsheet = service.spreadsheets().get(spreadsheetId).execute();  
+        List<Sheet> sheets = spreadsheet.getSheets();  
+        for (Sheet sheet : sheets) {  
+            if (sheet.getProperties().getTitle().equals(sheetTitle)) {  
+                return sheet.getProperties();  
+            }  
+        }  
+        return null;  
+    }  
+}
+```
+
+
+# 3. Trouble Shooting
 
 ## Use JsonReader.setLenient(true) to accept malformed JSON
 ![[스크린샷 2023-12-23 오후 6.41.21.png]]
