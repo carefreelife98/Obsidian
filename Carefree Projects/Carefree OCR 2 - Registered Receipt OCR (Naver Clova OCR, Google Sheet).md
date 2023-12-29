@@ -427,6 +427,8 @@ public class uploadController {
     @Value("${naver.business.secretKey}")  
     private String secretKeyBusiness;  
   
+    private List<String> exceptions = new ArrayList<>();  
+  
     private final NaverOcrApi naverApi;  
     private final NaverOcrApiBusiness naverBusinessApi;  
     ArrayList<String> afterFmt = new ArrayList<>();  
@@ -475,6 +477,8 @@ public class uploadController {
   
             // NCP Clova OCR API Call  
             List<String> result = naverApi.callApi("POST", tempFile.getPath(), naverSecretKey, "jpeg");  
+  
+            // api 호출 실패 시 exception 에 기록하고 pass.            if (errors(result, tempFile)) continue;  
   
             tempFile.delete(); // 임시 파일 삭제  
   
@@ -556,8 +560,10 @@ public class uploadController {
                 }  
                 toGSheet.add(temp);  
             }  
-            GoogleSheet.updateValues(date, "구글 스프레드 시트 아이디", "A1:G1000", "RAW", toGSheet);  
+            GoogleSheet.updateValues(date, "1UADUNDLfmaQLJ1woHzVs9sq2HyScmfLla4lKvjaAwy8", "A1:G1000", "RAW", toGSheet);  
         }  
+        log.info(concatString(exceptions));  
+        exceptions.clear();  
         return "ocr-result"; // OCR 결과를 표시하는 HTML 템플릿 이름 반환  
     }  
   
@@ -575,15 +581,18 @@ public class uploadController {
   
             // NCP Clova OCR API Call  
             List<String> result = naverBusinessApi.callApiBusiness("POST", tempFile.getPath(), naverSecretKey, "jpeg");  
+  
+            // api 호출 실패 시 exception 에 기록하고 pass.            if (errors(result, tempFile)) continue;  
+  
             tempFile.delete(); // 임시 파일 삭제  
   
-            // "\n" 을 ", " 로 변경
+            // \n 삭제  
             int num = 0;  
+  
             while (num < result.size()) {  
                 result.set(num, result.get(num).replaceAll("\n", ", "));  
                 num++;  
             }  
-  
             model.addAttribute("ocrBusinessResult", result);  
   
             List<List<Object>> toGSheet = new ArrayList<>();  
@@ -595,16 +604,50 @@ public class uploadController {
             }  
             toGSheet.add(temp);  
   
-            GoogleSheet.updateValues("(시트 이름)", "(구글 스프레드 시트 아이디)", "A1:J1000", "RAW", toGSheet);  
+            GoogleSheet.updateValues("시트1", "1ucw8wIlZosXmskTX61odE_CnX8WnEjw9q_Oggj8WwQY", "A1:J1000", "RAW", toGSheet);  
         }  
+        log.info(concatString(exceptions));  
+        exceptions.clear();  
         return "ocr-result-business";  
+    }  
+  
+    private Boolean errors(List<String> tg, File f) {  
+        if (tg == null) {  
+            log.info("!! OCR 불가능한 이미지 입니다. result 에 NULL 값 확인됨 !!");  
+            exceptions.add(f.getName());  
+            return true;  
+        }  
+        return false;  
+    }  
+  
+    private static String concatString(List<String> stringList) {  
+        StringBuilder stringBuilder = new StringBuilder();  
+        for (String str : stringList) stringBuilder.append(str);  
+        return stringBuilder.toString();  
     }  
 }
 ```
 
-# 6. Trouble Shooting
+# 6. DNS 연결 AWS Route53 + 가비아
+## 6-1. 가비아 도메인 구매
+![[스크린샷 2023-12-29 오후 3.08.32.png]]
+`[가비아]`(https://www.gabia.com/)
+> 회사 이름과 OCR 을 붙여 가장 저렴한 이벤트 도메인을 구매했습니다.
+> - **도메인 구매 후 사진 하단의 `"네임서버 설정"` 에서 1 ~ 4 차 네임 서버 항목을 6-2 단계에서 얻는 AWS Route53 의 NS 유형 값 4개를 채워주고 기다리면 도메인 등록이 완료됩니다.**
 
-## 6-1. Use JsonReader.setLenient(true) to accept malformed JSON
+## 6-2. AWS Route53 레코드 생성
+![[스크린샷 2023-12-29 오후 3.10.56.png]]
+`[AWS Route53]`(https://aws.amazon.com/ko/route53/)
+> 1. **AWS Route53 에서 호스팅 영역 생성 -> 6-1 에서 구매한 도메인 입력**
+> 2. **레코드 생성 -> 값 부분에 EC2 의 IP 주소를 입력. -> 생성**
+> 3. **NS(NameServer) 유형 값 4개를 도메인 구매처의 도메인 네임 서버 설정에 입력하여 연결.**
+> 
+> <br>
+> - **[참고] 가비아에서 도메인 구매 후 등록하고 (6-2 까지 진행) 기다리다 보면 도메인 등록이 완료 되었다고 문자가 온다. 문자가 오면 해당 도메인으로 접근 시 EC2로 연결된다.**
+
+
+# 7. Trouble Shooting
+## 7-1. Use JsonReader.setLenient(true) to accept malformed JSON
 ![[스크린샷 2023-12-23 오후 6.41.21.png]]
 > Google Sheet API 를 사용하기 위한 계정 인증을 위한 JSON 파일을 CI/CD 환경에서 안전하게 사용하기 위해 Github Secrets 를 사용했다.
 > - 하지만 Google Sheet API 를 요청하자, 이전에 발생하지 않던 에러가 발생했다.
