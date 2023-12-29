@@ -5,38 +5,52 @@ Agenda:
 tags:
   - ToyProject
 ---
-# Agenda
+# 1. Agenda
 
-> 회사에서 **매년 우편물 등기 영수증을 일일히 Excel 에 수작업으로 옮기는 작업**을 하고 있는데, 담당자께서 다음과 같은 프로그램이 있다면 편리할 것 같다 함에 진행한 개인 토이 프로젝트.
+> 회사에서 **매년 우편물 등기 영수증을 일일히 Excel 에 수작업으로 옮기는 작업**을 하고 있는데, 담당자께서 다음과 같은 프로그램이 있다면 편리할 것 같다 하심에 진행한 개인 Toy Project 입니다.
 > 
 > **요구 사항**
-> - **등기 영수증을 사진 촬영 / 스캔 하여 해당 Text 들이 Google Sheet 에 자동으로 Numbering 후 입력 되었으면 좋겠다.**
-> - **등기 영수증으로부터 사용할 정보**
-> 	- 일자
-> 	- 개수
-> 	- 등기 번호
-> 	- 각 등기 별 배송 조회 링크
-> 	- 우편 번호
-> 	- 법인 명
-> 	- 수신인
-> 	- 주소
+> 1. **공통**
+> 	- **사진 촬영 / 스캔본 과 같은 각 이미지 파일을 OCR 하여 Text 를 Detect 하고, Google Sheet 에 자동으로 Numbering 되어 입력 되었으면 좋겠다.**
+> 	- 여러 장의 이미지 파일을 한번에 Upload 가능해야 한다.
+> 2. **등기 영수증 OCR**
+> 	- **등기 영수증으로부터 사용할 정보**
+> 		- 일자
+> 		- 개수
+> 		- 등기 번호
+> 		- 각 등기 별 배송 조회 링크
+> 		- 우편 번호
+> 		- 법인 명
+> 		- 수신인
+> 		- 주소
+> 3. **사업자 등록증 OCR**
+> 	- **사업자 등록증으로부터 사용할 정보**
+> 		- 개수
+> 		- 사업자명
+> 		- 대표자
+> 		- 등록번호
+> 		- 주소
+> 		- 법인번호
+> 		- 업태
+> 		- 종목
+> 		- 전화번호
+> 		- 팩스번호
 
 
-# 전체 구조 및 Architecture
-
-## 1. AWS Cloud Infrastructure
+# 2. 전체 구조 / Architecture
+## 2-1. AWS Cloud Infrastructure
 ![[Pasted image 20231227113005.png]]
 
-## 2. Spring Boot Application Structure
-![[스크린샷 2023-12-27 오전 11.33.47.png]]
+## 2-2. Spring Boot Application Structure
+![[스크린샷 2023-12-29 오전 10.48.33.png]]
 
-## 3. 전체 구성도
+## 2-3. 전체 구성도 (Architecture)
 ![[Pasted image 20231228100006.png]]
 
-# 1. CI / CD Pipeline 구축 (Github Actions / AWS CodeDeploy)
+# 3. CI / CD Pipeline 구축 (Github Actions / AWS CodeDeploy)
 > **개발 및 배포 테스트 과정에서 CI/CD Pipeline 이 구축되어 있으면 매우 편리하므로 항상 개인 프로젝트 시작 전 CI/CD Pipeline 부터 간단하게 구축하고 시작하는 경향이 있습니다.**
 
-## Github Actions
+## 3-1. Github Actions
 ![[스크린샷 2023-12-28 오전 11.21.23.png]]
 > **Github Actions 에서 프로그램에서 사용할 Secret 을 Github secret 을 통해 코드에 삽입하고, Build 된 JAR 파일을 .zip 압축하여 AWS S3 에 저장 후 AWS CodeDeploy 를 실행하여 EC2 에 배포하게 됩니다.**
 > - **대부분의 secret 정보가 담겨 있는 application.properties 는 Github Secrets 에 넣어두고 Github Actions 과정에서 Secrets 을 통해 직접 생성하여 사용.**
@@ -137,14 +151,34 @@ jobs:
 
 ```
 
+## 3-2. AWS CodeDeploy
 
-# 2. Spring Boot Application 개발
-## 2-1 전체 흐름
+# 4. APIs
+## 4-1. NCP Clova OCR API
+![[스크린샷 2023-12-29 오전 11.11.28.png]]
+`[NCP Clova OCR API 바로가기]`(https://console.ncloud.com/ocr/domain)
+> **NCP Clova OCR API 같은 경우에는 다양한 서비스와 모델을 지원합니다.**
+> - **등기 영수증의 경우 매우 다양한 내용이 담겨 있고, 텍스트의 크기도 작아 더욱 정밀한 OCR 결과를 얻기 위해서 General OCR - Premium Model 을 사용했습니다.**
+> - **사업자 등록증의 경우 NCP 자체에서 사업자 등록증과 같은 특정 서류에 대하여 Template 을 생성할 수 있는 OCR service 를 지원합니다.**
+> 	- 따라서 회사의 사업자 등록증을 Template Sample 로 등록 후, 요구 사항을 바탕으로 원하는 정보를 얻어낼 Field 를 지정하여 OCR service 를 더욱 정밀하게 사용할 수 있도록 의도했습니다.
+## 4-2. GCP Google Sheet API
+![[스크린샷 2023-12-29 오전 11.01.46.png]]
+`[GCP Google Sheet API 바로가기]`(https://developers.google.com/sheets/api/reference/rest?hl=ko)
 
-> **전체적인 흐름은 다음과 같다.**
+**Google Sheet API 를 사용하는 것은 어렵지 않으나, API 를 사용하기 위한 과정(사용자 인증 정보 생성)이 조금 까다로울 수 있습니다.**
+![[스크린샷 2023-12-29 오전 11.31.14.png]]
+> **위와 같이 API 키, OAuth 2.0 Client ID, Service Account 세 가지를 각 용도에 맞추어 생성한 후 정상적으로 Google Sheet API 를 사용 할 수 있다.**
+> - 만약 CI/CD Pipeline 이 구축되어 있다면, **해당 정보를 숨기기 위해 Github Actions 및 Github Secret** 에 미리 지정하여 배포하는 방법이 제겐 편리하고 가장 무난한 방법이었습니다.
+# 5. Spring Boot Application 개발
+> **프로젝트 진행하면서 개인적으로 기록했던 사항 및 설명은 소스코드 내부에 주석으로 달아두었습니다.**
+
+<br><br>
+## 5-1. 전체 흐름
+
+> **전체적인 흐름은 다음과 같습니다.**
 > <br><br>
 > 1. **사용자가 /upload-form 으로 GET 요청. -> upload-form 반환.**
-> 2. **사용자가 등기 영수증 이미지 파일을 upload 후 /uploadAndOcr 으로 POST 요청.**
+> 2. **사용자가 등기 영수증 / 사업자 등록증 이미지 파일을 upload 후 /uploadAndOcr 으로 POST 요청.**
 > 3. **NCP Clova OCR API Call 후 List\<String> 형태로 결과 값 반환.**
 > 4. **OCR 결과를 Iterator 를 사용하여 순회하며 Data 가공.**
 > 	- **총 개수 파악**
@@ -170,7 +204,7 @@ jobs:
 > 			- **Update**ValuesResponse : 기존 셀에 덮어 쓰기
 > 			- **Append**ValuesResponse : 기존 셀 끝에 이어 쓰기
 
-## 2-2 Naver Cloud Platform Clova OCR API
+## 5-2. Naver Cloud Platform Clova OCR API
 ```java
 @Slf4j  
 @Component  
@@ -297,7 +331,7 @@ public class NaverOcrApi {
 }
 ```
 
-## 2-3 GoogleSheet API
+## 5-3. GoogleSheet API
 ```java
 @Slf4j  
 @Component  
@@ -306,7 +340,7 @@ public class GoogleSheet {
   
     public GoogleSheet() throws IOException {  
         this.requestInitializer = new HttpCredentialsAdapter(  
-                GoogleCredentials.fromStream(new FileInputStream("/home/ec2-user/app/gangsan21-ocr-6e01aae86a2f.json"))  
+                GoogleCredentials.fromStream(new FileInputStream("/home/ec2-user/app/***.json"))  
                         .createScoped(Collections.singletonList("https://www.googleapis.com/auth/spreadsheets"))  
         );  
     }  
@@ -322,7 +356,7 @@ public class GoogleSheet {
         Sheets service = new Sheets.Builder(new NetHttpTransport(),  
                 GsonFactory.getDefaultInstance(),  
                 requestInitializer)  
-                .setApplicationName("Sheets samples")  
+                .setApplicationName("OCR Sheets")  
                 .build();  
   
         // 시트를 추가  
@@ -378,10 +412,199 @@ public class GoogleSheet {
 }
 ```
 
+## 5-4. uploadController
+> 간단한 프로그램이 이렇게 커질 줄 몰라 controller 와 service 구분을 하지 않아서,,,<br>
+> 추후 Refactoring 예정입니다.
 
-# 3. Trouble Shooting
+```java
+@Controller  
+@Slf4j  
+@RequiredArgsConstructor  
+public class uploadController {  
+    @Value("${naver.service.secretKey}")  
+    private String secretKey;  
+  
+    @Value("${naver.business.secretKey}")  
+    private String secretKeyBusiness;  
+  
+    private final NaverOcrApi naverApi;  
+    private final NaverOcrApiBusiness naverBusinessApi;  
+    ArrayList<String> afterFmt = new ArrayList<>();  
+    String date = "";  
+    private static final String[] REGIONS = {  
+            "서울특별시",  
+            "부산광역시",  
+            "대구광역시",  
+            "인천광역시",  
+            "광주광역시",  
+            "대전광역시",  
+            "울산광역시",  
+            "세종특별자치시",  
+            "경기도",  
+            "강원특별자치도",  
+            "충청북도",  
+            "충청남도",  
+            "전라북도",  
+            "전라남도",  
+            "경상북도",  
+            "경상남도",  
+            "제주특별자치도"  
+    };  
+  
+  
+    // 파일 업로드 폼을 보여주기 위한 GET 요청 핸들러 메서드  
+    @GetMapping("/upload-form")  
+    public String uploadForm() throws Exception {  
+        return "upload-form"; // HTML 템플릿의 이름을 반환 (upload-form.html)    }  
+  
+    // 파일 업로드 및 OCR 수행을 위한 POST 요청 핸들러 메서드  
+    @PostMapping("/uploadAndOcr")  
+    public String uploadAndOcr(@RequestParam("files") List<MultipartFile> files, Model model) throws IOException {  
+        for (MultipartFile file : files) {  
+            if (file.isEmpty()) {  
+                return "error"; // 파일이 비어있을 경우 에러를 처리하는 HTML 템플릿으로 이동  
+            }  
+  
+            String naverSecretKey = secretKey; // 본인의 네이버 Clova OCR 시크릿 키로 대체  
+  
+            File tempFile = File.createTempFile("temp", file.getOriginalFilename());  
+            file.transferTo(tempFile);  
+  
+            // 이전 실행 내역 초기화  
+            if (!afterFmt.isEmpty()) afterFmt.clear();  
+  
+            // NCP Clova OCR API Call  
+            List<String> result = naverApi.callApi("POST", tempFile.getPath(), naverSecretKey, "jpeg");  
+  
+            tempFile.delete(); // 임시 파일 삭제  
+  
+            // Iterator 를 사용하여 OCR 결과를 순회.  
+            ListIterator<String> iter = result.listIterator();  
+            int total = 0;  
+            while (iter.hasNext()) {  
+                String text = iter.next();  
+  
+                // 날짜 확인 및 저장 (Google Sheet 에 날짜 별로 Sheet 생성하기 위함)  
+                if (text.matches("\\d{4}-\\d{2}-\\d{2}")) {  
+                    date = text;  
+                }  
+  
+                // 등기 번호 발견 시 데이터 가공 (일반 영수증: 00000-0000-0000 / 대량 발송 영수증: 0000000000000)  
+                if (text.matches("\\d{5}-\\d{4}-\\d{4}") || text.matches("\\d{13}")) {  
+                    total++;  
+                    // 총 개수 Numbering                    afterFmt.add("[" + total + "]");  
+  
+                    // 등기 번호 저장  
+                    afterFmt.add(text);  
+  
+                    // 정규화 된 등기 번호를 사용한 각 등기 별 우체국 조회 서비스 링크 생성  
+                    String findPostUrl =  
+                            "https://service.epost.go.kr/trace.RetrieveDomRigiTraceList.comm?sid1="  
+                                    + text.replaceAll("[^0-9]", "")  
+                                    + "&displayHeader=";  
+                    afterFmt.add(findPostUrl);  
+  
+                    // 가격 skip, 우편 번호 저장  
+                    iter.next();  
+                    text = iter.next();  
+                    afterFmt.add(text);  
+  
+                    // 기업 명 저장  
+                    afterFmt.add(iter.next());  
+  
+                    // 수신인 저장  
+                    text = iter.next();  
+                    if (Arrays.asList(REGIONS).contains(text)) {  
+                        afterFmt.add("-");  
+                        iter.previous();  
+                    } else {  
+                        // 두 자 이름 / 다음 줄로 이름이 밀렸을 경우 Concat.                        if (text.length() <= 2) {  
+                            text = text.concat(iter.next());  
+                        }  
+                        afterFmt.add(text);  
+                    }  
+  
+                    // 주소 저장  
+                    StringBuilder adr = new StringBuilder();  
+                    while (iter.hasNext()) {  
+                        text = iter.next();  
+                        // 합계 / 통상 / 익일특급 발견 시 주소 저장 후 순회.  
+                        if (text.equals("합계") || text.equals("통상") || text.equals("익일특급")) {  
+                            afterFmt.add(String.valueOf(adr));  
+                            break;  
+                        }  
+  
+                        // 띄어 쓰기 포함 주소 문자열 concat.                        if (iter.hasNext())  
+                            adr.append(" ").append(text);  
+                    }  
+                }  
+                // 합계 발견 시 종료. (마지막 도달)  
+                if (text.equals("합계")) {  
+                    break;  
+                }  
+            }  
+            model.addAttribute("ocrResult", afterFmt); // OCR 결과를 HTML 템플릿에 전달  
+  
+            List<List<Object>> toGSheet = new ArrayList<>();  
+            int idx = 0;  
+            log.info("size: " + afterFmt.size());  
+            for (int i = 0; i < afterFmt.size(); i++) {  
+                List<Object> temp = new ArrayList<>();  
+                for (int j = 0; j < 7 && idx < afterFmt.size(); j++) {  
+                    temp.add(afterFmt.get(idx));  
+                    idx++;  
+                }  
+                toGSheet.add(temp);  
+            }  
+            GoogleSheet.updateValues(date, "구글 스프레드 시트 아이디", "A1:G1000", "RAW", toGSheet);  
+        }  
+        return "ocr-result"; // OCR 결과를 표시하는 HTML 템플릿 이름 반환  
+    }  
+  
+    @PostMapping("/ocrBusiness")  
+    public String uploadAndOcrBusiness(@RequestParam("files") List<MultipartFile> files, Model model) throws IOException {  
+        for (MultipartFile file : files) {  
+            if (file.isEmpty()) {  
+                return "error"; // 파일이 비어있을 경우 에러를 처리하는 HTML 템플릿으로 이동  
+            }  
+  
+            String naverSecretKey = secretKeyBusiness;  
+  
+            File tempFile = File.createTempFile("temp", file.getOriginalFilename());  
+            file.transferTo(tempFile);  
+  
+            // NCP Clova OCR API Call  
+            List<String> result = naverBusinessApi.callApiBusiness("POST", tempFile.getPath(), naverSecretKey, "jpeg");  
+            tempFile.delete(); // 임시 파일 삭제  
+  
+            // "\n" 을 ", " 로 변경
+            int num = 0;  
+            while (num < result.size()) {  
+                result.set(num, result.get(num).replaceAll("\n", ", "));  
+                num++;  
+            }  
+  
+            model.addAttribute("ocrBusinessResult", result);  
+  
+            List<List<Object>> toGSheet = new ArrayList<>();  
+            int idx = 0;  
+            List<Object> temp = new ArrayList<>();  
+            for (int i = 0; i < 7 && idx < result.size(); i++) {  
+                temp.add(result.get(idx));  
+                idx++;  
+            }  
+            toGSheet.add(temp);  
+  
+            GoogleSheet.updateValues("(시트 이름)", "(구글 스프레드 시트 아이디)", "A1:J1000", "RAW", toGSheet);  
+        }  
+        return "ocr-result-business";  
+    }  
+}
+```
 
-## Use JsonReader.setLenient(true) to accept malformed JSON
+# 6. Trouble Shooting
+
+## 6-1. Use JsonReader.setLenient(true) to accept malformed JSON
 ![[스크린샷 2023-12-23 오후 6.41.21.png]]
 > Google Sheet API 를 사용하기 위한 계정 인증을 위한 JSON 파일을 CI/CD 환경에서 안전하게 사용하기 위해 Github Secrets 를 사용했다.
 > - 하지만 Google Sheet API 를 요청하자, 이전에 발생하지 않던 에러가 발생했다.
