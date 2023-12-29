@@ -152,6 +152,13 @@ jobs:
 ```
 
 ## 3-2. AWS CodeDeploy
+![[스크린샷 2023-12-29 오후 4.27.46.png]]
+> **CodeDeploy 의 DeployGroup 에 지정된 EC2에 AllAtOnce 방식으로 애플리케이션을 배포합니다.**
+> - 여러 개의 EC2 를 띄우지 않았으므로 **애초에 무중단 배포가 불가능.** AllAtOnce 방식으로 한번에 배포.
+
+
+![[스크린샷 2023-12-29 오후 4.46.09.png]]
+> 수많은 삽질 및 리팩토링의 흔적..
 
 # 4. APIs
 ## 4-1. NCP Clova OCR API
