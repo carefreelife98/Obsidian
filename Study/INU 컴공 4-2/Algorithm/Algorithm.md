@@ -1,4 +1,4 @@
-[[INU 컴공 4-2/Algorithm/Day 1. Orientation]]
+[[Study/INU 컴공 4-2/Algorithm/Day 1. Orientation]]
 
 [[Day 2. 에라토스테네스의 체, 두 수의 합, 파스칼의 수 삼각형, 최장 연속 순차]]
 
@@ -20,7 +20,7 @@
 
 [[final - String Matching Algorithm]]
 
-[[INU 컴공 4-2/Algorithm/Final Exam]]
+[[Study/INU 컴공 4-2/Algorithm/Final Exam]]
 
 
 

@@ -15,18 +15,18 @@ Container Quota 사용하기
             - Linux 탄생 시 메모리 가격이 하드디스크 가격보다 월등히 비쌌음.
             - 따라서 swap 기능이 개발됨.
         
-        ![[Images/Untitled 35.png|Untitled 35.png]]
+        ![[Untitled 35.png|Untitled 35.png]]
         
 2. 메모리 업데이트 하기
     
-    ![[Images/Untitled 1 2.png|Untitled 1 2.png]]
+    ![[Untitled 1 2.png|Untitled 1 2.png]]
     
 
   
 
 컨테이너 CPU 할당법
 
-![[Images/Untitled 2 2.png|Untitled 2 2.png]]
+![[Untitled 2 2.png|Untitled 2 2.png]]
 
   
 
@@ -40,11 +40,11 @@ docker rm -f nginxdocker rm -f nginx2docker rm -f nginx3
 
 ## Docker Volume
 
-![[Images/Untitled 3 2.png|Untitled 3 2.png]]
+![[Untitled 3 2.png|Untitled 3 2.png]]
 
 - 컨테이너가 삭제되어도 컨테이너 내부의 데이터는 삭제되지 않도록 하는 기능.
     
-    ![[Images/Untitled 4 2.png|Untitled 4 2.png]]
+    ![[Untitled 4 2.png|Untitled 4 2.png]]
     
 - 볼륨의 종류는 세가지.
     - Bind Mount
@@ -74,26 +74,26 @@ docker rm -f nginxdocker rm -f nginx2docker rm -f nginx3
 
 1. docker volume 종류 파악
     
-    ![[Images/Untitled 5 2.png|Untitled 5 2.png]]
+    ![[Untitled 5 2.png|Untitled 5 2.png]]
     
 2. docker volume 생성 및 할당하기
     
-    ![[Images/Untitled 6 2.png|Untitled 6 2.png]]
+    ![[Untitled 6 2.png|Untitled 6 2.png]]
     
     - 컨테이너에 저장된 볼륨의 데이터와 호스트에 저장된 볼륨의 데이터가 같다.
     - 컨테이너를 삭제해도 호스트에 저장된 볼륨은 삭제되지 않는가?
         
-        ![[Images/Untitled 7 2.png|Untitled 7 2.png]]
+        ![[Untitled 7 2.png|Untitled 7 2.png]]
         
 3. Docker Volume 공유하기
     
     - 두번째 컨테이너 생성 및 볼륨 할당하기
         
-        ![[Images/Untitled 8 2.png|Untitled 8 2.png]]
+        ![[Untitled 8 2.png|Untitled 8 2.png]]
         
     - 컨테이너 삭제 후 볼륨 확인
         
-        ![[Images/Untitled 9 2.png|Untitled 9 2.png]]
+        ![[Untitled 9 2.png|Untitled 9 2.png]]
         
     - Bind-mount 사용하기
         
@@ -105,17 +105,17 @@ docker rm -f nginxdocker rm -f nginx2docker rm -f nginx3
         
         1. 호스트 디렉토리 생성 및 컨테이너에 할당
             
-            ![[Images/Untitled 10 2.png|Untitled 10 2.png]]
+            ![[Untitled 10 2.png|Untitled 10 2.png]]
             
             - z : SELinux 기능 무력화 (3번째 행)
         2. 볼륨 사용하기
             
-            ![[Images/Untitled 11 2.png|Untitled 11 2.png]]
+            ![[Untitled 11 2.png|Untitled 11 2.png]]
             
         
         - 컨테이너 mysql 삭제 후에도 호스트 상의 볼륨에는 데이터가 존재한다.
             
-            ![[Images/Untitled 12 2.png|Untitled 12 2.png]]
+            ![[Untitled 12 2.png|Untitled 12 2.png]]
             
     
       
@@ -127,18 +127,18 @@ docker rm -f nginxdocker rm -f nginx2docker rm -f nginx3
             - 컨테이너가 이미 생성된 후에도 그 내부의 파일이 실시간으로 공유가 되는가?
                 - index2.html을 만든 후 이를 nginx-1 /usr/share/nginx/html 에 복사한 후에 해당 파일을 nginx-2에서 확인
                     
-                    ![[Images/Untitled 13 2.png|Untitled 13 2.png]]
+                    ![[Untitled 13 2.png|Untitled 13 2.png]]
                     
         
         1. 첫번째 컨테이너에 공유 디렉토리 마운트
             
-            ![[Images/Untitled 14 2.png|Untitled 14 2.png]]
+            ![[Untitled 14 2.png|Untitled 14 2.png]]
             
         2. 두번째 컨테이너에게 디렉토리 공유 확인하기
             
-            ![[Images/Untitled 15 2.png|Untitled 15 2.png]]
+            ![[Untitled 15 2.png|Untitled 15 2.png]]
             
-            ![[Images/Untitled 16 2.png|Untitled 16 2.png]]
+            ![[Untitled 16 2.png|Untitled 16 2.png]]
             
         
           
@@ -235,7 +235,7 @@ Docker Image Build
 
 ### Dockerfile
 
-![[Images/Untitled 17 2.png|Untitled 17 2.png]]
+![[Untitled 17 2.png|Untitled 17 2.png]]
 
 - Dockerfile이 어디 있는가?
     - docker buil -t web_img .
@@ -250,18 +250,18 @@ Docker Image Build
 
 1. Docker image 다운
     
-    ![[Images/Untitled 18 2.png|Untitled 18 2.png]]
+    ![[Untitled 18 2.png|Untitled 18 2.png]]
     
 2. 컨테이너 생성 및 확인
     
-    ![[Images/Untitled 19 2.png|Untitled 19 2.png]]
+    ![[Untitled 19 2.png|Untitled 19 2.png]]
     
 3. Docker commit
     
     - commit : 현재 실행되고 있는 컨테이너를 이미지로 저장
     - template처럼 commit하여 기본 세팅이 되어 있는 컨테이너를 집단내에서 공유하여 사용할 수 있다. (추천하지는 않는 방법)
     
-    ![[Images/Untitled 20 2.png|Untitled 20 2.png]]
+    ![[Untitled 20 2.png|Untitled 20 2.png]]
     
 4. Docker tag (Version of Image)
     
@@ -271,26 +271,26 @@ Docker Image Build
         
         - [quay.io](http://quay.io) 계정의 비밀번호를 다시 설정한 후 로그인 하면 로그인이 될 것이다.
         
-        ![[Images/Untitled 21 2.png|Untitled 21 2.png]]
+        ![[Untitled 21 2.png|Untitled 21 2.png]]
         
     
       
     
     - [quay.io](http://quay.io) 에 Image push하기.
         
-        ![[Images/Untitled 22 2.png|Untitled 22 2.png]]
+        ![[Untitled 22 2.png|Untitled 22 2.png]]
         
           
         
     - 업로드가 된 모습
         
-        ![[Images/Untitled 23 2.png|Untitled 23 2.png]]
+        ![[Untitled 23 2.png|Untitled 23 2.png]]
         
 5. Docker Save & Load
     
     - 도커 이미지를 파일로 저장하거나 이를 이미지로 불러올 때 사용하는 방법이다
     
-    ![[Images/Untitled 24 2.png|Untitled 24 2.png]]
+    ![[Untitled 24 2.png|Untitled 24 2.png]]
     
       
     
@@ -386,29 +386,29 @@ Docker Image Build
 4. Dockerfile 작성하기
     1. Dockerfile 작성하기
         
-        ![[Images/Untitled 25 2.png|Untitled 25 2.png]]
+        ![[Untitled 25 2.png|Untitled 25 2.png]]
         
     2. 스트립트 파일 작성하기
         
-        ![[Images/Untitled 26 2.png|Untitled 26 2.png]]
+        ![[Untitled 26 2.png|Untitled 26 2.png]]
         
-        ![[Images/Untitled 27 2.png|Untitled 27 2.png]]
+        ![[Untitled 27 2.png|Untitled 27 2.png]]
         
     3. 이미지 생성하기
         
-        ![[Images/Untitled 28 2.png|Untitled 28 2.png]]
+        ![[Untitled 28 2.png|Untitled 28 2.png]]
         
     4. 이미지 생성 확인하기
         
-        ![[Images/Untitled 29 2.png|Untitled 29 2.png]]
+        ![[Untitled 29 2.png|Untitled 29 2.png]]
         
     5. 컨테이너 생성 및 테스트
         
-        ![[Images/Untitled 30 2.png|Untitled 30 2.png]]
+        ![[Untitled 30 2.png|Untitled 30 2.png]]
         
           
         
-        ![[Images/Untitled 31 2.png|Untitled 31 2.png]]
+        ![[Untitled 31 2.png|Untitled 31 2.png]]
         
           
         
@@ -429,7 +429,7 @@ Docker Image Build
 
 1. Potainer 설치하기
     
-    ![[Images/Untitled 32 2.png|Untitled 32 2.png]]
+    ![[Untitled 32 2.png|Untitled 32 2.png]]
     
     - Portainer 설치에 앞서 먼저 사용할 볼륨을 생성한다. Portainer 는 컨테이너 이미지 형태로 제공된다.
     - 도커 환경은 컨테이너 생성시 필요한 이미지가 없을 때 자동으로 다운로드를 하며 따라서 다음과 같은 명령을 실행하여 다운로드와 컨테이너를 동시에 실행할 수 있다.
@@ -439,19 +439,19 @@ Docker Image Build
             - 9000 번 포트로 Portainer 관리 페이지 접근
 2. Potainer 접근하기 ([http://서버](http://xn--hk3b17f/) IP:9000)
     
-    ![[Images/Untitled 33 2.png|Untitled 33 2.png]]
+    ![[Untitled 33 2.png|Untitled 33 2.png]]
     
     - 원하는 비밀번호를 입력하고 접속하면 된다.
     
       
     
-    ![[Images/Untitled 34 2.png|Untitled 34 2.png]]
+    ![[Untitled 34 2.png|Untitled 34 2.png]]
     
       
     
 3. Container 생성 정보 입력
     
-    ![[Images/Untitled 35 2.png|Untitled 35 2.png]]
+    ![[Untitled 35 2.png|Untitled 35 2.png]]
     
       
     

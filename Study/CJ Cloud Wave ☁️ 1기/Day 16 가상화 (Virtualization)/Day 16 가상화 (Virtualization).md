@@ -140,9 +140,9 @@
 
 - hostname 변경
     
-    ![[Images/Untitled.png|Untitled.png]]
+    ![[Untitled.png|Untitled.png]]
     
-    ![[Images/Untitled 1.png|Untitled 1.png]]
+    ![[Untitled 1.png|Untitled 1.png]]
     
 
   
@@ -165,11 +165,11 @@
 
 ## Doker의 구조
 
-![[Images/Untitled 2.png|Untitled 2.png]]
+![[Untitled 2.png|Untitled 2.png]]
 
   
 
-![[Images/Untitled 3.png|Untitled 3.png]]
+![[Untitled 3.png|Untitled 3.png]]
 
 - docker
     - 이미지 : 애플리케이션을 구동하기 위한 FILE.

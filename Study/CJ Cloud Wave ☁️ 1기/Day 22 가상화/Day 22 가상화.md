@@ -11,7 +11,7 @@ vnc란?
 - 포드는 동일한 네트워크, pid 및 ipc 네임스페이스를 공유하는 하나 이상의 컨테이너 그룹이다. 아래 예제는  
     Podman 에서 Pod 를 사용하는 방법에 대한 설명이다.
     
-    ![[Images/Untitled 47.png|Untitled 47.png]]
+    ![[Untitled 47.png|Untitled 47.png]]
     
       
     
@@ -24,9 +24,9 @@ vnc란?
 
 1. pod 생성하기
     
-    ![[Images/Untitled 1 4.png|Untitled 1 4.png]]
+    ![[Untitled 1 4.png|Untitled 1 4.png]]
     
-    ![[Images/Untitled 2 4.png|Untitled 2 4.png]]
+    ![[Untitled 2 4.png|Untitled 2 4.png]]
     
       
     
@@ -36,13 +36,13 @@ vnc란?
     [root@servera ~]# podman run -dt --pod new:web-pod -p 80:80 -p 3306:3306 \> --name nginx docker.io/nginx[root@servera ~]# podman pod ls[root@servera ~]# podman ps -a[root@servera ~]# curl http://localhost:80
     ```
     
-    ![[Images/Untitled 3 4.png|Untitled 3 4.png]]
+    ![[Untitled 3 4.png|Untitled 3 4.png]]
     
       
     
 3. 기본 Pod 에 Container 추가하기
     
-    ![[Images/Untitled 4 4.png|Untitled 4 4.png]]
+    ![[Untitled 4 4.png|Untitled 4 4.png]]
     
       
     
@@ -79,7 +79,7 @@ vnc란?
     
     - epel-release 패키지를 설치해주면 podman-compose가 설치된다.
         
-        ![[Images/Untitled 5 4.png|Untitled 5 4.png]]
+        ![[Untitled 5 4.png|Untitled 5 4.png]]
         
           
         
@@ -97,7 +97,7 @@ vnc란?
           
         
     
-    ![[Images/Untitled 6 4.png|Untitled 6 4.png]]
+    ![[Untitled 6 4.png|Untitled 6 4.png]]
     
     - 위 가상머신 설치시에 한가지 주의점은 VM 생성을 위해 Processors 메뉴에서 Virtualize Intel  
         VT or AMD 옵션이 반드시 활성화되어야 한다.
@@ -119,7 +119,7 @@ vnc란?
 [root@admin ~]# cat /proc/cpuinfo | egrep "vmx|svm"
 ```
 
-![[Images/Untitled 7 4.png|Untitled 7 4.png]]
+![[Untitled 7 4.png|Untitled 7 4.png]]
 
   
 
@@ -127,4 +127,4 @@ vnc란?
 [root@admin ~]# lscpu | grep Virtualization
 ```
 
-![[Images/Untitled 8 4.png|Untitled 8 4.png]]
+![[Untitled 8 4.png|Untitled 8 4.png]]

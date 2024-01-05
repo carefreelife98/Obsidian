@@ -21,7 +21,7 @@
             - 랜덤 문자 20개 생성
             - “ | ” 이전의 결과를 “ - ” 이후에 적용하겠다.
             
-            ![[Images/Untitled 46.png|Untitled 46.png]]
+            ![[Untitled 46.png|Untitled 46.png]]
             
               
             
@@ -31,7 +31,7 @@
             [root@servera ~]# docker service create --name mariadb \> --replicas 1 --network wp --constraint=node.role==manager \# constraint: 제한 -> role이 manager, 즉 master 노드에만 서비스를 생성하겠다.> --secret source=root_db_password,target=root_db_password \> --secret source=wp_db_password,target=wp_db_password \> -e MYSQL_ROOT_PASSWORD_FILE=/run/secrets/root_db_password \# FILE : 직접 비밀번호 설정하지 않고 FILE을 불러옴 > -e MYSQL_PASSWORD_FILE=/run/secrets/wp_db_password \> -e MYSQL_USER=wp -e MYSQL_DATABASE=wp mariadb:10.1
             ```
             
-            ![[Images/Untitled 1 3.png|Untitled 1 3.png]]
+            ![[Untitled 1 3.png|Untitled 1 3.png]]
             
               
             
@@ -41,13 +41,13 @@
             [root@servera ~]# docker service create --name wp \> --constraint=node.role==worker --replicas 1 \> --secret source=wp_db_password,target=wp_db_password,mode=0400 \> --publish 80:80 --network wp \> -e WORDPRESS_DB_USER=wp \> -e WORDPRESS_DB_PASSWORD_FILE=/run/secrets/wp_db_password \> -e WORDPRESS_DB_HOST=mariadb \> -e WORDPRESS_DB_NAME=wp wordpress:4.7
             ```
             
-            ![[Images/Untitled 2 3.png|Untitled 2 3.png]]
+            ![[Untitled 2 3.png|Untitled 2 3.png]]
             
               
             
     2. WordPress 설치
         
-        ![[Images/Untitled 3 3.png|Untitled 3 3.png]]
+        ![[Untitled 3 3.png|Untitled 3 3.png]]
         
         - WordPress 설치가 완료된 모습
 
@@ -59,7 +59,7 @@
 
 ## 13. Docker Monitoring
 
-![[Images/Untitled 4 3.png|Untitled 4 3.png]]
+![[Untitled 4 3.png|Untitled 4 3.png]]
 
   
 
@@ -105,9 +105,9 @@ Cadvisor 설정하기 (servera, serverc)
 - 혹시 swarm이 진행되었다면 해제해주도록 하자.
     - Monitoring은 각각의 데이터를 관측해야하기 때문에 swarm을 필요로 하지 않는다.
 
-![[Images/Untitled 5 3.png|Untitled 5 3.png]]
+![[Untitled 5 3.png|Untitled 5 3.png]]
 
-![[Images/Untitled 6 3.png|Untitled 6 3.png]]
+![[Untitled 6 3.png|Untitled 6 3.png]]
 
   
 
@@ -118,7 +118,7 @@ Cadvisor 설정하기 (servera, serverc)
 - 두번째는 node-exporter 를 생성해야 한다. 이 작업을 완료하면 터미널이 종료되지 않으므로 아래 작업을 위해 다른 터미널을 사용해야 한다.
 - serverc 의 설정도 동일하다.
     
-    ![[Images/Untitled 7 3.png|Untitled 7 3.png]]
+    ![[Untitled 7 3.png|Untitled 7 3.png]]
     
 
   
@@ -135,7 +135,7 @@ Cadvisor 설정하기 (servera, serverc)
     scrape_configs: - job_name: 'prometheus' static_configs: - targets: ['localhost:9090'] - job_name: cadvisor scrape_interval: 5s# Prometheus 가 아래 정보를 사용해서 cadvisor / node_exporter를 찾을 수 있게 된다. static_configs: - targets: ['213.0.113.4:8080','213.0.113.5:8080'] - job_name: 'node_exporter' scrape_interval: 5s static_configs: - targets: ['213.0.113.4:9100','213.0.113.5:9100']
     ```
     
-    ![[Images/Untitled 8 3.png|Untitled 8 3.png]]
+    ![[Untitled 8 3.png|Untitled 8 3.png]]
     
       
     
@@ -149,7 +149,7 @@ Cadvisor 설정하기 (servera, serverc)
     
 3. [http://213.0.113.4:9090](http://213.0.113.4:9090) 접속하여 prometheus 확인
     
-    ![[Images/Untitled 9 3.png|Untitled 9 3.png]]
+    ![[Untitled 9 3.png|Untitled 9 3.png]]
     
 
   
@@ -160,37 +160,37 @@ Cadvisor 설정하기 (servera, serverc)
 
 1. Grafana 설정하기
     
-    ![[Images/Untitled 10 3.png|Untitled 10 3.png]]
+    ![[Untitled 10 3.png|Untitled 10 3.png]]
     
       
     
 2. Grafana 접속 및 설정
     
-    ![[Images/Untitled 11 3.png|Untitled 11 3.png]]
+    ![[Untitled 11 3.png|Untitled 11 3.png]]
     
     - grafana가 이전에 생성한 prometheus를 찾은 모습.
 3. 893 숫자는 Grafana 에서 Prometheus 환경을 제공하기 위한 대시보드의 숫자이다
     
-    ![[Images/Untitled 12 3.png|Untitled 12 3.png]]
+    ![[Untitled 12 3.png|Untitled 12 3.png]]
     
       
     
 4. prometheus를 선택해주고 Import.
     
-    ![[Images/Untitled 13 3.png|Untitled 13 3.png]]
+    ![[Untitled 13 3.png|Untitled 13 3.png]]
     
       
     
 5. 결과
     
-    ![[Images/Untitled 14 3.png|Untitled 14 3.png]]
+    ![[Untitled 14 3.png|Untitled 14 3.png]]
     
 
   
 
 1. 컨테이너 별로 CPU / 메모리 사용량 등을 Monitoring 할 수 있다.
     
-    ![[Images/Untitled 15 3.png|Untitled 15 3.png]]
+    ![[Untitled 15 3.png|Untitled 15 3.png]]
     
       
     
@@ -201,7 +201,7 @@ Cadvisor 설정하기 (servera, serverc)
 
 ## Docker & Podman
 
-![[Images/Untitled 16 3.png|Untitled 16 3.png]]
+![[Untitled 16 3.png|Untitled 16 3.png]]
 
 **Docker vs Podman** **차이점**
 
@@ -218,7 +218,7 @@ Cadvisor 설정하기 (servera, serverc)
 
 **Pod**
 
-![[Images/Untitled 17 3.png|Untitled 17 3.png]]
+![[Untitled 17 3.png|Untitled 17 3.png]]
 
 - 컨테이너 여러 개를 그룹화 한것
 - Infra Container
@@ -253,7 +253,7 @@ Cadvisor 설정하기 (servera, serverc)
     [root@servera ~]# dnf install podman –y[root@servera ~]# podman version
     ```
     
-    ![[Images/Untitled 18 3.png|Untitled 18 3.png]]
+    ![[Untitled 18 3.png|Untitled 18 3.png]]
     
       
     
@@ -261,7 +261,7 @@ Cadvisor 설정하기 (servera, serverc)
     
 2. Podman은 기본 레지스트리가 3개 이다.
     
-    ![[Images/Untitled 19 3.png|Untitled 19 3.png]]
+    ![[Untitled 19 3.png|Untitled 19 3.png]]
     
     - 위 주소에서 컨테이너를 다운로드 한다.
 
@@ -273,19 +273,19 @@ Cadvisor 설정하기 (servera, serverc)
     podman pull docker.io/nginx
     ```
     
-    ![[Images/Untitled 20 3.png|Untitled 20 3.png]]
+    ![[Untitled 20 3.png|Untitled 20 3.png]]
     
       
     
 2. /etc/containers/registries.conf 에서 가장 자주 사용할 레지스트리를 앞으로 옮겨준다.
     
-    ![[Images/Untitled 21 3.png|Untitled 21 3.png]]
+    ![[Untitled 21 3.png|Untitled 21 3.png]]
     
       
     
 3. Pull명령어 이후 레지스트리 선택창에서 가장 앞에 지정한 레지스트리가 나타난다.
     
-    ![[Images/Untitled 22 3.png|Untitled 22 3.png]]
+    ![[Untitled 22 3.png|Untitled 22 3.png]]
     
       
     
@@ -296,19 +296,19 @@ Podman Volume 사용하기
 
 1. Volume 생성 및 사용
     
-    ![[Images/Untitled 23 3.png|Untitled 23 3.png]]
+    ![[Untitled 23 3.png|Untitled 23 3.png]]
     
       
     
 2. Volume 사용 확인
     
-    ![[Images/Untitled 24 3.png|Untitled 24 3.png]]
+    ![[Untitled 24 3.png|Untitled 24 3.png]]
     
       
     
 3. Volume 공유 확인
     
-    ![[Images/Untitled 25 3.png|Untitled 25 3.png]]
+    ![[Untitled 25 3.png|Untitled 25 3.png]]
     
       
     
@@ -316,4 +316,4 @@ Podman Volume 사용하기
     
 4. Volume 삭제하기
     
-    ![[Images/Untitled 26 3.png|Untitled 26 3.png]]
+    ![[Untitled 26 3.png|Untitled 26 3.png]]

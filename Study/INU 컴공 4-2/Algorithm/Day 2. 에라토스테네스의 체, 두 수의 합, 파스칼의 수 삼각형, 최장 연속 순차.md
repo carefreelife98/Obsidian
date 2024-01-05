@@ -2,7 +2,7 @@
 
 1. 에라토스테네스의 채
 
-![[Images/Untitled 48.png|Untitled 48.png]]
+![[Untitled 48.png|Untitled 48.png]]
 
 ```python
 # eratos 
@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
 2. 두 수의 합
 
-![[Images/Untitled 1 5.png|Untitled 1 5.png]]
+![[Untitled 1 5.png|Untitled 1 5.png]]
 
 ```python
 # ADL
@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
 3. 파스칼의 수 삼각형
 
-![[Images/Untitled 2 5.png|Untitled 2 5.png]]
+![[Untitled 2 5.png|Untitled 2 5.png]]
 
 ```python
 # ADL
@@ -145,7 +145,7 @@ if __name__ == "__main__":
 
 4. 최장 연속 순차
 
-![[Images/Untitled 3 5.png|Untitled 3 5.png]]
+![[Untitled 3 5.png|Untitled 3 5.png]]
 
 ```python
 # ADL

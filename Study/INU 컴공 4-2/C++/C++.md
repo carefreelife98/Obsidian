@@ -32,7 +32,7 @@
 
 [[Day 17. Templates and Exceptions]]
 
-[[INU 컴공 4-2/C++/Lecture/Final Exam]]
+[[Study/INU 컴공 4-2/C++/Lecture/Final Exam]]
 
 
 

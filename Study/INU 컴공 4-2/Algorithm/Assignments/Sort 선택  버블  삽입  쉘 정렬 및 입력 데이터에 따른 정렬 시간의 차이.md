@@ -86,7 +86,7 @@ import randomimport timedef shell_sort(arr, n):    # Start with a large gap and 
 
   
 
-![[Images/Untitled 49.png|Untitled 49.png]]
+![[Untitled 49.png|Untitled 49.png]]
 
 |   |   |   |   |
 |---|---|---|---|
@@ -98,7 +98,7 @@ import randomimport timedef shell_sort(arr, n):    # Start with a large gap and 
 
   
 
-![[Images/Untitled 1 6.png|Untitled 1 6.png]]
+![[Untitled 1 6.png|Untitled 1 6.png]]
 
 |   |   |   |   |
 |---|---|---|---|
