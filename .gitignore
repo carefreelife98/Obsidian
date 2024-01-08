@@ -5,6 +5,9 @@
 # config dir
 .obsidian/
 
+
+# Private
 Work/
+images_private/
 
 # End of https://www.toptal.com/developers/gitignore/api/obsidian
