@@ -53,5 +53,5 @@ ApplicationContext applicationContext = new AnnotationConfigApplicationContext(A
 ## 2. 스프링 빈 등록
 > ![[스크린샷 2024-02-24 오후 8.24.56.png]]
 > 1. 스프링 컨테이너는 설정 정보 클래스에서 @Bean Annotation이 붙은 메서드들을 모두 찾아 스프링 빈 저장소에 등록한다.
-> 	- Key : 메서드 이름 (직접 )
+> 	- Key : 메서드 이름 (옵션 name="" 을 사용해 직접 부여도 가능)
 > 	- Value : 메서드 리턴 값 (객체)
