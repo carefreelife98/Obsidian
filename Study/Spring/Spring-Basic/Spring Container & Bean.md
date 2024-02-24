@@ -6,7 +6,7 @@ tags:
   - Spring
 ---
 # 스프링 컨테이너
-> **Application Context 를 스프링 컨테이너**라고 함.
+> **Application Context 를 스프링 컨테이너**라고 함. (더 정확히는 BeanFactory 와 구분 하지만 일반적으로 BeanFactory 를 직접 사용하는 경우는 거의 없음)
 > - 기존에는 애플리케이션 구성 클래스(AppConfig) 등을 사용해서 직접 객체를 생성하고 DI(Dependency Injection)를 함.
 > - **스프링에서는 구성 정보 설정을 스프링 컨테이너를 통해서 사용.**
 > - 스프링 컨테이너는 **`@Configuration`** 이 붙은 구성 클래스를 설정(구성)정보로 사용.
@@ -27,12 +27,16 @@ tags:
 
 
 # ApplicationContext
-> - ApplicationContext 는  Interface 이다.
-> - 스프링 컨테이너의 생성 방식 두 가지
+> - ApplicationContext 는  **Interface** 이다.
+> - **스프링 컨테이너의 생성 방식 두 가지**
 > 	- XML
 > 	- Annotation 기반의 JAVA 설정 클래스
 
 ## Annotation 기반의 JAVA 설정 클래스를 통한 생성
 ```java
-ApplicationContext
+// 자바 기반 설정 클래스인 AppConfig.class 사용
+ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class)
 ```
+> - **AnnotationConfigApplicationContext( )** 는 ApplicationContext **인터페이스의 구현체**.
+
+# 스프링 컨테이너의 생서
