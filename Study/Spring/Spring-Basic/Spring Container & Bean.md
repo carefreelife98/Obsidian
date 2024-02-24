@@ -25,3 +25,14 @@ tags:
 스프링 컨테이러에 객체를 스프링 빈으로 등록하고, 스프링 컨테이너에서 스프링 빈을 찾아 사용하도록 변경되었다.
 ```
 
+
+# ApplicationContext
+> - ApplicationContext 는  Interface 이다.
+> - 스프링 컨테이너의 생성 방식 두 가지
+> 	- XML
+> 	- Annotation 기반의 JAVA 설정 클래스
+
+## Annotation 기반의 JAVA 설정 클래스를 통한 생성
+```java
+ApplicationContext
+```
