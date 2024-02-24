@@ -39,4 +39,17 @@ ApplicationContext applicationContext = new AnnotationConfigApplicationContext(A
 ```
 > - **AnnotationConfigApplicationContext( )** 는 ApplicationContext **인터페이스의 구현체**.
 
-# 스프링 컨테이너의 생서
+# 스프링 컨테이너의 생성 과정
+
+## 1. 스프링 컨테이너 생성
+ > ![[스크린샷 2024-02-24 오후 8.17.57.png]]
+ > 1. new AnnotationConfigApplicationContext(설정 / 구성 클래스)
+ > 	- 위 구현체 생성 시  스프링 컨테이너가 생성됨.
+ > 2. 스프링 컨테이너 내부에는 스프링 빈 저장소가 존재.(Key-Value 형태)
+ > 	- Key : 스프링 빈의 이름
+ > 	- Value : 스프링 빈 객체
+ > 3. 스프링 컨테이너는 생성 시에 사용한 설정 / 구성 클래스 의 정보를 보고 스프링 빈 등록.
+ 
+## 2. 스프링 빈 등록
+> ![[스크린샷 2024-02-24 오후 8.24.56.png]]
+> 
