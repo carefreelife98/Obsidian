@@ -65,4 +65,4 @@ ApplicationContext applicationContext = new AnnotationConfigApplicationContext(A
 > ![[스크린샷 2024-02-24 오후 9.25.57.png]]
 > - 스프링 컨테이너는 등록된 설정 정보를 사용해서 의존 관계를 주입한다. (Dependency Injection)
 > - 객체 인스턴스 간 **의존관계를 동적으로 주입**.
-> - 
+
