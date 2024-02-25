@@ -68,4 +68,52 @@ ApplicationContext applicationContext = new AnnotationConfigApplicationContext(A
 
 # 스프링 빈
 
-## 스프링 빈 조회하기
+## 모든 스프링 빈 조회하기
+```java
+AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);  
+  
+@Test  
+@DisplayName("모든 빈 출력하기")  
+void findAllBean() {  
+    String[] beanDefinitionNames = ac.getBeanDefinitionNames();  
+  
+    for (String beanDefinitionName : beanDefinitionNames) {  
+        Object bean = ac.getBean(beanDefinitionName);  
+        System.out.println("name = " + beanDefinitionName + " Object = " + bean);  
+    }  
+}
+```
+
+![[스크린샷 2024-02-25 오후 6.52.22.png]]
+`실행 모습 - 직접 등록한 빈 뿐 아니라 스프링 내부 빈까지 출력되는 모습을 볼 수 있다.`
+> - **모든 빈 출력하기**
+> 	- 실행 시 **스프링에 등록된 모든 빈 정보를 출력**할 수 있다.
+> 	- `ac.getBeanDefinitionNames()` : 스프링에 등록된 모든 빈 이름을 조회한다.
+> 	- `ac.getBean()` : 빈 이름으로 빈 객체(인스턴스)를 조회한다.
+<br><br>
+## 애플리케이션 빈 조회하기
+```java
+@Test  
+@DisplayName("애플리케이션 빈 출력하기")  
+void findApplicationBean() {  
+    String[] beanDefinitionNames = ac.getBeanDefinitionNames();  
+  
+    for (String beanDefinitionName : beanDefinitionNames) {  
+        // getBeanDefinition : 각 빈에 대한 MetaData 정보를 얻을 수 있음.  
+        BeanDefinition beanDefinition = ac.getBeanDefinition(beanDefinitionName);  
+  
+        // getRole - BeanDefinition.ROLE_APPLICATION :  
+        // - 스프링 내부 빈이 아닌 애플리케이션 개발을 위해 직접 등록한 빈.  
+        // - 외부 라이브러리에 의해 생성되는 빈  
+        // getRole - BeanDefinition.ROLE_INFRASTRUCTURE :  
+		// - 스프링이 내부에서 사용하는 빈
+        if (beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {  
+            Object bean = ac.getBean(beanDefinitionName);  
+            System.out.println("name = " + beanDefinitionName + " Object = " + bean);  
+        }  
+    }  
+}
+```
+
+![[스크린샷 2024-02-25 오후 6.54.21.png]]
+`실행 모습 - Bean 의 메타데이터 정보를 꺼내 ROLE_APPLICATION 에 해당하는 빈만 출력`
