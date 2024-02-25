@@ -178,7 +178,7 @@ void findBeanBySpec() {
 ```
 - 위와 같이 구체적 타입을 명시하여 빈 조회를 수행하는 것이 가능은 하지만 **역할과 구현의 분리 관점에서 구현에 의존하는 방향성을 가지기 때문에 좋지 않은 코드**이다.
 
-## 스프링 빈 조회 실패 테스트
+## 스프링 빈 조회 실패 테스트 - NoSuchBeanDefinitionException
 > 앞서 스프링 빈 조회 실패 시 `NoSuchBeanDefinitionException` 예외가 발생함을 언급했었다.
 > - 실패 테스트를 통해 확인해보자.
 
@@ -210,10 +210,10 @@ void findBeanByNameFail() {
 }
 ```
 
-## 스프링 빈 조회 - NoUniqueBeanDefinitionException
+## 스프링 빈 조회 실패 테스트 - NoUniqueBeanDefinitionException
 > 스프링 빈 조회 시 **조회 방법에 따라 중복 값을 가진 빈이 존재**하면 **`NoUniqueBeanDefinitionException` 예외가 발생**한다.
 
-### 중복 타입을 가진 빈 조회 시
+### 중복 타입을 가진 빈 조회 시 - 예외 발생
 ```java
 AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SameBeanConfig.class);  
   
@@ -224,7 +224,8 @@ void findBeanByTypeDuplicate() {
 	// MemberRepository.class 타입을 가진 빈 조회
     MemberRepository bean = ac.getBean(MemberRepository.class);  
 }  
-  
+
+@Configuration
 static class SameBeanConfig {  
 
 	// MemberRepository.class 타입을 가짐
@@ -245,3 +246,35 @@ static class SameBeanConfig {
 ![[스크린샷 2024-02-25 오후 9.08.22.png]]
 `실행 모습 - NoUniqueBeanDefinitionException 예외 발생`
 
+### 중복 타입을 가진 빈 조회 시 - 예외 해결
+```java
+@Test  
+@DisplayName("타입으로 조회 시 같은 타입이 둘 이상 있으면, 빈 이름을 지정해야 한다")  
+void findDuplicateBeanByName() {  
+	// 중복된 타입을 조회하지만, 빈의 이름을 특정하여 원하는 하나의 빈을 조회.
+    MemberRepository memberRepository = ac.getBean("memberRepository1", MemberRepository.class);  
+    assertThat(memberRepository).isInstanceOf(MemberRepository.class);  
+}
+```
+
+<br><br>
+
+## 특정 타입의 스프링 빈 전체 조회하기
+이전에는 getBean() 메서드를 사용함에 하나의 빈만 찾을 수 있어 예외가 발생했다.
+- **getBeansOfType() 메서드를 통해 중복된 타입을 가진 모든 빈을 찾을 수 있다.**
+
+```java
+@Test  
+@DisplayName("특정 타입을 가진 모든 빈 조회하기")  
+void findAllBeanByType() {  
+	// getBeansOfType() 사용 시 찾은 모든 빈 Map<String, 타입> 형태로
+    Map<String, MemberRepository> beansOfType = ac.getBeansOfType(MemberRepository.class);  
+    for (String key : beansOfType.keySet()) {  
+        System.out.println("key = " + key + " value = " + beansOfType.get(key));  
+    }  
+    System.out.println("beansOfType = " + beansOfType);  
+  
+    // 검증  
+    assertThat(beansOfType.size()).isEqualTo(2);  
+}
+```
