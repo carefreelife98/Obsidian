@@ -66,7 +66,7 @@ ApplicationContext applicationContext = new AnnotationConfigApplicationContext(A
 > - 스프링 컨테이너는 등록된 설정 정보를 사용해서 의존 관계를 주입한다. (Dependency Injection)
 > - 객체 인스턴스 간 **의존관계를 동적으로 주입**.
 
-# 스프링 빈
+# 스프링 빈 조회
 
 ## 모든 스프링 빈 조회하기
 ```java
@@ -117,3 +117,22 @@ void findApplicationBean() {
 
 ![[스크린샷 2024-02-25 오후 6.54.21.png]]
 `실행 모습 - Bean 의 메타데이터 정보를 꺼내 ROLE_APPLICATION 에 해당하는 빈만 출력`
+> - **애플리케이션 빈 출력하기**
+> 	- 스프링이 내부에서 사용하는 빈은 제외하고, **개발자가 직접 등록한 빈 출력.**
+> 	- 스프링이 내부에서 사용하는 빈은 **`getRole()` 메서드로서 구분**할 수 있다.
+> 		- **`ROLE_APPLICATION` : 일반적으로 개발자가 개발을 위해 정의한 빈**
+> 		- **`ROLE_INFRASTRUCTURE` : 스프링이 내부에서 사용하는 빈**
+
+<br><br>
+
+## 스프링 빈 조회 (기본)
+```java
+// 스프링 컨테이너에서 스프링 빈을 조회하는 가장 기본적인 방법
+AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+// 방법 1
+Object bean = ac.getBean(빈 이름, 타입);
+
+// 방법 2
+Object bean = ac.getBean(타입);
+```
