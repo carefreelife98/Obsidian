@@ -68,7 +68,7 @@ ApplicationContext applicationContext = new AnnotationConfigApplicationContext(A
 
 # 스프링 빈 조회
 
-## 모든 스프링 빈 조회하기
+## Overview
 ```java
 AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);  
   
@@ -91,7 +91,7 @@ void findAllBean() {
 > 	- `ac.getBeanDefinitionNames()` : 스프링에 등록된 모든 빈 이름을 조회한다.
 > 	- `ac.getBean()` : 빈 이름으로 빈 객체(인스턴스)를 조회한다.
 <br><br>
-## 애플리케이션 빈 조회하기
+
 ```java
 @Test  
 @DisplayName("애플리케이션 빈 출력하기")  
@@ -135,4 +135,25 @@ Object bean = ac.getBean(빈 이름, 타입);
 
 // 방법 2
 Object bean = ac.getBean(타입);
+
+// 조회 대상 스프링 빈이 없으면 아래와 같은 예외가 발생한다.
+`NoSuchBeanDefinitionException: No bean named '~' available`
 ```
+
+### 스프링 빈 이름을 통한 빈 조회
+
+```java
+AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);  
+  
+@Test  
+@DisplayName("빈 이름으로 조회")  
+void findBeanByName() {  
+	// ac.getBean("빈 이름", 빈 타입)
+    MemberService memberService = ac.getBean("memberService", MemberService.class);  
+    System.out.println("memberService = " + memberService);  
+    System.out.println("memberService.getClass() = " + memberService.getClass());  
+}
+```
+
+![[스크린샷 2024-02-25 오후 7.20.40.png]]
+- 
