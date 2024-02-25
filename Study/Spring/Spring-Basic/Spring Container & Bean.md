@@ -240,4 +240,8 @@ static class SameBeanConfig {
     }  
 }
 ```
-- 위 코드 실행 시 중복된 타입을
+- 스프링 빈 조회 시 파라미터에 빈의 타입만을 지정했기 때문에 지정된 타입을 가진 빈 두 개가 조회되며, getBean() 메서드에서는 하나의 빈만 반환하므로 `NoUniqueBeanDefinitionException` 예외가 발생하게 된다.
+
+![[스크린샷 2024-02-25 오후 9.08.22.png]]
+`실행 모습 - NoUniqueBeanDefinitionException 예외 발생`
+
