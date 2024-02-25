@@ -178,3 +178,34 @@ void findBeanBySpec() {
 ```
 - 위와 같이 구체적 타입을 명시하여 빈 조회를 수행하는 것이 가능은 하지만 **역할과 구현의 분리 관점에서 구현에 의존하는 방향성을 가지기 때문에 좋지 않은 코드**이다.
 
+## 스프링 빈 조회 실패 테스트
+> 앞서 스프링 빈 조회 실패 시 `NoSuchBeanDefinitionException` 예외가 발생함을 언급했었다.
+> - 실패 테스트를 통해 확인해보자.
+
+```java
+@Test  
+@DisplayName("[실패 테스트] 빈 이름으로 조회되지 않는 경우 : 예외 발생")  
+void findBeanByNameFail() {  
+	// no_such_name 이라는 이름의 빈은 현재 존재하지 않는다.
+	MemberService no_such_name = ac.getBean("no_such_name", MemberService.class);  
+}
+```
+- 위 코드 실행 시 "no_such_name" 이라는 이름을 가진 빈이 등록되어 있지 않으므로 `NoSuchBeanDefinitionException` 예외를 발생시킬 것이다.
+
+![[스크린샷 2024-02-25 오후 8.35.25.png]]
+`실행 모습 - NoSuchBeanDefinitionException 예외가 발생한 것을 볼 수 있다.`
+
+```java
+// JUnit5 를 사용하여 실제로 해당 Exception 이 발생하는지 확인하는 방법도 있다.
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@Test  
+@DisplayName("[실패 테스트] 빈 이름으로 조회되지 않는 경우 : 예외 발생")  
+void findBeanByNameFail() {  
+	// no_such_name 이라는 이름의 빈은 현재 존재하지 않는다.
+	assertThrows(NoSuchBeanDefinitionException.class,  
+        () -> ac.getBean("no_such_name", MemberService.class));
+}
+```
