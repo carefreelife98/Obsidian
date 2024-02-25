@@ -211,6 +211,33 @@ void findBeanByNameFail() {
 ```
 
 ## 스프링 빈 조회 - NoUniqueBeanDefinitionException
-> 스프링 빈 조회 시 조회 방법에 따라 중복 값을 가진 빈이 존재하면 `NoUniqueBeanDefinitionException` 예외가 발생한다.
+> 스프링 빈 조회 시 **조회 방법에 따라 중복 값을 가진 빈이 존재**하면 **`NoUniqueBeanDefinitionException` 예외가 발생**한다.
 
 ### 중복 타입을 가진 빈 조회 시
+```java
+AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SameBeanConfig.class);  
+  
+@Test  
+@DisplayName("빈 타입을 통한 빈 조회 시 동일한 타입이 둘 이상 있으면, 중복 오류가 발생한다.")  
+void findBeanByTypeDuplicate() { 
+
+	// MemberRepository.class 타입을 가진 빈 조회
+    MemberRepository bean = ac.getBean(MemberRepository.class);  
+}  
+  
+static class SameBeanConfig {  
+
+	// MemberRepository.class 타입을 가짐
+    @Bean  
+    public MemberRepository memberRepository1() {  
+        return new MemoryMemberRepository();  
+    }  
+
+	// MemberRepository.class 타입을 가짐 (중복)
+    @Bean  
+    public MemberRepository memberRepository2() {  
+        return new MemoryMemberRepository();  
+    }  
+}
+```
+- 위 코드 실행 시 중복된 타입을
