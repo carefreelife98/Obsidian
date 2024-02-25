@@ -209,3 +209,8 @@ void findBeanByNameFail() {
         () -> ac.getBean("no_such_name", MemberService.class));
 }
 ```
+
+## 스프링 빈 조회 - NoUniqueBeanDefinitionException
+> 스프링 빈 조회 시 조회 방법에 따라 중복 값을 가진 빈이 존재하면 `NoUniqueBeanDefinitionException` 예외가 발생한다.
+
+### 중복 타입을 가진 빈 조회 시
