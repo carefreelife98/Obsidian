@@ -66,3 +66,6 @@ ApplicationContext applicationContext = new AnnotationConfigApplicationContext(A
 > - 스프링 컨테이너는 등록된 설정 정보를 사용해서 의존 관계를 주입한다. (Dependency Injection)
 > - 객체 인스턴스 간 **의존관계를 동적으로 주입**.
 
+# 스프링 빈
+
+## 스프링 빈 조회하기
