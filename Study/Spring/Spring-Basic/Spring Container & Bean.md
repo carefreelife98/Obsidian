@@ -155,6 +155,26 @@ void findBeanByName() {
 }
 ```
 
-![[스크린샷 2024-02-25 오후 7.20.40.png]]
-`실행 모습 - 정상적으로 빈을 조회하는 것을 볼 수 있다.`
+### 스프링 빈 타입을 통한 조회
+```java
+AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class); 
+
+@Test  
+@DisplayName("빈 타입으로 조회")  
+void findBeanByType() {  
+    MemberService memberService = ac.getBean(MemberService.class);  
+    assertThat(memberService).isInstanceOf(MemberServiceImpl.class);  
+}
+```
+
+### 구체적 타입을 통한 스프링 빈 조회
+```java
+@Test  
+@DisplayName("구체적 타입으로 조회 - 선호되지 않음")  
+void findBeanBySpec() {  
+    MemberService memberService = ac.getBean("memberService", MemberServiceImpl.class);  
+    assertThat(memberService).isInstanceOf(MemberServiceImpl.class);  
+}
+```
+- 위와 같이 구체적 타입을 명시하여 빈 조회를 수행하는 것이 가능은 하지만 **역할과 구현의 분리 관점에서 구현에 의존하는 방향성을 가지기 때문에 좋지 않은 코드**이다.
 
