@@ -267,7 +267,7 @@ void findDuplicateBeanByName() {
 @Test  
 @DisplayName("특정 타입을 가진 모든 빈 조회하기")  
 void findAllBeanByType() {  
-	// getBeansOfType() 사용 시 찾은 모든 빈 Map<String, 타입> 형태로
+	// getBeansOfType() 사용 시 찾은 모든 빈을 Map<String, 타입> 형태로 반환해준다.
     Map<String, MemberRepository> beansOfType = ac.getBeansOfType(MemberRepository.class);  
     for (String key : beansOfType.keySet()) {  
         System.out.println("key = " + key + " value = " + beansOfType.get(key));  
@@ -278,3 +278,7 @@ void findAllBeanByType() {
     assertThat(beansOfType.size()).isEqualTo(2);  
 }
 ```
+
+![[스크린샷 2024-02-25 오후 9.21.46.png]]
+`실행 모습 - 예외가 발생하지 않고 동일 타입을 가진 모든 빈을 조회 할 수 있다.`
+
