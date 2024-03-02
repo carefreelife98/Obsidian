@@ -11,4 +11,8 @@ tags:
 
 # ApplicationContext
 - BeanFactory 기능을 모두 상속받아서 제공한다.
-- 빈을 관리하고 검색하는 기능은 BeanFactory 가 제공하는 기능이다
+- BeanFactory 와의 차이점
+	- 애플리케이션을 개발할 때에 빈을 관리하고 조회하는 기능 외에 추가적인 부가 기능을 필요로 한다.
+
+## ApplicationContext 가 제공하는 부가기능
+![[스크린샷 2024-03-02 오후 6.46.22.png]]
