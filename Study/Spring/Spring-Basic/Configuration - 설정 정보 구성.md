@@ -5,3 +5,23 @@ Agenda:
 tags:
   - Spring
 ---
+# 다양한 설정 형식(Configuration) 지원 - 자바코드 및 XML
+
+```
+스프링 컨테이너는 다양한 형식의 설정 정보를 사용할 수 있도록 유연하게 설계 되어 있다.
+- Java
+- XML
+- Groovy
+```
+
+![[스크린샷 2024-03-09 오후 6.15.00.png]]
+- **AnnotationConfigApplicationContext**
+	- Java 의 설정 클래스를 사용하여 스프링의 설정 정보를 구성.
+- **GenericXmlApplicationContext**
+	- XML 파일을 사용하여 스프링의 설정 정보를 구성.
+- ~ ApplicationContext
+	- **사용자가 Customizing 한 파일로 스프링의 설정 정보를 구성할 수도 있다.**
+
+<br><br>
+
+## Annotation 기반 Java 클래스를 활용한 설정 사용하기
