@@ -63,5 +63,14 @@ GenericXmlApplicationContext xac = new GenericXmlApplicationContext("classpath:a
 </beans>
 ```
 
-- <bean> 태그를 사용하여 스프링 빈을 등록.
+- \<bean> 태그를 사용하여 스프링 빈을 등록.
 - Java 설정 클래스를 사용할 때와 비슷하게 1 : 1 매핑되는 것을 볼 수 있다.
+
+# 스프링 빈 설정 메타 정보 - BeanDefinition
+
+- 스프링은 `BeanDefinition` 을 통한 `추상화` 로서 다양한 설정 형식을 지원한다.
+	- `추상화 : 역할과 구현을 개념적으로 나눈 것.`
+		- XML 을 읽어서 BeanDefinition 을 생성.
+		- Java 코드를 읽어서 BeanDefinition 을 생성.
+		- **스프링 컨테이너는 설정 정보가 어떤 형식으로 정의 되어 있는지 알 필요 없이, BeanDefinition 만 알고 있으면 된다.**
+- `Be`
