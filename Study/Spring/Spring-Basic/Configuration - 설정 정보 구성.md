@@ -38,5 +38,5 @@ AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(A
 
 ```java
 // GenericXmlApplicationContext 를 사용하며 .xml 로 만들어진 설정 파일을 넘겨주자.
-GenericXmlApplicationContext xac = new GenericXmlApplicationContext()
+GenericXmlApplicationContext xac = new GenericXmlApplicationContext("classpath:applicationContext.xml"
 ```
