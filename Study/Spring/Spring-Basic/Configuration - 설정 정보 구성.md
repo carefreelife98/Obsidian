@@ -78,7 +78,7 @@ GenericXmlApplicationContext xac = new GenericXmlApplicationContext("classpath:a
 	- **`@Bean`, `<bean>` 당 각각 하나씩 메타 정보 생성.**
 - **스프링 컨테이너는 이 메타 정보를 기반으로 스프링 빈을 생성.**
 
-## AnnotationConfigApplicationContext
+## AnnotationConfigApplicationContext - AnnotatedBeanDefinitionReader
 ```
 조금 더 깊이 있게 들어가보자.
 ```
@@ -95,7 +95,7 @@ GenericXmlApplicationContext xac = new GenericXmlApplicationContext("classpath:a
 
 > 새로운 형식의 설정 정보가 추가되면, `~ BeanDefinitionReader` 를 만들어 BeanDefinition 을 생성하면 된다.
 
-## BeanDefinition 출력
+## BeanDefinition 출력해보기
 
 ```java
 public class BeanDefinitionTest {  
@@ -116,3 +116,31 @@ public class BeanDefinitionTest {
     }  
 }
 ```
+
+### 출력 결과
+```
+beanDefinition = Generic bean: class [hello.core.AppConfig$$SpringCGLIB$$0]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null
+beanDefinitionName = appConfig
+
+beanDefinition = Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=appConfig; factoryMethodName=memberService; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in hello.core.AppConfig
+beanDefinitionName = memberService
+
+beanDefinition = Root bean: class [hello.core.AppConfig]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=memberRepository; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in hello.core.AppConfig
+beanDefinitionName = memberRepository
+
+beanDefinition = Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=appConfig; factoryMethodName=orderService; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in hello.core.AppConfig
+beanDefinitionName = orderService
+
+beanDefinition = Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=appConfig; factoryMethodName=discountPolicy; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in hello.core.AppConfig
+beanDefinitionName = discountPolicy
+
+Process finished with exit code 0
+
+```
+- beanDefinition 을 출력해보면, 해당 빈의 속성을 볼 수 있다.
+	- scope
+	- 추상 클래스
+	- 지연 초기화
+	- autowire
+	- ...
+
