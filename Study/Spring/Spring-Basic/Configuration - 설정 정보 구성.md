@@ -84,7 +84,14 @@ GenericXmlApplicationContext xac = new GenericXmlApplicationContext("classpath:a
 ```
 
 ![[스크린샷 2024-03-09 오후 7.14.18.png]]
-`AnnotationConfigApplicationContext > AnnotatedBeanDefinitionReader`
-- 위와 같이 AnnotationConfigApplicationContext 를 타고 들어가보면 **`AnnotatedBeanDefinitionReader`** 가 존재하는 것을 볼 수 있다.
-	- `AnnotatedBeanDefinitionReader : 스프링 설정 정보를 읽어 적절한 BeanDefinition 을 생성하는 역할.`
-	- 
+`AnnotationConfigApplicationContext > AnnotatedBeanDefinitionReader`<br>
+- 위와 같이 `AnnotationConfigApplicationContext` 를 타고 들어가보면 **`AnnotatedBeanDefinitionReader`** 가 존재하는 것을 볼 수 있다.
+	- `AnnotatedBeanDefinitionReader : 스프링 설정 정보(Java-Class)를 읽어 적절한 BeanDefinition 을 생성하는 역할.`
+
+![[스크린샷 2024-03-09 오후 7.21.30.png]]
+`GenericXmlApplicationContext > XmlBeanDefinitionReader`
+- `GenericXmlApplicationContext` 에도 마찬가지로 `XmlBeanDefinitionReader` 를 가지고 있는 것을 볼 수 있다.
+	- `XmlBeanDefinitionReader : 스프링 설정 정보(.xml) 을 읽어 적절한 BeanDefinition 을 생성하는 역할.`
+
+> 새로운 형식의 설정 정보가 추가되면, `~ BeanDefinitionReader` 를 만들어 BeanDefinition 을 생성하면 된다.
+
