@@ -78,7 +78,7 @@ GenericXmlApplicationContext xac = new GenericXmlApplicationContext("classpath:a
 	- **`@Bean`, `<bean>` 당 각각 하나씩 메타 정보 생성.**
 - **스프링 컨테이너는 이 메타 정보를 기반으로 스프링 빈을 생성.**
 
-## ApplicationContext - AnnotationConfigApplicationContext
+## AnnotationConfigApplicationContext
 ```
 조금 더 깊이 있게 들어가보자.
 ```
@@ -95,3 +95,24 @@ GenericXmlApplicationContext xac = new GenericXmlApplicationContext("classpath:a
 
 > 새로운 형식의 설정 정보가 추가되면, `~ BeanDefinitionReader` 를 만들어 BeanDefinition 을 생성하면 된다.
 
+## BeanDefinition 출력
+
+```java
+public class BeanDefinitionTest {  
+  
+    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);  
+  
+    @Test  
+    @DisplayName("빈 설정 메타정보 확인")  
+    void AnnotationConfigBeanDefinitionTest() {  
+        String[] beanDefinitionNames = ac.getBeanDefinitionNames();  
+        for (String beanDefinitionName : beanDefinitionNames) {  
+            BeanDefinition beanDefinition = ac.getBeanDefinition(beanDefinitionName);  
+  
+            if (beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {  
+                System.out.println("beanDefinition = " + beanDefinition + " beanDefinitionName = " + beanDefinitionName);  
+            }  
+        }  
+    }  
+}
+```
