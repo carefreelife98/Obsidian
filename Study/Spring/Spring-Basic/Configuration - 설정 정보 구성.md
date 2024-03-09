@@ -40,3 +40,28 @@ AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(A
 // GenericXmlApplicationContext 를 사용하며 .xml 로 만들어진 설정 파일을 넘겨주자.
 GenericXmlApplicationContext xac = new GenericXmlApplicationContext("classpath:applicationContext.xml"
 ```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">  
+  
+    <bean id="memberService" class="hello.core.member.MemberServiceImpl">  
+        <constructor-arg name="memberRepository" ref="memberRepository"/>  
+    </bean>  
+  
+    <bean id="memberRepository" class="hello.core.member.MemoryMemberRepository"/>  
+  
+    <bean id="orderService" class="hello.core.order.OrderServiceImpl">  
+        <constructor-arg name="memberRepository" ref="memberRepository"/>  
+        <constructor-arg name="discountPolicy" ref="discountPolicy"/>  
+    </bean>  
+  
+    <bean id="discountPolicy" class="hello.core.discount.RateDiscountPolicy"/>  
+  
+</beans>
+```
+
+- <bean> 태그를 사용하여 스프링 빈을 등록.
+- Java 설정 클래스를 사용할 때와 비슷하게 1 : 1 매핑되는 것을 볼 수 있다.
