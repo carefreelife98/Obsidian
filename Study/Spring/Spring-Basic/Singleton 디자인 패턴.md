@@ -133,6 +133,7 @@ singletonService2 = hello.core.singleton.SingletonService@3b07a0d6
 
 # 싱글톤 컨테이너 (스프링 컨테이너)
 
+![[스크린샷 2024-03-09 오후 9.14.22.png]]
 > **스프링 컨테이너는 싱글톤 패턴의 문제점을 해결하는 동시에, 객체 인스턴스를 싱글톤으로 관리한다.**
 > - 스프링 컨테이너는 싱글톤 패턴을 따로 적용하지 않아도, 객체 인스턴스를 싱글톤으로 관리.
 > 	- **스프링 컨테이너 생성 시, 모든 스프링 빈 객체를 미리 생성하여 key-value 형태로 등록해 놓는다.**
@@ -140,3 +141,43 @@ singletonService2 = hello.core.singleton.SingletonService@3b07a0d6
 > - 앞서 언급한 싱글톤 패턴의 모든 문제점을 해결.
 > 	- 싱글톤 패턴 구현을 위한 지저분한 코드 X
 > 	- DIP, OCP, 테스트, private 생성자로부터 자유로움.
+
+<br><br>
+## 스프링 컨테이너로서 구현한 싱글톤 패턴 테스트
+
+```java
+public class SingletonTest {
+
+	@Test  
+	@DisplayName("스프링 컨테이너를 사용한 싱글톤 패턴 구현")  
+	void springContainerSingleton() {  
+	  
+	    ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);  
+	  
+	    MemberService memberService1 = ac.getBean("memberService", MemberService.class);  
+	    MemberService memberService2 = ac.getBean("memberService", MemberService.class);  
+	  
+	    // 참조 값이 같은 것을 확인  
+	    System.out.println("memberService1 = " + memberService1);  
+	    System.out.println("memberService2 = " + memberService2);  
+	  
+	    // memberService1 == memberService2  
+	    assertThat(memberService1).isSameAs(memberService2);  
+	}
+}
+```
+
+### 싱글톤 테스트(스프링 컨테이너) 실행 결과
+
+```
+memberService1 = hello.core.member.MemberServiceImpl@20435c40
+memberService2 = hello.core.member.MemberServiceImpl@20435c40
+
+Process finished with exit code 0
+```
+- 두 객체가 동일한 참조 값을 가져 동일한 것을 볼 수 있다.
+- **스프링 컨테이너를 사용함에 따라, 고객의 요청이 발생할 때마다 새로운 객체를 생성하는 것이 아닌, 기존 객체를 공유하여 효율적으로 재사용할 수 있게 되었다.**
+
+<br><br>
+
+## 싱글톤 방식의 주의점
