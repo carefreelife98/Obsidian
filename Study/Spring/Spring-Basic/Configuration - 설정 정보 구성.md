@@ -68,9 +68,23 @@ GenericXmlApplicationContext xac = new GenericXmlApplicationContext("classpath:a
 
 # 스프링 빈 설정 메타 정보 - BeanDefinition
 
+![[스크린샷 2024-03-09 오후 7.10.32.png]]
 - 스프링은 `BeanDefinition` 을 통한 `추상화` 로서 다양한 설정 형식을 지원한다.
 	- `추상화 : 역할과 구현을 개념적으로 나눈 것.`
 		- XML 을 읽어서 BeanDefinition 을 생성.
 		- Java 코드를 읽어서 BeanDefinition 을 생성.
 		- **스프링 컨테이너는 설정 정보가 어떤 형식으로 정의 되어 있는지 알 필요 없이, BeanDefinition 만 알고 있으면 된다.**
-- `Be`
+- `BeanDefinition : 빈 설정 메타정보`
+	- **`@Bean`, `<bean>` 당 각각 하나씩 메타 정보 생성.**
+- **스프링 컨테이너는 이 메타 정보를 기반으로 스프링 빈을 생성.**
+
+## ApplicationContext - AnnotationConfigApplicationContext
+```
+조금 더 깊이 있게 들어가보자.
+```
+
+![[스크린샷 2024-03-09 오후 7.14.18.png]]
+`AnnotationConfigApplicationContext > AnnotatedBeanDefinitionReader`
+- 위와 같이 AnnotationConfigApplicationContext 를 타고 들어가보면 **`AnnotatedBeanDefinitionReader`** 가 존재하는 것을 볼 수 있다.
+	- `AnnotatedBeanDefinitionReader : 스프링 설정 정보를 읽어 적절한 BeanDefinition 을 생성하는 역할.`
+	- 
