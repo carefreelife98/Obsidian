@@ -54,3 +54,69 @@ Process finished with exit code 0
 	- private 생성자를 사용하여 외부에서 임의로 new 키워드를 사용하지 못하도록 막아야 한다.
 ```
 
+```java
+public class SingletonService {  
+  
+    private static final SingletonService instance = new SingletonService();  
+  
+    public static SingletonService getInstance() {  
+        return instance;  
+    }  
+  
+    // 생성자를 private 으로 막아서 외부의 new 키워드를 통해 객체 인스턴스가 생성되는 것을 막는다.  
+    private SingletonService() {}  
+  
+    public void logic() {  
+        System.out.println("싱글톤 객체 로직 호출");  
+    }  
+}
+```
+1. static 영역에 객체 instance 를 미리 하나 생성해서 올려둔다.
+2. 이 객체 인스턴스가 필요하면 오직 getInstance() 메서드를 통해서만 조회할 수 있다.
+	- 이 메서드는 항상 같은 인스턴스를 반환한다.
+3. **단 하나의 객체 인스턴스만 존재해야 하므로, 생성자를 private 으로 막는다.**
+	- **외부의 new 키워드를 통한 객체 인스턴스 생성을 막음.**
+
+## 싱글톤 테스트
+
+```java
+package hello.core.singleton;  
+  
+import hello.core.AppConfig;  
+import hello.core.member.MemberService;  
+import org.assertj.core.api.Assertions;  
+import org.junit.jupiter.api.DisplayName;  
+import org.junit.jupiter.api.Test;  
+  
+public class SingletonTest {  
+  
+    @Test  
+    @DisplayName("스프링 없는 순수한 DI Container")  
+    void pureContainer() {  
+        AppConfig appConfig = new AppConfig();  
+  
+        // 1. 조회: 호출할 때마다 새로운 객체를 생성.  
+        MemberService memberService1 = appConfig.memberService();  
+  
+        // 2. 조회: 호출할 때마다 새로운 객체를 생성.  
+        MemberService memberService2 = appConfig.memberService();  
+  
+        // 참조 값이 다른 것을 확인  
+        System.out.println("memberService1 = " + memberService1);  
+        System.out.println("memberService2 = " + memberService2);  
+  
+        // memberService1 != memberService2  
+        Assertions.assertThat(memberService1).isNotSameAs(memberService2);  
+    }  
+  
+    @Test  
+    @DisplayName("싱글톤 패턴을 적용한 객체 사용")  
+    void singletoneServiceTest() {  
+        SingletonService singletonService1 = SingletonService.getInstance();  
+        SingletonService singletonService2 = SingletonService.getInstance();  
+  
+        System.out.println("singletonService1 = " + singletonService1);  
+        System.out.println("singletonService2 = " + singletonService2);  
+    }  
+}
+```
