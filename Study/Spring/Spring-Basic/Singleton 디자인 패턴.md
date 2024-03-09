@@ -115,4 +115,21 @@ singletonService2 = hello.core.singleton.SingletonService@3b07a0d6
 	- 매 호출마다 새로운 객체를 생성하지 않고, **같은 객체를 공유**하도록 설계.
 
 <br><br>
+## 싱글톤 패턴의 한계
+> - 싱글톤 패턴을 구현하는 코드 자체가 많이 들어간다.
+> - 의존 관계 상 Client 가 구체 Class 에 의존한다. (DIP, Dependency Inversion Principle 위반)
+> - Client 가 구체 Class 에 의존함에 따라 OCP(Open-Closed Principle) 원칙 위반 가능성이 높다.
+> - 테스트하기 어려움.
+> - 내부 속성의 변경 및 초기화가 어려움.
+> - private 생성자로 자식 Class 생성이 어려움.
 
+```
+결론은 싱글톤 패턴 적용 시 유연성이 떨어진다.
+
+하지만 스프링 프레임 워크는 앞서 제시한 모든 단점을 커버하는 싱글톤 컨테이너(스프링 컨테이너)를 제공한다.
+```
+
+<br><br>
+
+# 싱글톤 컨테이너 (스프링 컨테이너)
+- 
