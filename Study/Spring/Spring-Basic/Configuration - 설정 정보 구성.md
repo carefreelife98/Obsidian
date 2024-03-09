@@ -79,6 +79,9 @@ GenericXmlApplicationContext xac = new GenericXmlApplicationContext("classpath:a
 - **스프링 컨테이너는 이 메타 정보를 기반으로 스프링 빈을 생성.**
 
 ## AnnotationConfigApplicationContext - AnnotatedBeanDefinitionReader
+
+![[스크린샷 2024-03-09 오후 7.51.00.png]]
+
 ```
 조금 더 깊이 있게 들어가보자.
 ```
