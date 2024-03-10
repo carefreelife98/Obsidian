@@ -7,5 +7,5 @@ tags:
 # Agenda
 
 ## Spring-Basic
-1. [[객체 지향 프로그래밍]]
-2. [[Spring Container & Bean]]
+1. [[1. 객체 지향 프로그래밍]]
+2. [[2. Spring Container & Bean]]
